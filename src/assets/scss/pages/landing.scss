@@ -1,0 +1,41 @@
+.landing-page {
+	footer {
+		position: static;
+	}
+	
+	main .outer-container {
+		margin-top: -60px;
+	}
+
+	#features,
+	#installation,
+	#architecture,
+	#feedback {
+	    padding-top: 80px;
+	}
+	
+	#installation-bottom {
+		padding-top: 30px;
+	}
+	
+	.features {
+		margin-top: 20px;
+	}
+	
+	.feedback {
+		margin-top: 40px;
+	}
+	
+	.page-header h4 {
+		color: white;
+		padding-right: 30%;
+	}
+	
+	#installation .md-subheading {
+		padding-left: 40px;
+	}
+	
+	#installation ul {
+		padding-right: 40px;
+	}
+}

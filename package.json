@@ -1,0 +1,75 @@
+{
+  "name": "orm-backend-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "ssr:build": "vue-cli-service ssr:build",
+    "ssr:fix": "vue-cli-service ssr:fix",
+    "ssr:fix-vuex": "vue-cli-service ssr:fix-vuex",
+    "ssr:serve": "vue-cli-service ssr:serve",
+    "ssr:start": "vue-cli-service ssr:start",
+    "ssr:static": "vue-cli-service ssr:static"
+  },
+  "dependencies": {
+    "@uvue/core": "^0.1.0",
+    "@uvue/server": "^0.1.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "animate.css": "^4.1.1",
+    "compression": "^1.7.3",
+    "connect": "^3.6.6",
+    "cookie-parser": "^1.4.3",
+    "core-js": "^3.6.5",
+    "eslint-plugin-prettier": "^3.1.4",
+    "express": "^4.17.1",
+    "fastify": "^3.4.1",
+    "material-design-icons": "^3.0.1",
+    "material-icons": "^0.3.1",
+    "prettier": "^2.1.2",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "serve-static": "^1.13.2",
+    "vee-validate": "^3.3.11",
+    "vue": "^2.6.11",
+    "vue-clickaway": "^2.2.2",
+    "vue-cookie": "^1.1.4",
+    "vue-material": "^1.0.0-beta-15",
+    "vue-meta": "^2.4.0",
+    "vue-no-ssr": "^1.1.1",
+    "vue-router": "^3.2.0",
+    "vue-scrollto": "^2.18.2",
+    "vue-wow": "^1.2.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@uvue/vue-cli-plugin-ssr": "~0.1.7",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

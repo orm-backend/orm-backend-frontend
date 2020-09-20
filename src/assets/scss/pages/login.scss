@@ -1,0 +1,42 @@
+
+@media (min-width: 960px) {
+	.login-page main {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.login-page {
+
+	main {
+		.inner-container {
+			padding-top: 120px;
+		    padding-bottom: 150px;
+		}
+	}
+	
+//	header,
+	footer {
+		position: absolute;
+		width: 100%;
+		margin: 0;
+	}
+	
+	footer {
+		bottom: 0;
+	}
+	
+	.wrapper {
+	    background-position: center center;
+	    background-size: cover;
+	}
+
+	blockquote {
+		padding-left: 1rem;
+		border-left: 0.25rem solid $brand-accent;
+		margin-left: 0;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+}
