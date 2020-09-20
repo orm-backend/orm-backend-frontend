@@ -129,7 +129,7 @@ export default {
         vmid: "description",
         name: "description",
         content:
-          "The powerful server-side solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
+          "The powerful back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
       },
       {
         vmid: "og:url",
@@ -177,7 +177,7 @@ export default {
         vmid: "og:description",
         property: "og:description",
         content:
-          "The powerful server-side solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
+          "The powerful back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
       },
     ],
   },
