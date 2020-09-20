@@ -106,7 +106,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require("@/assets/img/Technology-06.web.jpg"),
+      default: require("@/assets/img/Technology-06.jpg"),
     },
   },
   computed: {

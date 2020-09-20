@@ -31,7 +31,6 @@ const routes = [
         colorOnScroll: 400,
         classes: "md-medium md-primary-dark md-transparent md-fixed",
       },
-      default: { header: require("@/assets/img/Technology-06.web.jpg") },
     },
   },
   {
@@ -44,7 +43,6 @@ const routes = [
     },
     props: {
       header: { classes: "md-medium md-primary-dark md-absolute" },
-      default: { background: require("@/assets/img/Technology-06.web.jpg") },
     },
   },
   {
@@ -69,7 +67,6 @@ const routes = [
     },
     props: {
       header: { classes: "md-medium md-transparent md-fixed" },
-      default: { header: require("@/assets/img/Technology-06.web.jpg") },
     },
   },
 ];

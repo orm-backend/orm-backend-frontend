@@ -108,7 +108,7 @@ export default {
       if (this.$route.name == "login" || this.$route.name == "404") {
         return {
           backgroundColor: `rgb(20, 50, 125)`,
-          backgroundImage: `url(${require("@/assets/img/Technology-06.web.jpg")})`,
+          backgroundImage: `url(${require("@/assets/img/Technology-06.jpg")})`,
         };
       }
 
