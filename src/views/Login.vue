@@ -48,10 +48,6 @@ export default {
       type: String,
       default: require("@/assets/img/logo.png"),
     },
-    background: {
-      type: String,
-      default: require("@/assets/img/Technology-06.web.jpg"),
-    },
   },
   /*   mounted() {
 	window.OWATracker.trackPageView();
