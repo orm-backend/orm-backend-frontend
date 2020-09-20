@@ -53,6 +53,9 @@ export default {
       default: require("@/assets/img/Technology-06.web.jpg"),
     },
   },
+  /*   mounted() {
+	window.OWATracker.trackPageView();
+  }, */
   metaInfo: {
     title: "Login to Laravel Admin panel",
     meta: [

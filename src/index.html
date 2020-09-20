@@ -7,23 +7,17 @@
   <link rel=icon href=/favicon.png>
   <ssr-head />
   <!-- Start Open Web Analytics Tracker -->
-<script type="text/javascript">
-//<![CDATA[
-var owa_baseUrl = 'https://owa.orm-backend.com/';
-var owa_cmds = owa_cmds || [];
-owa_cmds.push(['setSiteId', '5ef55cb02adf3e001b3984e973b7c48a']);
-owa_cmds.push(['trackPageView']);
-owa_cmds.push(['trackClicks']);
-
-(function() {
-    var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
-    owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
-    _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
-    var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
-}());
-//]]>
-</script>
-<!-- End Open Web Analytics Code -->
+  <script type="text/javascript">
+  //<![CDATA[
+  var owa_baseUrl = 'https://owa.orm-backend.com/';
+  var owa_cmds = owa_cmds || [];
+  owa_cmds.push(['setSiteId', '5ef55cb02adf3e001b3984e973b7c48a']);
+  //owa_cmds.push(['trackPageView']);
+  //owa_cmds.push(['trackClicks']);
+  //]]>
+  </script>
+  <script type="text/javascript" src="https://owa.orm-backend.com/modules/base/js/owa.tracker-combined-min.js" defer></script>
+  <!-- End Open Web Analytics Code -->
   <script src="https://www.google.com/recaptcha/api.js?render=6Ld-EM0ZAAAAAJhHpv0B6NwZ4mjQ1pndRlQzyAAQ" async></script>
 </head>
 <body data-body-attrs>

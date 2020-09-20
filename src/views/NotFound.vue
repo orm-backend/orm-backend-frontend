@@ -14,6 +14,9 @@
 
 <script>
 export default {
+  /*   mounted() {
+    OWATracker.trackPageView();
+  }, */
   metaInfo: {
     bodyAttrs: {
       class: "login-page",

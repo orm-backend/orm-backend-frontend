@@ -88,13 +88,17 @@ export default () => {
     },
   });
 
-  /*  router.afterEach(() => {
-    var overlay = document.getElementsByClassName("md-overlay");
+  if (process.client) {
+    router.afterEach(() => {
+      var overlay = document.getElementsByClassName("md-overlay");
 
-    if (overlay && overlay.length) {
-      overlay[0].click();
-    }
-  });*/
+      if (overlay && overlay.length) {
+        overlay[0].click();
+      }
+
+      window.OWATracker.trackPageView();
+    });
+  }
 
   return router;
 };

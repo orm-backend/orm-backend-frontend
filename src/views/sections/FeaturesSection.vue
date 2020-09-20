@@ -56,6 +56,13 @@
                   class="md-accent md-raised"
                   to="/docs/rest"
                   title="JSON / REST / CRUD services"
+                  @click="
+                    window.OWATracker.trackAction(
+                      'Click',
+                      'Features',
+                      'Got to REST'
+                    )
+                  "
                   >Read more</md-button
                 >
               </md-card-actions>
@@ -82,6 +89,13 @@
                   class="md-accent md-raised"
                   to="/docs/oauth"
                   title="OAuth integration to Laravel Admin and the CRUD services"
+                  @click="
+                    window.OWATracker.trackAction(
+                      'Click',
+                      'Features',
+                      'Got to OAuth'
+                    )
+                  "
                   >Read more</md-button
                 >
               </md-card-actions>
@@ -110,6 +124,13 @@
                   class="md-accent md-raised"
                   to="/docs/json"
                   title="JSON Query extended implementation"
+                  @click="
+                    window.OWATracker.trackAction(
+                      'Click',
+                      'Features',
+                      'Got to JSON Query'
+                    )
+                  "
                   >Read more</md-button
                 >
               </md-card-actions>
@@ -136,6 +157,13 @@
                   class="md-accent md-raised"
                   to="/docs/acl"
                   title="Group implementation of Access Control List"
+                  @click="
+                    window.OWATracker.trackAction(
+                      'Click',
+                      'Features',
+                      'Got to ACL'
+                    )
+                  "
                   >Read more</md-button
                 >
               </md-card-actions>
@@ -165,6 +193,13 @@
                   class="md-accent md-raised"
                   to="/docs/admin"
                   title="Laravel Admin panel with Doctrine, CRUD, OAuth2 and ACL management"
+                  @click="
+                    window.OWATracker.trackAction(
+                      'Click',
+                      'Features',
+                      'Admin panel'
+                    )
+                  "
                   >Read more</md-button
                 >
               </md-card-actions>

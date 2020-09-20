@@ -149,9 +149,21 @@ export default {
       this.$refs.validator.reset();
     },
     onSubmit: async function () {
+      window.OWATracker.trackAction(
+        "Submit",
+        "Feedback",
+        "Form submission started",
+        10
+      );
       var success = await this.$refs.validator.validate();
 
       if (success) {
+        window.OWATracker.trackAction(
+          "Submit",
+          "Feedback",
+          "Form validated successfully",
+          20
+        );
         var self = this;
         this.disabled = true;
 
@@ -164,6 +176,12 @@ export default {
               }
             );
 
+            window.OWATracker.trackAction(
+              "Submit",
+              "Feedback",
+              "Captcha token received",
+              30
+            );
             let data = self.fields;
             data["recaptcha-token"] = token;
 
@@ -174,11 +192,22 @@ export default {
             var response = await self.$http.post(self.action, data);
 
             if (response.success) {
+              window.OWATracker.trackAction(
+                "Submit",
+                "Feedback",
+                "Form submitted successfully",
+                100
+              );
               self.$store.state.message = response.message
                 ? response.message
                 : "Message sent successfully.";
               self.clear();
             } else if (response.errors || response.message) {
+              window.OWATracker.trackAction(
+                "Submit",
+                "Feedback",
+                "Form submit error"
+              );
               if (response.message) {
                 self.$store.state.message = response.message;
               }
@@ -192,6 +221,11 @@ export default {
               );
             }
           } catch (e) {
+            window.OWATracker.trackAction(
+              "Submit",
+              "Exception",
+              "Feedback form submit exception"
+            );
             self.$store.state.message = e;
           } finally {
             self.disabled = false;

@@ -145,9 +145,21 @@ export default {
   },
   methods: {
     onSubmit: async function () {
+      window.OWATracker.trackAction(
+        "Submit",
+        "Login",
+        "Form submission started",
+        10
+      );
       var success = await this.$refs.validator.validate();
 
       if (success) {
+        window.OWATracker.trackAction(
+          "Submit",
+          "Login",
+          "Form validated successfully",
+          20
+        );
         var self = this;
         this.disabled = true;
 
@@ -160,6 +172,12 @@ export default {
               }
             );
 
+            window.OWATracker.trackAction(
+              "Submit",
+              "Login",
+              "Captcha token received",
+              30
+            );
             let data = self.fields;
             data["recaptcha-token"] = token;
 
@@ -170,9 +188,21 @@ export default {
             var response = await self.$http.post(self.action, data);
 
             if (response.success) {
+              window.OWATracker.trackAction(
+                "Submit",
+                "Login",
+                "Form submitted successfully",
+                100
+              );
               self.$store.dispatch("checkAuth");
               window.location.href = response.redirect;
             } else if (response.errors || response.message) {
+              window.OWATracker.trackAction(
+                "Submit",
+                "Login",
+                "Form submit error"
+              );
+
               if (response.message) {
                 self.$store.state.message = response.message;
               }
@@ -186,6 +216,11 @@ export default {
               );
             }
           } catch (e) {
+            window.OWATracker.trackAction(
+              "Submit",
+              "Exception",
+              "Login form submit exception"
+            );
             self.$store.state.message = e;
           } finally {
             self.disabled = false;

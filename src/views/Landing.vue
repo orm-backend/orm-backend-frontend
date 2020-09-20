@@ -121,6 +121,9 @@ export default {
       this.$scrollTo(id);
     },
   },
+  /*   mounted() {
+	window.OWATracker.trackPageView();
+  }, */
   metaInfo: {
     bodyAttrs: {
       class: "landing-page",
