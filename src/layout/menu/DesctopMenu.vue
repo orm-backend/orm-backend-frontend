@@ -119,29 +119,28 @@
         </li>
         <li class="md-list-item">
           <a
-            :href="adminPath"
             class="md-list-item-router md-list-item-container md-button-clean dropdown"
           >
             <md-button
               slot="title"
               class="md-button md-button-link md-white md-simple"
             >
+              <router-link
+                to="/login"
+                title="Sign in Laravel Admin panel"
+                v-if="!isAuthorized"
+              >
+                <i class="material-icons">account_circle</i>
+                <p>Demo</p>
+              </router-link>
               <a
-                :href="adminPath"
+                :href="process.env.VUE_APP_ADMIN_PATH"
                 title="Go to Laravel Admin panel"
                 v-if="isAuthorized"
               >
                 <i class="material-icons">account_circle</i>
                 <p>Demo</p>
               </a>
-              <router-link
-                to="/login"
-                title="Sign in Laravel Admin panel"
-                v-else
-              >
-                <i class="material-icons">account_circle</i>
-                <p>Demo</p>
-              </router-link>
             </md-button>
           </a>
         </li>
@@ -171,11 +170,6 @@ export default {
   props: {
     isAuthorized: Boolean,
     logout: Function,
-  },
-  data() {
-    return {
-      adminPath: process.env.VUE_APP_ADMIN_PATH,
-    };
   },
 };
 </script>

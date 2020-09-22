@@ -42,17 +42,21 @@ export default {
         transform: `translate3d(0, ${ty}px, 0)`,
       };
     },
+    scrollListener(e) {
+      if (window.innerWidth > parseInt(this.breakpoint) - 1) {
+        let scrollY =
+          window.scrollY < window.innerHeight
+            ? window.scrollY
+            : window.innerHeight;
+        this.handleScroll(scrollY);
+      }
+    },
   },
   mounted() {
-    let self = this;
-
-    window.addEventListener("scroll", function () {
-      if (window.innerWidth > parseInt(self.breakpoint) - 1) {
-        let scrollY =
-          this.scrollY < window.innerHeight ? this.scrollY : window.innerHeight;
-        self.handleScroll(scrollY);
-      }
-    });
+    document.addEventListener("scroll", this.scrollListener, true);
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.scrollListener, true);
   },
 };
 </script>

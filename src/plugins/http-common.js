@@ -1,6 +1,6 @@
 const http = {
-  baseURL:
-    process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000" : "",
+  baseURL: process.env.VUE_APP_URL,
+  //process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000" : "",
 
   getParams: {
     method: "GET",

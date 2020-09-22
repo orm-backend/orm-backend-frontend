@@ -1,6 +1,6 @@
 <template>
   <main>
-    <parallax class="page-header" v-bind:timeout="6" :style="headerStyle">
+    <parallax class="page-header" v-bind:timeout="0" :style="headerStyle">
       <div class="md-layout">
         <div
           class="md-layout-item md-size-50 md-xlarge-size-80 md-xsmall-size-100"
@@ -9,7 +9,7 @@
             <brand-logo-text></brand-logo-text>
           </h1>
           <h4>
-            It is not a framework or CMS. It is a powerful back-end solution
+            It is not a framework or CMS. It is a ready-made back-end solution
             based on Doctrine ORM and integrated with the popular Laravel
             Framework.
           </h4>

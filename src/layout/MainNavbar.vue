@@ -137,10 +137,10 @@ export default {
     });
   },
   mounted() {
-    document.addEventListener("scroll", this.scrollListener);
+    document.addEventListener("scroll", this.scrollListener, true);
   },
   beforeDestroy() {
-    document.removeEventListener("scroll", this.scrollListener);
+    document.removeEventListener("scroll", this.scrollListener, true);
   },
 };
 </script>

@@ -9,6 +9,13 @@
           mapping files.
         </h2>
         <p class="md-subheading">
+          If you have a Doctrine project or are going to develop a new one, then
+          this project does not limit you in anything. You may or may not use
+          the API of this project. You can call Doctrine methods as you are used
+          to. But you get a ready-made admin panel and CRUD services out of the
+          box.
+        </p>
+        <p class="md-subheading">
           Everything is very simple. The main purpose is to get the mapping
           files. You can use reverse engineering or write them by hand. Learn
           <a
@@ -46,10 +53,10 @@
                 </md-card-media>
               </md-card-header>
               <md-card-content>
-                Powerful production-ready CRUD services. Which allows you to
-                filter objects by properties of related objects by the received
-                parameters in JSON or URL encoding. With sorting, ordering and
-                two pagination modes.
+                Ready-made CRUD services. Which allows you to filter objects by
+                properties of related objects by the received parameters in JSON
+                or URL encoding. With sorting, ordering and two pagination
+                modes.
               </md-card-content>
               <md-card-actions>
                 <md-button
