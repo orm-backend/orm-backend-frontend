@@ -1,6 +1,6 @@
 const http = {
-  baseURL: process.env.VUE_APP_URL,
-  //process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000" : "",
+  baseURL:
+    process.env.NODE_ENV === "development" ? process.env.VUE_APP_URL : "",
 
   getParams: {
     method: "GET",
@@ -27,7 +27,6 @@ const http = {
     let request, response, params, result;
 
     params = Object.assign({}, this.getParams);
-    params.mode = "cors";
     request = new Request(this.baseURL + "/token", params);
     response = await fetch(request);
 
