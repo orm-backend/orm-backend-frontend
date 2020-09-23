@@ -125,14 +125,6 @@
               slot="title"
               class="md-button md-button-link md-white md-simple"
             >
-              <router-link
-                to="/login"
-                title="Sign in Laravel Admin panel"
-                v-if="!isAuthorized"
-              >
-                <i class="material-icons">account_circle</i>
-                <p>Demo</p>
-              </router-link>
               <a
                 :href="process.env.VUE_APP_ADMIN_PATH"
                 title="Go to Laravel Admin panel"
@@ -141,6 +133,14 @@
                 <i class="material-icons">account_circle</i>
                 <p>Demo</p>
               </a>
+              <router-link
+                to="/login"
+                title="Sign in Laravel Admin panel"
+                v-else
+              >
+                <i class="material-icons">account_circle</i>
+                <p>Demo</p>
+              </router-link>
             </md-button>
           </a>
         </li>
