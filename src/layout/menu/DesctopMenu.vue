@@ -126,7 +126,7 @@
               class="md-button md-button-link md-white md-simple"
             >
               <a
-                :href="process.env.VUE_APP_ADMIN_PATH"
+                :href="adminPath"
                 title="Go to Laravel Admin panel"
                 v-if="isAuthorized"
               >
@@ -170,6 +170,11 @@ export default {
   props: {
     isAuthorized: Boolean,
     logout: Function,
+  },
+  data() {
+    return {
+      adminPath: process.env.VUE_APP_ADMIN_PATH,
+    };
   },
 };
 </script>
