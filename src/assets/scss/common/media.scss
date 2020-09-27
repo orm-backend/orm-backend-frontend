@@ -1,0 +1,72 @@
+
+@media (max-width: 960px) {
+	.outer-container {
+		margin-left: 23px;
+		margin-right: 23px;
+	}
+	
+	main {
+		.inner-container {
+			padding-top: 64px;
+		}
+	}
+	
+	#desctopMenu {
+		display: none;
+	}
+
+	header {
+		.md-toolbar.md-medium {
+			min-height: 66px;
+			height: 66px;
+			padding: 0 16px;
+		}
+	}
+
+
+}
+
+@media (min-width: 961px) {
+	.md-toolbar-toggle {
+      display: none;
+	}
+	
+	.brand-logo {
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.outer-container {
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+
+	main .inner-container {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+	header .md-toolbar.md-medium {
+		padding: 0;
+	}
+
+	footer {
+		.md-bottom-bar>.md-ripple {
+			overflow-x: overlay;
+		}
+	}
+	
+	form .md-card-actions {
+		display: block;
+		
+		.md-button {
+			position: relative;
+		}
+	
+		.terms {
+			margin-right: 0;
+    		margin-bottom: 8px;
+		}
+	}
+}

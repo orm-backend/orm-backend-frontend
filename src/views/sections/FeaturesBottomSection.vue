@@ -1,29 +1,7 @@
 <template>
-  <div id="features" class="section">
+  <div class="section">
     <div class="md-layout md-alignment-top-center">
-      <div class="md-layout-item md-size-66 md-xsmall-size-100">
-        <h2 class="md-display-1">
-          Once installed and configured, you only need to write the Doctrine XML
-          mapping files.
-        </h2>
-        <p class="md-subheading">
-          If you have a Doctrine project or are going to develop a new one, then
-          this project does not limit you in anything. You may or may not use
-          the API of this project. You can call Doctrine methods as you are used
-          to. But you get a ready-made admin panel and CRUD services out of the
-          box.
-        </p>
-        <p class="md-subheading">
-          Everything is very simple. The main purpose is to get the mapping
-          files. You can use reverse engineering or write them by hand. Learn
-          <a
-            href="https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/getting-started.html"
-            target="_blank"
-            >Doctrine</a
-          >
-          how to do that. When the mapping is done, just run a console command
-          to generate the entities and database tables. And that’s it.
-        </p>
+      <div class="md-layout-item md-size-100">
         <h2 class="md-display-1">Out of the box</h2>
       </div>
     </div>

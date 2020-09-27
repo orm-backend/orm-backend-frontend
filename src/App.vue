@@ -10,10 +10,10 @@
         :md-active.sync="showSnackbar"
         md-persistent
       >
-        <span>{{ $store.state.message }}</span>
+        <span>{{ $store.getters["local/snackbar"] }}</span>
         <a
           href="javascript:;"
-          @click="$store.state.message = null"
+          @click="$store.commit('local/snackbar', null)"
           class="text-primary-light"
           >Close</a
         >
@@ -45,32 +45,24 @@
   </div>
 </template>
 <script>
-import "vue-material/dist/vue-material.min.css";
-import "@/assets/scss/material-kit.scss";
+//import "vue-material/dist/vue-material.min.css";
+import "@/assets/scss/material.scss";
 
 import Vue from "vue";
 import VueMeta from "vue-meta";
 import VueMaterial from "vue-material";
 import VueCookie from "vue-cookie";
 import VueScrollTo from "vue-scrollto";
-import { UAnimateContainer, UAnimate } from "vue-wow";
-
-import BrandLogoText from "@/svg/BrandLogoText";
-import DropDown from "./components/Dropdown.vue";
-import { directive as ClickOutside } from "vue-clickaway";
 import NoSSR from "vue-no-ssr";
+import BrandLogoText from "@/svg/BrandLogoText";
 
 Vue.use(VueMeta);
 Vue.use(VueCookie);
 Vue.use(VueMaterial);
 Vue.use(VueScrollTo);
 
-Vue.component("u-animate-container", UAnimateContainer);
-Vue.component("u-animate", UAnimate);
 Vue.component("brand-logo-text", BrandLogoText);
-Vue.component("drop-down", DropDown);
 Vue.component("no-ssr", NoSSR);
-Vue.directive("click-outside", ClickOutside);
 
 import {
   ValidationProvider,
@@ -97,11 +89,13 @@ export default {
   },
   computed: {
     showSnackbar: {
+      cache: false,
       get: function () {
-        return !!this.$store.getters.message;
+        return !!this.$store.state.local.snackbar;
+        //return !!this.$store.getters["local/snackbar"];
       },
-      set: function () {
-        this.$store.state.message = null;
+      set: function (value) {
+        this.$store.commit("local/snackbar", null);
       },
     },
     wrapperStyle() {
@@ -129,7 +123,7 @@ export default {
         vmid: "description",
         name: "description",
         content:
-          "The ready-made back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
+          "The ready-made backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Admin dashboard, CRUD services, ACL, OAuth2 and much more right out of the box.",
       },
       {
         vmid: "og:url",

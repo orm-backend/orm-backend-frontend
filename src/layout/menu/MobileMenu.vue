@@ -1,5 +1,9 @@
 <template>
-  <md-list :is-authorized="isAuthorized" :logout="logout">
+  <md-list
+    :is-authorized="isAuthorized"
+    :logout="logout"
+    :md-expand-single="true"
+  >
     <md-divider class="md-inset"></md-divider>
     <md-list-item to="/#features" title="ORM Backend solution core features">
       <md-icon>featured_play_list</md-icon>
@@ -28,14 +32,18 @@
     </md-list-item>
 
     <md-divider class="md-inset"></md-divider>
-    <md-list-item md-expand title="ORM Backend documentation">
+    <md-list-item
+      md-expand
+      title="ORM Backend documentation"
+      :md-expanded.sync="expandGuides"
+    >
       <md-icon>view_module</md-icon>
-      <span class="md-list-item-text">Documentation</span>
+      <span class="md-list-item-text">Guides</span>
       <md-list slot="md-expand">
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/docs/json"
+          to="/guides/json"
           title="JSON Query Language implementation"
         >
           <md-icon>code</md-icon>
@@ -45,7 +53,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/docs/rest"
+          to="/guides/rest"
           title="JSON CRUD secrices"
         >
           <md-icon>language</md-icon>
@@ -55,7 +63,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/docs/oauth"
+          to="/guides/oauth"
           title="OAuth2 intergation whith Laravel Admin panel"
         >
           <md-icon>security</md-icon>
@@ -65,7 +73,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/docs/acl"
+          to="/guides/acl"
           title="ACL extended implementation"
         >
           <md-icon>policy</md-icon>
@@ -75,13 +83,12 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/docs/admin"
+          to="/guides/admin"
           title="Laravel Admin panel"
         >
           <md-icon>dashboard</md-icon>
           <span class="md-list-item-text">Admin panel</span>
         </md-list-item>
-        <md-divider class="md-inset"></md-divider>
       </md-list>
     </md-list-item>
 
@@ -123,12 +130,22 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      adminPath: process.env.VUE_APP_ADMIN_PATH,
+      adminPath: process.env.VUE_APP_URL + process.env.VUE_APP_ADMIN_PATH,
     };
   },
   methods: {
     goToAdmin() {
       window.location.href = this.adminPath;
+    },
+  },
+  computed: {
+    expandGuides: {
+      get: function () {
+        return this.$route.name == "guides";
+      },
+      set: function (value) {
+        // nothing
+      },
     },
   },
 };

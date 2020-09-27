@@ -1,0 +1,52 @@
+
+$brand-background-variant: rgb(255,196,255, 0.5); // #ffc4ff Purple — Light
+$brand-background:lighten(#ffc4ff, 10); // #fff1ff Purple — Light
+$brand-primary: #9c27b0; // Purple 500
+$brand-primary-dark: darken($brand-primary, 10); // Purple — Dark
+$brand-primary-light: $brand-background;
+$brand-accent: #ff6e40; // Orange 800
+$brand-accent-dark: darken($brand-accent, 10); // Orange — Dark
+$brand-accent-light: lighten(#ff6e40, 33); // Orange — Light
+$brand-text-accent: $brand-accent-dark;
+
+$brand-divider: rgba(0,0,0,.12);
+
+$text-primary-on-primary: white;
+$text-primary-on-accent: white;
+$text-primary-on-background: rgba(0, 0, 0, 0.54);
+$text-primary-on-background-variant: rgba(0, 0, 0, 0.65);
+$text-accent-on-background: rgba(0, 0, 0, 0.87);
+$text-accent-on-background-variant: rgba(0, 0, 0, 0.7);
+$form-input-border: $brand-divider; // rgba(0,0,0,.42);
+$form-label: rgba(0,0,0,.42);
+$form-icon-font: rgb(128, 127, 127);
+
+
+$padding-base:              15px !default;
+$margin-base:               15px !default;
+
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
+// $border-radius-base: 0 !default;
+// $border-radius-small: 0 !default;
+// $border-radius-large: 6px !default;
+// $border-radius-huge: 10px !default;
+// $border-radius-label: 12px !default;
+// $border-radius-extreme: 30px !default;
+
+/* SHADOWS */
+$mdb-shadow-key-umbra-opacity: 0.2 !default;
+$mdb-shadow-key-penumbra-opacity: 0.14 !default;
+$mdb-shadow-ambient-shadow-opacity: 0.12 !default;
+$bmd-shadow-2dp: 0 2px 2px 0 rgba($text-primary-on-background, $mdb-shadow-key-penumbra-opacity),
+  0 3px 1px -2px rgba($text-primary-on-background, $mdb-shadow-key-umbra-opacity),
+  0 1px 5px 0 rgba($text-primary-on-background, $mdb-shadow-ambient-shadow-opacity);
+
+/* Transitions */
+$general-transition-time:  300ms !default;
+$slow-transition-time:           370ms !default;
+$fast-transition-time:           150ms !default;
+$transition-linear:                                   linear !default;
+$transition-bezier:         cubic-bezier(0.34, 1.61, 0.7, 1) !default;
+$transition-ease:           ease 0s;

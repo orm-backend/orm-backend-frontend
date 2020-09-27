@@ -1,8 +1,9 @@
 // Fonts and Icons
 //$material-icons-font-path: '~material-icons/iconfont/';
 //@import '~material-design-icons/iconfont/material-icons.css';
+
 @import '../fonts/iconfont/material-icons.css';
-@import "material-kit/roboto-fontface.css";
+@import "common/roboto-fontface.css";
 
 // Animations
 @import "~animate.css/source/fading_entrances/fadeInLeft.css";
@@ -11,7 +12,8 @@
 @import "~animate.css/source/fading_entrances/fadeInUp.css";
 
 //variables and mixins
-@import "material-kit/variables";
+@import "common/variables";
+@import "~vue-material/dist/vue-material.css";
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
 @include md-register-theme("default", (
@@ -19,36 +21,34 @@
   background-variant: $brand-background-variant,
   primary: $brand-primary, // The primary color of your application
   accent: $brand-accent, // The secondary color of your brand
-  fieldvariant: $brand-danger, // The danger color
+  fieldvariant: $brand-accent-dark, // The danger color
   toolbarvariant: $brand-primary-dark,
-  text-primary-on-background: rgba(0, 0, 0, 0.54),
-  text-primary-on-background-variant: rgba(0, 0, 0, 0.65),
-  text-primary-on-primary: white,
-  text-primary-on-accent: white, //rgba(0, 0, 0, 0.87),
-  text-accent-on-background: rgba(0, 0, 0, 0.87),
-  text-accent-on-background-variant: rgba(0, 0, 0, 0.7),
-  icon-on-background: rgba(0, 0, 0, 0.54),
+  primary-on-background: $brand-primary, // Links
+  text-primary-on-background: $text-primary-on-background,
+  text-primary-on-background-variant: $text-primary-on-background-variant,
+  text-primary-on-primary: $text-primary-on-primary,
+  text-primary-on-accent: $text-primary-on-accent, //rgba(0, 0, 0, 0.87),
+  text-accent-on-background: $text-accent-on-background,
+  text-accent-on-background-variant: $text-accent-on-background-variant,
+  divider: $brand-divider,
+  icon-on-background: $text-primary-on-background,
   theme: "light"
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 
-@import "material-kit/mixins";
-@import "material-kit/shadows";
-@import "material-kit/buttons";
-@import "material-kit/misc";
-@import "material-kit/inputs";
-@import "material-kit/layout";
-@import "material-kit/headers";
-@import "material-kit/navbars";
+@import "mixins/mixins";
+@import "mixins/shadows";
 
-@import "material-kit/dropdown";
-@import "material-kit/cards";
-@import "material-kit/responsive";
+@import "common/button.scss";
+@import "common/menu.scss";
+@import "common/header.scss";
+@import "common/list.scss";
+@import "common/card.scss";
+@import "common/form.scss";
 
 @import "pages/landing.scss";
-@import "pages/login.scss";
-@import "pages/module.scss";
 @import "pages/404.scss";
 
-
+@import "app.scss";
+@import "common/media.scss";

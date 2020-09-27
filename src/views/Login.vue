@@ -3,23 +3,11 @@
     <div class="outer-container inner-container">
       <div class="md-layout md-alignment-center-left">
         <div class="md-layout-item md-size-40 md-small-size-100">
-          <u-animate-container>
-            <u-animate
-              name="fadeInDown"
-              delay="0"
-              duration="2s"
-              :iteration="1"
-              :offset="0"
-              animateClass="animate__fadeInDown"
-              :begin="true"
-            >
-              <blockquote>
-                <p>Enter the following details to login demo account:</p>
-                <p><small>Email:</small> <code>demo@orm-backend.com</code></p>
-                <p><small>Password:</small> <code>doctrine</code></p>
-              </blockquote>
-            </u-animate>
-          </u-animate-container>
+          <blockquote>
+            <p>Enter the following details to login demo account:</p>
+            <p><small>Email:</small> <code>demo@orm-backend.com</code></p>
+            <p><small>Password:</small> <code>doctrine</code></p>
+          </blockquote>
         </div>
         <div class="md-layout-item md-size-60 md-small-size-100">
           <LoginForm action="/signin"></LoginForm>
@@ -31,6 +19,7 @@
 
 <script>
 import LoginForm from "@/forms/LoginForm";
+import "@/assets/scss/pages/login.scss";
 
 export default {
   components: {

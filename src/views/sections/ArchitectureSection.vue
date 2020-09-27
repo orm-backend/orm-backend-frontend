@@ -1,8 +1,8 @@
 <template>
-  <div id="architecture">
-    <div class="md-layout">
+  <div id="architecture" class="section">
+    <div class="md-layout md-alignment-top-center">
       <div
-        class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
+        class="md-layout-item md-size-50 md-xlarge-size-30 md-small-size-100"
       >
         <h2 class="md-display-1">Architecture</h2>
         <p class="md-subheading">
@@ -11,23 +11,11 @@
         </p>
       </div>
     </div>
-    <div class="md-layout architecture">
+    <div class="md-layout md-alignment-top-center">
       <div
-        class="md-layout-item md-size-66 md-xlarge-size-35 md-large-size-50 md-xsmall-size-100 mx-auto"
+        class="md-layout-item md-size-66 md-xlarge-size-35 md-large-size-50 md-xsmall-size-100"
       >
-        <u-animate-container>
-          <u-animate
-            name="fadeInUp"
-            delay="0"
-            duration="1s"
-            :iteration="1"
-            :offset="200"
-            animateClass="animate__fadeInUp"
-            :begin="false"
-          >
-            <Architecture></Architecture>
-          </u-animate>
-        </u-animate-container>
+        <Architecture></Architecture>
       </div>
     </div>
   </div>

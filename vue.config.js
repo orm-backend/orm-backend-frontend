@@ -3,8 +3,8 @@ module.exports = {
     chain.module
       .rule("html")
       .test(/\.html$/)
-      .exclude.add([/index\.html/])
-      .end()
+      // .exclude.add([/index\.html/])
+      // .end()
       .use("html")
       .loader("html-loader")
       .options({

@@ -1,7 +1,7 @@
 <template>
-  <div id="installation">
+  <div id="installation" class="section">
     <h2 class="md-display-1 text-center">Installation</h2>
-    <div class="md-layout">
+    <div class="md-layout md-alignment-top-center">
       <div class="md-layout-item md-size-50 md-small-size-100">
         <p class="md-subheading">
           The PHP code is hosted on github in the private repository. Email us

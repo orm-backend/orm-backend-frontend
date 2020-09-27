@@ -29,7 +29,7 @@
           </md-card-media>
         </md-card-header>
         <md-card-content>
-          <div class="md-layout feadback-form">
+          <div class="md-layout md-gutter feadback-form">
             <div class="md-layout-item md-size-50 md-xsmall-size-100">
               <validation-provider
                 vid="email"
@@ -117,7 +117,10 @@
 </template>
 
 <script>
+import Submitter from "./submitter";
+
 export default {
+  mixins: [Submitter],
   props: {
     name: String,
     method: {
@@ -151,6 +154,7 @@ export default {
         "Form submission started",
         10
       );
+
       var success = await this.$refs.validator.validate();
 
       if (success) {
@@ -160,72 +164,35 @@ export default {
           "Form validated successfully",
           20
         );
-        var self = this;
+
         this.disabled = true;
+        let data = this.fields;
 
-        grecaptcha.ready(async () => {
-          try {
-            var token = await grecaptcha.execute(
-              "6Ld-EM0ZAAAAAJhHpv0B6NwZ4mjQ1pndRlQzyAAQ",
-              {
-                action: self.action,
-              }
-            );
+        if (!data.remember) {
+          delete data.remember;
+        }
 
-            window.OWATracker.trackAction(
-              "Submit",
-              "Login",
-              "Captcha token received",
-              30
-            );
-            let data = self.fields;
-            data["recaptcha-token"] = token;
+        try {
+          const response = await this.submit(this.action, data, "Login");
 
-            if (!data.remember) {
-              delete data.remember;
+          if (response.success) {
+            this.$store.dispatch("user/fetch");
+            window.location.href = response.redirect;
+          } else {
+            if (response.message) {
+              this.$store.commit("local/snackbar", response.message);
             }
 
-            var response = await self.$http.post(self.action, data);
-
-            if (response.success) {
-              window.OWATracker.trackAction(
-                "Submit",
-                "Login",
-                "Form submitted successfully",
-                100
-              );
-              self.$store.dispatch("checkAuth");
-              window.location.href = response.redirect;
-            } else if (response.errors || response.message) {
-              window.OWATracker.trackAction(
-                "Submit",
-                "Login",
-                "Form submit error"
-              );
-
-              if (response.message) {
-                self.$store.state.message = response.message;
-              }
-
-              if (response.errors) {
-                self.$refs.validator.setErrors(response.errors);
-              }
-            } else {
-              throw new Error(
-                "Something went wrong on api server. Received an empty response."
-              );
+            if (response.errors) {
+              this.$refs.validator.setErrors(response.errors);
             }
-          } catch (e) {
-            window.OWATracker.trackAction(
-              "Submit",
-              "Exception",
-              "Login form submit exception"
-            );
-            self.$store.state.message = e;
-          } finally {
-            self.disabled = false;
           }
-        });
+        } catch (e) {
+          window.OWATracker.trackAction("Submit", "Exception", e);
+          this.$store.commit("local/snackbar", e);
+        } finally {
+          this.disabled = false;
+        }
       }
     },
   },

@@ -1,41 +1,63 @@
+
 .landing-page {
-	footer {
-		position: static;
-	}
-	
-	main .outer-container {
-		margin-top: -60px;
+
+	main {
+		.outer-container {
+			margin-top: -40px;
+		}
+
+		.inner-container {
+			padding-top: 0;
+		}
 	}
 
-	#features,
-	#installation,
-	#architecture,
-	#feedback {
-	    padding-top: 80px;
+	.page-header{
+		min-height: 100vh;
+		height: 100%;
+		background-color: rgb(20, 50, 125);
+		background-position: center center;
+		background-size: cover;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	
-	#installation-bottom {
-		padding-top: 30px;
+
+	h2 {
+		text-align: center;
 	}
-	
-	.features {
-		margin-top: 20px;
+
+	.section {
+		padding-top: 60px;
 	}
-	
-	.feedback {
+
+	.md-card {
 		margin-top: 40px;
 	}
 	
-	.page-header h4 {
-		color: white;
-		padding-right: 30%;
+	.brand-description {
+		width:50%;
+		margin-left: -20%;
+		padding: 0 8px;
+
+		h4 {
+			color: white;
+			padding-right: 10%;
+		}
 	}
-	
-	#installation .md-subheading {
-		padding-left: 40px;
+}
+
+@media (max-width: 960px) {
+	.landing-page .brand-description {
+		width: 70%;
 	}
-	
-	#installation ul {
-		padding-right: 40px;
+}
+
+@media (max-width: 480px) {
+	.landing-page .brand-description {
+		width: 100%;
+		margin-left: 0;
 	}
 }

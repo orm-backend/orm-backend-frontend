@@ -21,7 +21,7 @@ export default {
     paths: [],
     scanRouter: true,
     params: {
-      modulename: ["json", "rest", "oauth", "acl", "admin"],
+      modulename: ["json", "rest", "oauth", "acl"],
     },
   },
 };

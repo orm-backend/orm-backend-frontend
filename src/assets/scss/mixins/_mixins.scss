@@ -1,7 +1,7 @@
 //Utilities
 
-@import "mixins/transparency";
-@import "mixins/vendor-prefixes";
+@import "transparency";
+@import "vendor-prefixes";
 
 // Placeholder text
 @mixin material-placeholder() {
@@ -263,31 +263,6 @@
 	  @include shadow-big-color($btn-color);
         //@include shadow-z-3();
 		//@include button-shadow-color($btn-color);
-    }
-
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &:active:focus,
-    &:active:hover,
-    &.active:focus,
-    &.active:hover,
-    .open > &.dropdown-toggle,
-    .open > &.dropdown-toggle:focus,
-    .open > &.dropdown-toggle:hover {
-      background-color: $btn-color !important;
-      @if $btn-color == $white-color {
-        &,
-        i{
-          color: $gray-light !important;
-        }
-      } @else {
-        &,
-        i{
-          color: $white-color !important;
-        }
-      }
     }
 
     &:not(:disabled):focus,

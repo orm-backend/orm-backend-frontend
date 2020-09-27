@@ -1,0 +1,44 @@
+header {
+
+    .md-toolbar {
+        padding: 0 32px;
+        z-index: 5 !important;
+
+        .md-button {
+            height: 36px;
+            
+            &:before {
+                content: unset;
+            }
+        }
+
+        &.md-absolute,
+        &.md-fixed {
+            z-index: 4;
+            left: 0;
+            right: 0;
+        }
+
+        &.md-absolute {
+            position: absolute;
+        }
+
+        &.md-fixed {
+            position: fixed;
+        }
+
+        &.md-transparent {
+            box-shadow: none;
+        }
+
+        .md-button:not(.md-btn-fab):not(.md-icon-button):not(.md-toolbar-toggle) .md-ripple {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    .md-drawer {
+        position: fixed;
+    }
+
+}

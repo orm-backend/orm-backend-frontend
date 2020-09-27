@@ -1,28 +1,19 @@
 
-@media (min-width: 960px) {
-	.login-page main {
-		display: flex;
-		align-items: center;
-	}
-}
-
 .login-page {
 
 	main {
+		min-height: 100vh;
+		
 		.inner-container {
-			padding-top: 120px;
-		    padding-bottom: 150px;
+			padding-bottom: 60px;
+			padding-left: 32px;
+			padding-right: 32px;
 		}
 	}
-	
-//	header,
+
 	footer {
 		position: absolute;
 		width: 100%;
-		margin: 0;
-	}
-	
-	footer {
 		bottom: 0;
 	}
 	
@@ -33,10 +24,30 @@
 
 	blockquote {
 		padding-left: 1rem;
-		border-left: 0.25rem solid $brand-accent;
+		border-left: 0.25rem solid var(--md-theme-default-accent, orange);
 		margin-left: 0;
 		margin-bottom: 3rem;
 		color: white;
+
+		p {
+			font-style: italic;
+			margin: 0;
+		}
 	}
 
+}
+@media (max-width: 960px) {
+	.login-page {
+		main .inner-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+@media (min-width: 960px) {
+	.login-page main {
+		display: flex;
+		align-items: center;
+	}
 }

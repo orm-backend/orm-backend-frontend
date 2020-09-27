@@ -1,65 +1,93 @@
 <template>
   <main>
-    <div class="inner-container">
-      <!-- md-drawer :md-active.sync="menuVisible" md-persistent="full">
-        <md-toolbar class="md-accent" md-elevation="0">
-          <div class="md-toolbar-section-start">
-            <md-button
-              class="md-button md-button-link md-white md-simple"
-              @click="menuVisible = !menuVisible"
+    <div class="outer-container content content-raised">
+      <div class="inner-container md-layout guides-layout">
+        <div class="left-pane md-layout-item md-size-15" v-if="showLeftSidebar">
+          <md-list>
+            <md-list-item
+              v-for="item in sidebar.menu"
+              :key="item.link"
+              :to="item.link"
+              :title="item.title"
             >
-              <md-icon>menu</md-icon>
-            </md-button>
-          </div>
-          <span>Navigation</span>
-
-          <div class="md-toolbar-section-end">
-            <md-button
-              class="md-icon-button md-dense"
-              @click="menuVisible = !menuVisible"
-            >
-              <md-icon>keyboard_arrow_left</md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
-
-        <md-list>
-          <md-list-item>
-            <span class="md-list-item-text">Inbox</span>
-          </md-list-item>
-
-          <md-list-item>
-            <span class="md-list-item-text">Sent Mail</span>
-          </md-list-item>
-
-          <md-list-item>
-            <span class="md-list-item-text">Trash</span>
-          </md-list-item>
-
-          <md-list-item>
-            <span class="md-list-item-text">Spam</span>
-          </md-list-item>
-        </md-list>
-      </md-drawer -->
-      <md-empty-state
-        md-icon="devices_other"
-        md-label="Coming soon"
-        md-description="Documentation is being developed now."
-      >
-      </md-empty-state>
+              <span class="md-list-item-text">{{ item.title }}</span>
+              <md-divider></md-divider>
+            </md-list-item>
+          </md-list>
+        </div>
+        <div class="content-pane md-layout-item">
+          <md-empty-state
+            id="anchor1"
+            md-icon="devices_other"
+            md-label="Coming soon"
+            md-description="Documentation is being developed now."
+          >
+          </md-empty-state>
+        </div>
+        <div
+          class="right-pane md-layout-item md-size-15"
+          v-if="showRightSidebar"
+        >
+          <MobileMenu
+            v-bind:is-authorized="userAuthorized"
+            :logout="logout"
+          ></MobileMenu>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import "@/assets/scss/pages/guide.scss";
+
 export default {
   name: "Documentation",
+  components: {
+    MobileMenu: () => import("@/layout/menu/MobileMenu.vue"),
+  },
   data() {
     return {
       menuVisible: true,
+      windowWidth: 0,
     };
   },
+  created() {
+    this.$store.commit("local/sidebar", {
+      title: "Coming soon",
+      menu: [
+        {
+          link: "#anchor1",
+          title: "Coming soon...",
+        },
+      ],
+    });
+  },
+  methods: {
+    logout() {
+      try {
+        this.$store.dispatch("user/logout");
+      } catch (e) {
+        this.$store.commit("local/snackbar", e);
+      }
+    },
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
+  },
   computed: {
+    showLeftSidebar() {
+      return this.windowWidth > 960;
+    },
+    showRightSidebar() {
+      return this.windowWidth > 1919;
+    },
+    sidebar() {
+      return this.$store.getters["local/sidebar"];
+    },
+    userAuthorized() {
+      return this.$store.getters["user/isAuthorized"];
+    },
     pageTitle() {
       let title = null;
 
@@ -113,9 +141,13 @@ export default {
       return description;
     },
   },
-  /*   mounted() {
-    window.OWATracker.trackPageView();
-  }, */
+  mounted() {
+    this.windowWidth = window.innerWidth;
+    window.addEventListener("resize", this.onResize, true);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize, true);
+  },
   metaInfo() {
     return {
       title: this.pageTitle,
@@ -137,7 +169,7 @@ export default {
         },
       ],
       bodyAttrs: {
-        class: "module-page",
+        class: "guide-page",
       },
     };
   },

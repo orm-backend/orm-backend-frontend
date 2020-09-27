@@ -1,4 +1,25 @@
 .not-found {
+	main {
+		min-height: 100vh;
+		
+		.inner-container {
+			padding-bottom: 60px;
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+	}
+
+	footer {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	.wrapper {
+	    background-position: center center;
+	    background-size: cover;
+	}
+
 	h1,
 	h2 {
 		text-transform: uppercase;
@@ -7,5 +28,11 @@
 	
 	hr {
 		width: 100%;
+	}
+}
+@media (min-width: 960px) {
+	.not-found main {
+		display: flex;
+		align-items: center;
 	}
 }

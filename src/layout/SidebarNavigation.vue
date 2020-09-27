@@ -1,8 +1,14 @@
 <template>
   <header>
-    <md-toolbar id="mainToolbar" :class="classes" md-elevation="12">
-      <div class="md-toolbar-row">
+    <md-toolbar ref="mainToolbar" :class="classes" md-elevation="12">
+      <div class="md-toolbar-row md-collapse-lateral">
         <div class="md-toolbar-section-start">
+          <md-button
+            class="md-button md-button-link md-white md-simple md-toolbar-toggle"
+            @click="showSidebar = !showSidebar"
+          >
+            <md-icon>menu</md-icon>
+          </md-button>
           <router-link
             to="/"
             class="brand-logo"
@@ -48,11 +54,30 @@
         :logout="logout"
       ></MobileMenu>
     </md-drawer>
+    <md-drawer
+      ref="mobileSidebar"
+      class="md-left"
+      :md-active.sync="showSidebar"
+      md-swipeable
+    >
+      <md-toolbar class="md-medium md-primary" md-elevation="12">
+        <span class="md-title">{{ sidebar.title }}</span>
+      </md-toolbar>
+      <md-list>
+        <md-list-item
+          v-for="item in sidebar.menu"
+          :key="item.link"
+          :to="item.link"
+          :title="item.title"
+        >
+          <span class="md-list-item-text">{{ item.title }}</span>
+        </md-list-item>
+      </md-list>
+    </md-drawer>
   </header>
 </template>
 
 <script>
-//import DesctopMenu from "./menu/DesctopMenu.vue";
 import MainMenu from "./menu/MainMenu.vue";
 import MobileMenu from "./menu/MobileMenu.vue";
 
@@ -89,6 +114,9 @@ export default {
   computed: {
     userAuthorized() {
       return this.$store.getters["user/isAuthorized"];
+    },
+    sidebar() {
+      return this.$store.getters["local/sidebar"];
     },
   },
 

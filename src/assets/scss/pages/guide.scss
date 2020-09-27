@@ -1,0 +1,58 @@
+
+.guide-page {
+
+	main {
+		min-height: calc(100vh - 72px);
+    	padding-bottom: 72px;
+	}
+
+	footer {
+		position: absolute;
+		z-index: 3;
+		bottom: 0;
+		width: 100%;
+	}
+
+	main .inner-container {
+		max-width: unset;
+	}
+
+	.guides-layout {
+		.left-pane {
+			.md-list .md-list-item::after {
+				background-color: var(--md-theme-default-divider);
+				height: 1px;
+				margin-left: 6px;
+				margin-right: 6px;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				z-index: 1;
+				content: " ";
+			}
+		}
+	  
+		.left-pane,
+		.content-pane,
+		.right-pane {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		
+		.left-pane {
+			padding-left: 16px;
+		}
+		
+		.right-pane {
+			padding-right: 16px;
+		}
+	}
+}
+
+@media (min-width: 1920px) {
+	.guide-page .guides-layout .left-pane {
+		align-items: flex-end;
+	}
+}

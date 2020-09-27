@@ -7,6 +7,10 @@
 export default {
   name: "parallax",
   props: {
+    enabled: {
+      type: Boolean,
+      default: true,
+    },
     breakpoint: {
       default: "1024",
       type: String,
@@ -36,10 +40,10 @@ export default {
       }
     },
     updateStyle(scrollY) {
-      let ty = scrollY / 2.5;
+      let ty = Math.round(scrollY / 2.5);
 
       this.styles = {
-        transform: `translate3d(0, ${ty}px, 0)`,
+        transform: `translate(0, ${ty}px) translate3d(0, 0, 0)`,
       };
     },
     scrollListener(e) {
@@ -53,10 +57,14 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener("scroll", this.scrollListener, true);
+    if (this.enabled) {
+      document.addEventListener("scroll", this.scrollListener, true);
+    }
   },
   beforeDestroy() {
-    document.removeEventListener("scroll", this.scrollListener, true);
+    if (this.enabled) {
+      document.removeEventListener("scroll", this.scrollListener, true);
+    }
   },
 };
 </script>

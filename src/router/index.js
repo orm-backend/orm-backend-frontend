@@ -4,25 +4,26 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // globals
-import MainNavbar from "@/layout/MainNavbar.vue";
+import MainNavigation from "@/layout/MainNavigation.vue";
 import BaseNavigation from "@/layout/BaseNavigation.vue";
+import SidebarNavigation from "@/layout/SidebarNavigation.vue";
 import MainFooter from "@/layout/MainFooter.vue";
 import Landing from "@/views/Landing.vue";
 
 // dynamic
 const Login = () =>
   import(/* webpackChunkName: "login-page" */ "@/views/Login.vue");
-const Documentation = () =>
-  import(/* webpackChunkName: "module-page" */ "@/views/Documentation.vue");
-const NotFound = () =>
-  import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
+const Guides = () =>
+  import(/* webpackChunkName: "module-page" */ "@/views/Guides.vue");
+// const NotFound = () =>
+//   import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
 
 const routes = [
   {
     path: "/",
     name: "landing",
     components: {
-      header: MainNavbar,
+      header: MainNavigation,
       default: Landing,
       footer: MainFooter,
     },
@@ -46,29 +47,31 @@ const routes = [
     },
   },
   {
-    path: "/docs/:modulename",
-    name: "docs",
+    path: "/guides/:modulename",
+    name: "guides",
     components: {
-      header: BaseNavigation,
-      default: Documentation,
+      header: SidebarNavigation,
+      default: Guides,
       footer: MainFooter,
     },
     props: {
       header: { classes: "md-medium md-primary-dark md-absolute" },
     },
   },
-  { path: "/admin" /* Ignore or pass on to server */ },
-  {
-    path: "*",
-    name: "404",
-    components: {
-      header: BaseNavigation,
-      default: NotFound,
-    },
-    props: {
-      header: { classes: "md-medium md-transparent md-fixed" },
-    },
-  },
+  // { path: "/admin" /* Ignore or pass on to server */ },
+  // { path: "/logout" /* Ignore or pass on to server */ },
+  // {
+  //   path: "*",
+  //   name: "404",
+  //   components: {
+  //     header: BaseNavigation,
+  //     default: NotFound,
+  //     footer: MainFooter,
+  //   },
+  //   props: {
+  //     header: { classes: "md-medium md-primary-dark md-absolute" },
+  //   },
+  // },
 ];
 
 export default () => {
