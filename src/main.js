@@ -1,6 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 
+if (process.client) {
+  window.$ = window.jQuery = require("jquery");
+}
+
 import createRouter from "./router";
 import createStore from "./store";
 

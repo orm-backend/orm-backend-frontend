@@ -3,6 +3,7 @@ body {
     letter-spacing: unset;
     font-size: 1rem;
     line-height: 1.5em;
+    background-color: $brand-background-variant;
 }
 
 main,
@@ -15,12 +16,12 @@ main,
 
 main {
     .content {
-        background: transparent;
+        background-color: transparent;
         position: relative;
-        z-index: 3;
+        z-index: 1;
     
         &.content-raised {
-            background: $brand-primary-light;
+            background-color: $brand-primary-light;
             @include shadow-16dp();
             border-radius: $border-radius-base * 2;
         }

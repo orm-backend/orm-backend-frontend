@@ -1,9 +1,20 @@
 <template>
-  <div id="app" class="wrapper" ref="app" :style="wrapperStyle">
-    <router-view name="header" />
-    <router-view />
-    <router-view name="footer" />
+  <div id="app" class="wrapper" ref="app">
     <no-ssr>
+      <transition name="header" appear>
+        <router-view name="header" ref="header" />
+      </transition>
+      <transition
+        name="fade"
+        appear
+        v-on:enter="onEnter"
+        v-on:after-enter="onAfterEnter"
+        v-on:before-leave="onBeforeLeave"
+      >
+        <router-view ref="main" />
+      </transition>
+      <router-view name="footer" ref="footer" />
+
       <md-snackbar
         md-position="center"
         :md-duration="5000"
@@ -45,21 +56,19 @@
   </div>
 </template>
 <script>
-//import "vue-material/dist/vue-material.min.css";
 import "@/assets/scss/material.scss";
 
 import Vue from "vue";
 import VueMeta from "vue-meta";
 import VueMaterial from "vue-material";
 import VueCookie from "vue-cookie";
-import VueScrollTo from "vue-scrollto";
 import NoSSR from "vue-no-ssr";
 import BrandLogoText from "@/svg/BrandLogoText";
+import BackgroundImage from "@/plugins/background-image";
 
 Vue.use(VueMeta);
 Vue.use(VueCookie);
 Vue.use(VueMaterial);
-Vue.use(VueScrollTo);
 
 Vue.component("brand-logo-text", BrandLogoText);
 Vue.component("no-ssr", NoSSR);
@@ -73,6 +82,7 @@ import {
 setInteractionMode("eager");
 Vue.component("validation-provider", ValidationProvider);
 Vue.component("validation-observer", ValidationObserver);
+Vue.directive("background-image", BackgroundImage);
 
 export default {
   name: "App",
@@ -86,27 +96,31 @@ export default {
       this.$cookie.set("cookie-policy-showed", 1, { expires: "1Y" });
       this.isNotAccepted = false;
     },
+    onEnter: function () {
+      $("footer").css("display", "none");
+    },
+    onAfterEnter: function () {
+      $("footer").show();
+
+      this.$nextTick().then(() => {
+        if (typeof this.$refs.header.init === "function") {
+          this.$refs.header.init();
+        }
+      });
+    },
+    onBeforeLeave: function () {
+      $("body > .md-menu-content").hide();
+    },
   },
   computed: {
     showSnackbar: {
       cache: false,
       get: function () {
         return !!this.$store.state.local.snackbar;
-        //return !!this.$store.getters["local/snackbar"];
       },
       set: function (value) {
         this.$store.commit("local/snackbar", null);
       },
-    },
-    wrapperStyle() {
-      if (this.$route.name == "login" || this.$route.name == "404") {
-        return {
-          backgroundColor: `rgb(20, 50, 125)`,
-          backgroundImage: `url(${require("@/assets/img/Technology-06.jpg")})`,
-        };
-      }
-
-      return {};
     },
   },
   mounted() {

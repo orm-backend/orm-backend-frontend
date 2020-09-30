@@ -2,7 +2,7 @@ header {
 
     .md-toolbar {
         padding: 0 32px;
-        z-index: 5 !important;
+        //z-index: 5 !important;
 
         .md-button {
             height: 36px;
@@ -14,7 +14,7 @@ header {
 
         &.md-absolute,
         &.md-fixed {
-            z-index: 4;
+            //z-index: 4;
             left: 0;
             right: 0;
         }

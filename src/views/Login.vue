@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-background-image="backgroundImage">
     <div class="outer-container inner-container">
       <div class="md-layout md-alignment-center-left">
         <div class="md-layout-item md-size-40 md-small-size-100">
@@ -27,9 +27,7 @@ export default {
   },
   data() {
     return {
-      firstname: null,
-      email: null,
-      password: null,
+      backgroundImage: require("@/assets/img/Technology-06.jpg"),
     };
   },
   props: {
@@ -63,5 +61,3 @@ export default {
   },
 };
 </script>
-
-<style lang="css"></style>

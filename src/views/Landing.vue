@@ -1,9 +1,13 @@
 <template>
   <main>
-    <parallax class="page-header" v-bind:timeout="5" :style="headerStyle">
+    <parallax
+      class="page-header"
+      v-bind:timeout="5"
+      v-background-image="backgroundImage"
+    >
       <div class="brand-description">
-        <h1>
-          <brand-logo-text></brand-logo-text>
+        <h1>ORM Backend
+          <!--brand-logo-text></brand-logo-text-->
         </h1>
         <h4>
           It is not a framework or CMS. It is a ready-made backend solution
@@ -11,10 +15,7 @@
           Framework. Admin dashboard, CRUD services, ACL and much more right out
           of the box.
         </h4>
-        <md-button
-          class="md-primary md-raised"
-          @click="scrollToSection('#features')"
-        >
+        <md-button class="md-primary md-raised" to="#features">
           <span>Read more</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,25 +81,10 @@ export default {
       import(/* webpackChunkName: "landing-page" */ "@/components/Parallax"),
   },
 
-  props: {
-    header: {
-      type: String,
-      default: require("@/assets/img/Technology-06.jpg"),
-    },
-  },
-
-  computed: {
-    headerStyle() {
-      return {
-        backgroundImage: `url(${this.header})`,
-      };
-    },
-  },
-
-  methods: {
-    scrollToSection(id) {
-      this.$scrollTo(id);
-    },
+  data() {
+    return {
+      backgroundImage: require("@/assets/img/Technology-06.jpg"),
+    };
   },
 
   metaInfo: {

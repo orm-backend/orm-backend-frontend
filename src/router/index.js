@@ -1,5 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import { gsap, Cubic } from "gsap";
+
+if (process.client) {
+  const ScrollToPlugin = require("ScrollToPlugin");
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 Vue.use(VueRouter);
 
@@ -14,9 +20,9 @@ import Landing from "@/views/Landing.vue";
 const Login = () =>
   import(/* webpackChunkName: "login-page" */ "@/views/Login.vue");
 const Guides = () =>
-  import(/* webpackChunkName: "module-page" */ "@/views/Guides.vue");
-// const NotFound = () =>
-//   import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
+  import(/* webpackChunkName: "guides-page" */ "@/views/Guides.vue");
+const NotFound = () =>
+  import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
 
 const routes = [
   {
@@ -47,7 +53,7 @@ const routes = [
     },
   },
   {
-    path: "/guides/:modulename",
+    path: "/guides/:guide",
     name: "guides",
     components: {
       header: SidebarNavigation,
@@ -55,23 +61,23 @@ const routes = [
       footer: MainFooter,
     },
     props: {
-      header: { classes: "md-medium md-primary-dark md-absolute" },
+      header: { classes: "md-primary-dark md-fixed" },
     },
   },
   // { path: "/admin" /* Ignore or pass on to server */ },
   // { path: "/logout" /* Ignore or pass on to server */ },
-  // {
-  //   path: "*",
-  //   name: "404",
-  //   components: {
-  //     header: BaseNavigation,
-  //     default: NotFound,
-  //     footer: MainFooter,
-  //   },
-  //   props: {
-  //     header: { classes: "md-medium md-primary-dark md-absolute" },
-  //   },
-  // },
+  {
+    path: "*",
+    name: "404",
+    components: {
+      header: BaseNavigation,
+      default: NotFound,
+      footer: MainFooter,
+    },
+    props: {
+      header: { classes: "md-medium md-primary-dark md-absolute" },
+    },
+  },
 ];
 
 export default () => {
@@ -79,9 +85,30 @@ export default () => {
     mode: "history",
     base: process.env.BASE_URL,
     routes,
-    scrollBehavior: (to) => {
+    scrollBehavior: (to, from, savedPosition) => {
+      function scrollTo(target) {
+        setTimeout(() => {
+          gsap.to(window, {
+            duration: 0.5,
+            scrollTo: {
+              y: target,
+              autoKill: true,
+            },
+            ease: Cubic.easeInOut,
+          });
+        }, 200);
+      }
+
       if (to.hash) {
-        return { selector: to.hash };
+        if (document.readyState === "complete") {
+          scrollTo(to.hash);
+        } else {
+          window.addEventListener("load", function (event) {
+            scrollTo(to.hash);
+          });
+        }
+
+        return false;
       } else {
         return { x: 0, y: 0 };
       }

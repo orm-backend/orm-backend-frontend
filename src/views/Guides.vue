@@ -1,31 +1,23 @@
 <template>
   <main>
     <div class="outer-container content content-raised">
-      <div class="inner-container md-layout guides-layout">
+      <div class="inner-container md-layout guides-layout guides-layout-fixed">
         <div class="left-pane md-layout-item md-size-15" v-if="showLeftSidebar">
           <md-list>
             <md-list-item
               v-for="item in sidebar.menu"
+              :class="item.link + '-link'"
               :key="item.link"
-              :to="item.link"
+              :to="'#' + item.link"
               :title="item.title"
             >
               <span class="md-list-item-text">{{ item.title }}</span>
-              <md-divider></md-divider>
             </md-list-item>
           </md-list>
         </div>
-        <div class="content-pane md-layout-item">
-          <md-empty-state
-            id="anchor1"
-            md-icon="devices_other"
-            md-label="Coming soon"
-            md-description="Documentation is being developed now."
-          >
-          </md-empty-state>
-        </div>
+        <div class="md-layout-item"></div>
         <div
-          class="right-pane md-layout-item md-size-15"
+          class="right-pane md-layout-item md-size-20"
           v-if="showRightSidebar"
         >
           <MobileMenu
@@ -33,6 +25,26 @@
             :logout="logout"
           ></MobileMenu>
         </div>
+      </div>
+      <div
+        class="inner-container md-layout guides-layout guides-layout-content"
+      >
+        <div
+          class="left-pane md-layout-item md-size-20"
+          v-if="showLeftSidebar"
+        ></div>
+        <div class="md-layout-item content-pane">
+          <transition name="guide" appear v-on:after-enter="afterEnter">
+            <component
+              ref="contentComponent"
+              v-bind:is="currentGuide"
+            ></component>
+          </transition>
+        </div>
+        <div
+          class="right-pane md-layout-item md-size-20"
+          v-if="showRightSidebar"
+        ></div>
       </div>
     </div>
   </main>
@@ -42,26 +54,20 @@
 import "@/assets/scss/pages/guide.scss";
 
 export default {
-  name: "Documentation",
+  name: "Guides",
   components: {
     MobileMenu: () => import("@/layout/menu/MobileMenu.vue"),
+    Json: () => import("./guides/Json"),
+    Rest: () => import("./guides/ComingSoon"),
+    Acl: () => import("./guides/ComingSoon"),
+    Admin: () => import("./guides/ComingSoon"),
+    Oauth: () => import("./guides/ComingSoon"),
   },
   data() {
     return {
       menuVisible: true,
       windowWidth: 0,
     };
-  },
-  created() {
-    this.$store.commit("local/sidebar", {
-      title: "Coming soon",
-      menu: [
-        {
-          link: "#anchor1",
-          title: "Coming soon...",
-        },
-      ],
-    });
   },
   methods: {
     logout() {
@@ -73,9 +79,16 @@ export default {
     },
     onResize() {
       this.windowWidth = window.innerWidth;
+      this.afterEnter();
+    },
+    afterEnter: function () {
+      this.$refs.contentComponent.afterEnter();
     },
   },
   computed: {
+    currentGuide() {
+      return this.$route.params.guide;
+    },
     showLeftSidebar() {
       return this.windowWidth > 960;
     },
@@ -91,21 +104,18 @@ export default {
     pageTitle() {
       let title = null;
 
-      switch (this.$route.params.modulename) {
-        case "json":
-          title = "Json Query | ORM Backend";
-          break;
+      switch (this.$route.params.guide) {
         case "rest":
-          title = "CRUD Services | ORM Backend";
+          title = "CRUD Services";
           break;
         case "oauth":
-          title = "OAuth Integration | ORM Backend";
+          title = "OAuth Integration";
           break;
         case "acl":
-          title = "Access Control List | ORM Backend";
+          title = "Access Control List";
           break;
         case "admin":
-          title = "Laravel Admin Panel | ORM Backend";
+          title = "Laravel Admin Panel";
           break;
       }
 
@@ -114,11 +124,7 @@ export default {
     pageDescription() {
       let description = null;
 
-      switch (this.$route.params.modulename) {
-        case "json":
-          description = `It is used to build a DQL query with cleanup, validation, and 
-          strong typing of the input values.`;
-          break;
+      switch (this.$route.params.guide) {
         case "rest":
           description = `Ready-made CRUD services. Which allows you to 
           filter objects by properties of related objects by the received 

@@ -44,10 +44,10 @@
         <md-list-item
           class="md-inset"
           to="/guides/json"
-          title="JSON Query Language implementation"
+          title="JSON Query implementation"
         >
           <md-icon>code</md-icon>
-          <span class="md-list-item-text">JSON Query Language</span>
+          <span class="md-list-item-text">JSON Query</span>
         </md-list-item>
 
         <md-divider class="md-inset"></md-divider>

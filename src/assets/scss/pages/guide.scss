@@ -3,7 +3,11 @@
 
 	main {
 		min-height: calc(100vh - 72px);
-    	padding-bottom: 72px;
+		padding-bottom: 72px;
+		
+		.inner-container {
+			max-width: unset;
+		}
 	}
 
 	footer {
@@ -11,10 +15,6 @@
 		z-index: 3;
 		bottom: 0;
 		width: 100%;
-	}
-
-	main .inner-container {
-		max-width: unset;
 	}
 
 	.guides-layout {
@@ -47,6 +47,34 @@
 		
 		.right-pane {
 			padding-right: 16px;
+		}
+		
+		.content-pane {
+			min-height: calc(100vh - 72px);
+			padding-top: 90px;
+			padding-bottom: 90px;
+
+			h2 {
+				margin-top: 0;
+			}
+
+			pre {
+				overflow-x: auto;
+    			max-width: calc(100vw - 44px);
+			}
+
+			section h2 {
+				padding-top: 110px;
+			}
+		}
+
+		&.guides-layout-fixed {
+			position: fixed;
+			width: 100%;
+		}
+
+		&.guides-layout-content {
+			padding-top: 0;
 		}
 	}
 }

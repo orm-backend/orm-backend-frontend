@@ -6,11 +6,7 @@
 @import "common/roboto-fontface.css";
 
 // Animations
-@import "~animate.css/source/fading_entrances/fadeInLeft.css";
-@import "~animate.css/source/fading_entrances/fadeIn.css";
-@import "~animate.css/source/fading_entrances/fadeInDown.css";
-@import "~animate.css/source/fading_entrances/fadeInUp.css";
-
+@import "~animate.css";
 //variables and mixins
 @import "common/variables";
 @import "~vue-material/dist/vue-material.css";
@@ -40,6 +36,7 @@
 @import "mixins/mixins";
 @import "mixins/shadows";
 
+@import "common/transition.scss";
 @import "common/button.scss";
 @import "common/menu.scss";
 @import "common/header.scss";

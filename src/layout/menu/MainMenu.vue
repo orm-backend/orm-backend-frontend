@@ -40,12 +40,9 @@
         <p>Guides</p>
       </md-button>
       <md-menu-content>
-        <md-menu-item
-          to="/guides/json"
-          title="Json Query Language implementation"
-        >
+        <md-menu-item to="/guides/json" title="Json Query implementation">
           <md-icon>code</md-icon>
-          <span>Json Query Language</span>
+          <span>Json Query</span>
         </md-menu-item>
         <md-menu-item to="/guides/rest" title="REST / CRUD services">
           <md-icon>language</md-icon>

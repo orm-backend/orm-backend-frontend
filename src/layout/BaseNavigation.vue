@@ -52,7 +52,6 @@
 </template>
 
 <script>
-//import DesctopMenu from "./menu/DesctopMenu.vue";
 import MainMenu from "./menu/MainMenu.vue";
 import MobileMenu from "./menu/MobileMenu.vue";
 

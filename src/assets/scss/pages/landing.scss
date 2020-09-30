@@ -2,19 +2,24 @@
 .landing-page {
 
 	main {
-		.outer-container {
-			margin-top: -40px;
-		}
+		// .outer-container {
+		// 	margin-top: -40px;
+		// }
 
 		.inner-container {
 			padding-top: 0;
 		}
 	}
 
+	footer {
+		position: absolute;
+	    width: 100%;
+	}
+
 	.page-header{
 		min-height: 100vh;
 		height: 100%;
-		background-color: rgb(20, 50, 125);
+		//background-color: rgb(21, 21, 71);
 		background-position: center center;
 		background-size: cover;
 		margin: 0;
@@ -41,6 +46,17 @@
 		width:50%;
 		margin-left: -20%;
 		padding: 0 8px;
+
+		h1 {
+			font-family: 'Audiowide', cursive;
+			font-size: 3.75rem;
+			font-weight: 400;
+			font-style: normal;
+			line-height: normal;
+			color: white;
+			text-shadow: -2px -1px 12px $brand-primary;
+
+		}
 
 		h4 {
 			color: white;

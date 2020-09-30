@@ -1,0 +1,40 @@
+.fade-leave,
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    transition: opacity 0.23s ease-in;
+}
+.fade-leave,
+.fade-leave-to {
+    display: none;
+}
+
+header.header-enter-active {
+    .md-toolbar {
+        transition: all 0.23s ease;
+    }
+}
+header.header-enter {
+    .md-toolbar {
+        transform: translateY(-88px);
+        opacity: 0;
+    }
+}
+header.header-leave {
+    .md-toolbar {
+        display: none;
+    }
+}
+
+.guide-leave,
+.guide-enter {
+    opacity: 0;
+}
+.guide-enter-active {
+    transition: opacity 0.23s ease-in;
+}
+.guide-leave,
+.guide-leave-to {
+    display: none;
+}

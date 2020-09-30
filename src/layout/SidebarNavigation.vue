@@ -66,8 +66,9 @@
       <md-list>
         <md-list-item
           v-for="item in sidebar.menu"
+          :class="item.link + '-link'"
           :key="item.link"
-          :to="item.link"
+          :to="'#' + item.link"
           :title="item.title"
         >
           <span class="md-list-item-text">{{ item.title }}</span>
