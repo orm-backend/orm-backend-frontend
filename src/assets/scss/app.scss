@@ -95,12 +95,14 @@ footer {
 
 /*** Gradient on toolbars and cards ***/
 .md-toolbar.md-primary-dark:not(.md-transparent),
-.md-card-header.md-primary-dark {
+.md-card-header.md-primary-dark,
+.md-content.md-primary-dark {
     background: linear-gradient(60deg, lighten($brand-primary, 5), $brand-primary-dark);
 }
 
 .md-toolbar.md-accent-dark:not(.md-transparent),
-.md-card-header.md-accent-dark {
+.md-card-header.md-accent-dark,
+.md-content.md-accent-dark {
     background: linear-gradient(60deg, lighten($brand-accent, 5), $brand-accent-dark);
 }
 

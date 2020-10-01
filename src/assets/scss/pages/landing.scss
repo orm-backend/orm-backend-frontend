@@ -95,15 +95,20 @@
 
 		h3 {
 			font-size: 2rem;
-			color: $brand-accent;
 		}
 
 		svg {
-			fill: $brand-accent;
+			fill: $text-primary-on-background-variant;
 		}
 
 		p {
 			margin-top: -24px;
+		}
+
+		.md-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
 		}
 	}
 }

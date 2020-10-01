@@ -2,13 +2,15 @@
   <div id="concept" class="section">
     <div class="md-layout md-alignment-center-center">
       <div
-        class="md-layout-item md-size-50 md-xlarge-size-30 md-small-size-100"
+        class="md-layout-item md-size-40 md-xlarge-size-30 md-small-size-100"
       >
-        <h2 class="md-display-1">Concept</h2>
-        <h3>Doctrine mapping</h3>
-        <p class="md-caption">
-          (all the necessary information is already in the machine memory)
-        </p>
+        <h2 class="md-display-1">Main concept</h2>
+        <md-content class="md-accent md-accent-dark md-elevation-12">
+          <h3>Doctrine mapping</h3>
+          <p class="md-caption">
+            (all the necessary information is already in the machine's memory)
+          </p>
+        </md-content>
         <h4>
           <svg
             viewBox="0 0 448 448"
@@ -24,10 +26,12 @@
             />
           </svg>
         </h4>
-        <h3>Json Query</h3>
-        <p class="md-caption">
-          (ability to convert query parameters into database queries)
-        </p>
+        <md-content class="md-accent md-accent-dark md-elevation-12">
+          <h3>Json Query</h3>
+          <p class="md-caption">
+            (ability to convert request parameters into database query)
+          </p>
+        </md-content>
         <h4>
           <svg
             version="1.1"
@@ -48,8 +52,10 @@
             />
           </svg>
         </h4>
-        <h3>CRUD & Admin</h3>
-        <p class="md-caption">(works without writing code)</p>
+        <md-content class="md-accent md-accent-dark md-elevation-12">
+          <h3>CRUD &amp; Admin</h3>
+          <p class="md-caption">(without writing code)</p>
+        </md-content>
       </div>
     </div>
   </div>

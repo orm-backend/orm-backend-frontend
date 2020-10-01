@@ -46,10 +46,11 @@
       </div>
       <p>
         It would be more efficient to use the trainer's inner join in this
-        example. But currently only left joins are used in this project. It
-        provides code that automatically converts a Json query to DQL. Automatic
+        example. But currently only left joins are used in this project. ORM
+        Backend provides code that automatically converts a Json query to DQL.
+        Automatic
         <code>LEFT JOIN</code> building based on parts of select, filter and
-        order. Let's say you want to filter teams by trainer name. But you do
+        order. Let's say you want to filter teams by trainer name, but you do
         not need to display the trainer's data.
       </p>
       <div class="md-layout md-gutter">
@@ -63,10 +64,10 @@
         </div>
       </div>
       <p>
-        ORM backend itself will determine that a join is needed and build the
-        correct DQL. Sorting is similar. You can always select only those
-        entities that you need, as well as filter and sort by fields of other
-        related entities.
+        ORM backend will determine that a join is needed and build the correct
+        DQL. Sorting is similar. You can always select only those entities that
+        you need, as well as filter and sort by fields of other related
+        entities.
       </p>
       <p>
         Json-like query can also be used in your own PHP code. The supporetd
@@ -81,10 +82,10 @@
       <h2>Sanitization and strong typing</h2>
       <p>
         First of all, the search query parameters are cleared using
-        <code>filter_var</code>. Then they are cast to a strong type according
-        the mapping when building a Doctrine query. If the type conversion is
-        successful, a database query is executed. Otherwise, an exception is
-        thrown.
+        <code>filter_var</code>. They are then casted to strong type according
+        to the Doctrine mapping during Doctrine query building. If the type
+        conversion is successful, a database query is executed. Otherwise, an
+        exception is thrown.
       </p>
     </section>
   </div>
@@ -118,7 +119,7 @@ export default {
     "team.trainer"
   ],
   filter: [
-    ["team.trainer", "like", "gary"]
+    ["team.trainer.name", "like", "gary"]
   ] 
 }`,
       joinExample2: `
@@ -127,7 +128,7 @@ export default {
     "team"
   ],
   filter: [
-    ["team.trainer", "like", "gary"]
+    ["team.trainer.name", "like", "gary"]
   ] 
 }`,
       jsonCode: `// json query example
@@ -143,7 +144,7 @@ export default {
             ["team.name", "like", "amigos"],
             ["team.trainer.name", "like", "gary%"],
         ],
-        ["team.trainer", "isNotNull"]
+        ["team.trainer.id", "isNotNull"]
     ],
     order: ["team.name", "-team.players.birthdate"]
 };`,
@@ -160,7 +161,7 @@ export default {
             ["team.name", "like", "amigos"],
             ["team.trainer.name", "like", "gary%"],
         ],
-        ["team.trainer", "isNotNull"]
+        ["team.trainer.id", "isNotNull"]
     ],
     'order' => ["team.name", "-team.players.birthdate"]
 ];`,
@@ -220,17 +221,17 @@ WHERE (
         this.controller.addScene(scene2);
         this.scenes.push(scene2);
 
-        const el3 = document.querySelector("#validation");
-        const scene3 = new ScrollMagic.Scene({
-          triggerElement: "#validation",
-          duration: $(el3).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".validation-link > a", "router-link-active");
-        //.addIndicators();
+        // const el3 = document.querySelector("#validation");
+        // const scene3 = new ScrollMagic.Scene({
+        //   triggerElement: "#validation",
+        //   duration: $(el3).outerHeight(true),
+        //   triggerHook: 0,
+        //   offset: 0,
+        // }).setClassToggle(".validation-link > a", "router-link-active");
+        // //.addIndicators();
 
-        this.controller.addScene(scene3);
-        this.scenes.push(scene3);
+        // this.controller.addScene(scene3);
+        // this.scenes.push(scene3);
       } else {
         this.$nextTick(() => {
           this.scenes.forEach((scene) => {
@@ -255,10 +256,10 @@ WHERE (
           link: "php2dql",
           title: "PHP array to DQL",
         },
-        {
-          link: "validation",
-          title: "Sanitization and strong typing",
-        },
+        // {
+        //   link: "validation",
+        //   title: "Sanitization and strong typing",
+        // },
       ],
     });
   },
