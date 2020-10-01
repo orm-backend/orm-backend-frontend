@@ -58,9 +58,10 @@
 				margin-top: 0;
 			}
 
-			pre {
+			pre,
+			code {
 				overflow-x: auto;
-    			max-width: calc(100vw - 44px);
+    			max-width: calc(100vw - 110px);
 			}
 
 			section h2 {
@@ -82,5 +83,15 @@
 @media (min-width: 1920px) {
 	.guide-page .guides-layout .left-pane {
 		align-items: flex-end;
+	}
+}
+
+@media (max-width: 480px) {
+	.guide-page .guides-layout .content-pane {
+		pre,
+		code {
+			overflow-x: auto;
+			max-width: calc(100vw - 44px);
+		}
 	}
 }

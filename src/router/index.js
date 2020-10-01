@@ -91,7 +91,7 @@ export default () => {
           gsap.to(window, {
             duration: 0.5,
             scrollTo: {
-              y: target,
+              y: target == "#features" ? $(window).height() - 100 : target,
               autoKill: true,
             },
             ease: Cubic.easeInOut,

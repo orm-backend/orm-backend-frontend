@@ -2,10 +2,14 @@
   <div id="features" class="section">
     <div class="md-layout md-alignment-top-center">
       <div class="md-layout-item md-size-66 md-xsmall-size-100">
-        <h2 class="md-display-1">
-          Once installed and configured, you only need to write the Doctrine XML
-          mapping files.
-        </h2>
+        <blockquote>
+          <p>
+            Once installed and configured, you only need to write the Doctrine
+            XML mapping files.
+          </p>
+        </blockquote>
+      </div>
+      <div class="md-layout-item md-size-66 md-xsmall-size-100">
         <p class="md-subheading">
           If you have a Doctrine project or are going to develop a new one, then
           this project does not limit you in anything. You may or may not use

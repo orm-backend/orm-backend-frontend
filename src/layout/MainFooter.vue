@@ -6,7 +6,7 @@
           <md-bottom-bar-item
             id="bottom-bar-item-home"
             md-label="Home"
-            to="/"
+            to="/#features"
             md-icon="home"
             md-sync-route="true"
             title="ORM Backend home page"

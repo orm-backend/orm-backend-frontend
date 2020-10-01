@@ -4,6 +4,8 @@ body {
     font-size: 1rem;
     line-height: 1.5em;
     background-color: $brand-background-variant;
+    position: absolute; // menu content
+    width: 100%;
 }
 
 main,
@@ -120,6 +122,12 @@ footer {
 
     .brand-logo-text {
         position: absolute;
+        font-family: "Audiowide", cursive;
+        font-size: 18px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: normal;
+        color: white;
     }
 }
 

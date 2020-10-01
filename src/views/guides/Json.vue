@@ -193,7 +193,7 @@ WHERE (
       } else {
         this.$nextTick(() => {
           this.scenes.forEach((scene) => {
-            scene.duration(scene.triggerElement().outerHeight());
+            scene.duration($(scene.triggerElement()).outerHeight(true));
             scene.refresh();
           });
 

@@ -1,13 +1,23 @@
 
 .landing-page {
 
+	header {
+		z-index: 2;
+		position: fixed;
+		top: 0;
+	}
+
 	main {
-		// .outer-container {
-		// 	margin-top: -40px;
-		// }
+		.outer-container {
+			margin-top: 100vh;
+		}
 
 		.inner-container {
 			padding-top: 0;
+		}
+
+		.hide-page-header {
+			opacity: 0 !important;
 		}
 	}
 
@@ -17,8 +27,11 @@
 	}
 
 	.page-header{
-		min-height: 100vh;
-		height: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 0;
+		width: 100vw;
+		height: 100vh;
 		//background-color: rgb(21, 21, 71);
 		background-position: center center;
 		background-size: cover;
@@ -48,8 +61,8 @@
 		padding: 0 8px;
 
 		h1 {
-			font-family: 'Audiowide', cursive;
-			font-size: 3.75rem;
+			font-family: "Audiowide", cursive;
+			font-size: 5rem;
 			font-weight: 400;
 			font-style: normal;
 			line-height: normal;
@@ -63,11 +76,58 @@
 			padding-right: 10%;
 		}
 	}
+
+	blockquote {
+		padding-left: 1rem;
+		border-left: 0.25rem solid var(--md-theme-default-accent, orange);
+		//margin-left: auto;
+		margin-bottom: 3rem;
+		max-width: 340px;
+
+		p {
+			font-style: italic;
+			margin: 0;
+		}
+	}
+}
+
+@media (min-width: 1920px) {
+	.landing-page .brand-description {
+		width: 40%;
+
+		h1 {
+			font-size: 6rem;
+		}
+	}
+}
+
+@media (max-width: 1280px) {
+	.landing-page .brand-description {
+		width: 60%;
+
+		h1 {
+			font-size: 4rem;
+		}
+	}
 }
 
 @media (max-width: 960px) {
 	.landing-page .brand-description {
 		width: 70%;
+
+		h1 {
+			font-size: 3rem;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.landing-page .brand-description {
+		width: 70%;
+
+		h1 {
+			font-size: 2.3rem;
+		}
 	}
 }
 

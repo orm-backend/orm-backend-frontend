@@ -57,11 +57,16 @@ export default {
   name: "Guides",
   components: {
     MobileMenu: () => import("@/layout/menu/MobileMenu.vue"),
-    Json: () => import("./guides/Json"),
-    Rest: () => import("./guides/ComingSoon"),
-    Acl: () => import("./guides/ComingSoon"),
-    Admin: () => import("./guides/ComingSoon"),
-    Oauth: () => import("./guides/ComingSoon"),
+    Json: () =>
+      import(/* webpackChunkName: "guides-json-page" */ "./guides/Json"),
+    Rest: () =>
+      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+    Acl: () =>
+      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+    Admin: () =>
+      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+    Oauth: () =>
+      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
   },
   data() {
     return {

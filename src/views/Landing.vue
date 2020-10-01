@@ -1,14 +1,13 @@
 <template>
   <main>
-    <parallax
+    <div
+      id="page-header"
       class="page-header"
       v-bind:timeout="5"
       v-background-image="backgroundImage"
     >
       <div class="brand-description">
-        <h1>ORM Backend
-          <!--brand-logo-text></brand-logo-text-->
-        </h1>
+        <h1>ORM Backend</h1>
         <h4>
           It is not a framework or CMS. It is a ready-made backend solution
           based on Doctrine ORM and integrated with the popular Laravel
@@ -36,7 +35,7 @@
           </svg>
         </md-button>
       </div>
-    </parallax>
+    </div>
     <div id="triggerElement" class="outer-container content content-raised">
       <div class="inner-container">
         <FeaturesTopSection></FeaturesTopSection>
@@ -77,8 +76,6 @@ export default {
       import(
         /* webpackChunkName: "landing-page" */ "./sections/FeedbackSection"
       ),
-    Parallax: () =>
-      import(/* webpackChunkName: "landing-page" */ "@/components/Parallax"),
   },
 
   data() {

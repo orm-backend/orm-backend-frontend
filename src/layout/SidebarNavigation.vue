@@ -20,7 +20,7 @@
               :src="logo"
               width="48"
             />
-            <brand-logo-text class="brand-logo-text"></brand-logo-text>
+            <span class="brand-logo-text">ORM Backend</span>
           </router-link>
         </div>
         <div class="md-toolbar-section-end">

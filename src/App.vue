@@ -63,14 +63,12 @@ import VueMeta from "vue-meta";
 import VueMaterial from "vue-material";
 import VueCookie from "vue-cookie";
 import NoSSR from "vue-no-ssr";
-import BrandLogoText from "@/svg/BrandLogoText";
 import BackgroundImage from "@/plugins/background-image";
 
 Vue.use(VueMeta);
 Vue.use(VueCookie);
 Vue.use(VueMaterial);
 
-Vue.component("brand-logo-text", BrandLogoText);
 Vue.component("no-ssr", NoSSR);
 
 import {

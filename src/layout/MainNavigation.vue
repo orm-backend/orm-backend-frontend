@@ -11,9 +11,18 @@ export default {
         const controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
           offset: 0,
-          duration: 400,
+          duration: 80,
         })
           .setClassToggle("#mainToolbar", "md-transparent")
+          .addTo(controller);
+
+        new ScrollMagic.Scene({
+          // triggerElement: "#features",
+          // triggerHook: 0.9,
+          offset: 80,
+          //duration: 80,
+        })
+          .setClassToggle("#page-header", "hide-page-header")
           .addTo(controller);
       }
     },

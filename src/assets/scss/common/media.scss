@@ -17,9 +17,13 @@
 
 	header {
 		.md-toolbar.md-medium {
-			min-height: 66px;
-			height: 66px;
+			min-height: 64px;
+			height: 64px;
 			padding: 0 16px;
+		}
+
+		.md-toolbar, .md-toolbar-row {
+			min-height: 64px;
 		}
 	}
 
