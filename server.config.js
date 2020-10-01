@@ -18,7 +18,15 @@ export default {
   // SPA paths: no SSR occur for these paths
   //spaPaths: ['/spa'],
   static: {
-    paths: [],
+    paths: [
+      "/",
+      "/login",
+      "/guides/json",
+      "/guides/oauth",
+      "/guides/admin",
+      "/guides/acl",
+      "/guides/rest",
+    ],
     scanRouter: true,
     params: {
       modulename: ["json", "rest", "oauth", "acl"],

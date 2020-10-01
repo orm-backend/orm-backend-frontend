@@ -22,5 +22,14 @@ module.exports = {
         "debug.addIndicators",
         "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
       );
+
+    config.module
+      .rule("html")
+      .test(/\.html$/)
+      .use("html")
+      .loader("html-loader")
+      .options({
+        minimize: true,
+      });
   },
 };

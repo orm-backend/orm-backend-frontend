@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main style="opacity: 0">
     <div class="outer-container inner-container">
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item">

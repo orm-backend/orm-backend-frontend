@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header style="opacity: 0">
     <md-toolbar ref="mainToolbar" :class="classes" md-elevation="12">
       <div class="md-toolbar-row md-collapse-lateral">
         <div class="md-toolbar-section-start">

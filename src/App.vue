@@ -1,20 +1,21 @@
 <template>
   <div id="app" class="wrapper" ref="app">
-    <no-ssr>
-      <transition name="header" appear>
-        <router-view name="header" ref="header" />
-      </transition>
-      <transition
-        name="fade"
-        appear
-        v-on:enter="onEnter"
-        v-on:after-enter="onAfterEnter"
-        v-on:before-leave="onBeforeLeave"
-      >
-        <router-view ref="main" />
-      </transition>
+    <transition name="header" appear v-on:before-enter="onBeforeEnter">
+      <router-view name="header" ref="header" />
+    </transition>
+    <transition
+      name="fade"
+      appear
+      v-on:before-enter="onBeforeEnter"
+      v-on:after-enter="onAfterMainEnter"
+      v-on:before-leave="onBeforeMainLeave"
+    >
+      <router-view ref="main" />
+    </transition>
+    <transition name="header" appear v-on:before-enter="onBeforeEnter">
       <router-view name="footer" ref="footer" />
-
+    </transition>
+    <no-ssr>
       <md-snackbar
         md-position="center"
         :md-duration="5000"
@@ -94,19 +95,17 @@ export default {
       this.$cookie.set("cookie-policy-showed", 1, { expires: "1Y" });
       this.isNotAccepted = false;
     },
-    onEnter: function () {
-      $("footer").css("display", "none");
+    onBeforeEnter: function (el) {
+      $(el).removeAttr("style");
     },
-    onAfterEnter: function () {
-      $("footer").show();
-
+    onAfterMainEnter: function () {
       this.$nextTick().then(() => {
         if (typeof this.$refs.header.init === "function") {
           this.$refs.header.init();
         }
       });
     },
-    onBeforeLeave: function () {
+    onBeforeMainLeave: function () {
       $("body > .md-menu-content").hide();
     },
   },
@@ -124,68 +123,71 @@ export default {
   mounted() {
     this.isNotAccepted = this.$cookie.get("cookie-policy-showed") == null;
   },
-  metaInfo: {
-    title: process.env.VUE_APP_NAME,
-    htmlAttrs: {
-      lang: "en",
-    },
-    noscript: [{ innerHTML: "This website requires JavaScript." }],
-    meta: [
-      {
-        vmid: "description",
-        name: "description",
-        content:
-          "The ready-made backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Admin dashboard, CRUD services, ACL, OAuth2 and much more right out of the box.",
+  metaInfo() {
+    return {
+      title: process.env.VUE_APP_NAME,
+      htmlAttrs: {
+        lang: "en",
       },
-      {
-        vmid: "og:url",
-        property: "og:url",
-        content: process.env.VUE_APP_URL + "/",
-      },
-      {
-        vmid: "og:type",
-        property: "og:type",
-        content: "website",
-      },
-      {
-        vmid: "og:title",
-        property: "og:title",
-        content: process.env.VUE_APP_NAME,
-      },
-      {
-        vmid: "og:image",
-        property: "og:image",
-        content:
-          process.env.VUE_APP_URL + require("@/assets/img/orm-backend-og.jpg"),
-      },
-      {
-        property: "og:image:type",
-        content: "image/jpeg",
-        vmid: "og:image:type",
-      },
-      {
-        property: "og:image:width",
-        content: "1200",
-        vmid: "og:image:width",
-      },
-      {
-        property: "og:image:height",
-        content: "627",
-        vmid: "og:image:height",
-      },
-      {
-        property: "og:image:alt",
-        content:
-          "Abstract " + process.env.VUE_APP_NAME + " Logo with a caption",
-        vmid: "og:image:alt",
-      },
-      {
-        vmid: "og:description",
-        property: "og:description",
-        content:
-          "The ready-made back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
-      },
-    ],
+      noscript: [{ innerHTML: "This website requires JavaScript." }],
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "The ready-made backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Admin dashboard, CRUD services, ACL, OAuth2 and much more right out of the box.",
+        },
+        {
+          vmid: "og:url",
+          property: "og:url",
+          content: process.env.VUE_APP_URL + this.$route.path,
+        },
+        {
+          vmid: "og:type",
+          property: "og:type",
+          content: "website",
+        },
+        {
+          vmid: "og:title",
+          property: "og:title",
+          content: process.env.VUE_APP_NAME,
+        },
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content:
+            process.env.VUE_APP_URL +
+            require("@/assets/img/orm-backend-og.jpg"),
+        },
+        {
+          property: "og:image:type",
+          content: "image/jpeg",
+          vmid: "og:image:type",
+        },
+        {
+          property: "og:image:width",
+          content: "1200",
+          vmid: "og:image:width",
+        },
+        {
+          property: "og:image:height",
+          content: "627",
+          vmid: "og:image:height",
+        },
+        {
+          property: "og:image:alt",
+          content:
+            "Abstract " + process.env.VUE_APP_NAME + " Logo with a caption",
+          vmid: "og:image:alt",
+        },
+        {
+          vmid: "og:description",
+          property: "og:description",
+          content:
+            "The ready-made back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
+        },
+      ],
+    };
   },
 };
 </script>

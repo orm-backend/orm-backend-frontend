@@ -5,6 +5,7 @@
       class="page-header"
       v-bind:timeout="5"
       v-background-image="backgroundImage"
+      style="opacity: 0"
     >
       <div class="brand-description">
         <h1>ORM Backend</h1>

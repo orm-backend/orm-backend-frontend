@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main style="opacity: 0">
     <div class="outer-container content content-raised">
       <div class="inner-container md-layout guides-layout guides-layout-fixed">
         <div class="left-pane md-layout-item md-size-15" v-if="showLeftSidebar">

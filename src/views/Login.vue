@@ -1,5 +1,5 @@
 <template>
-  <main v-background-image="backgroundImage">
+  <main style="opacity: 0">
     <div class="outer-container inner-container">
       <div class="md-layout md-alignment-center-left">
         <div class="md-layout-item md-size-40 md-small-size-100">

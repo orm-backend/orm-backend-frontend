@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer style="opacity: 0">
     <div class="outer-container">
       <div class="inner-container">
         <md-bottom-bar md-type="shift">
