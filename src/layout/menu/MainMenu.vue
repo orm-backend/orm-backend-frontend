@@ -17,16 +17,20 @@
           <md-icon>featured_play_list</md-icon>
           <span>Features</span>
         </md-menu-item>
+        <md-menu-item to="/#concept" title="ORM Backend concept">
+          <md-icon>emoji_objects</md-icon>
+          <span>Concept</span>
+        </md-menu-item>
+        <md-menu-item to="/#architecture" title="ORM Backend architecture">
+          <md-icon>apartment</md-icon>
+          <span>Architecture</span>
+        </md-menu-item>
         <md-menu-item
           to="/#installation"
           title="How to install Doctrine based solution"
         >
           <md-icon>get_app</md-icon>
           <span>Installation</span>
-        </md-menu-item>
-        <md-menu-item to="/#architecture" title="ORM Backend architecture">
-          <md-icon>apartment</md-icon>
-          <span>Architecture</span>
         </md-menu-item>
         <md-menu-item to="/#feedback" title="Give feedback">
           <md-icon>feedback</md-icon>

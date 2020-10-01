@@ -11,18 +11,24 @@
     </md-list-item>
 
     <md-divider class="md-inset"></md-divider>
-    <md-list-item
-      to="/#installation"
-      title="Install ORM Backend to your project"
-    >
-      <md-icon>get_app</md-icon>
-      <span class="md-list-item-text">Installation</span>
+    <md-list-item to="/#concept" title="ORM Backend concept">
+      <md-icon>emoji_objects</md-icon>
+      <span class="md-list-item-text">Concept</span>
     </md-list-item>
 
     <md-divider class="md-inset"></md-divider>
     <md-list-item to="/#architecture" title="How it works?">
       <md-icon>apartment</md-icon>
       <span class="md-list-item-text">Architecture</span>
+    </md-list-item>
+
+    <md-divider class="md-inset"></md-divider>
+    <md-list-item
+      to="/#installation"
+      title="Install ORM Backend to your project"
+    >
+      <md-icon>get_app</md-icon>
+      <span class="md-list-item-text">Installation</span>
     </md-list-item>
 
     <md-divider class="md-inset"></md-divider>

@@ -89,6 +89,23 @@
 			margin: 0;
 		}
 	}
+
+	#concept {
+		text-align: center;
+
+		h3 {
+			font-size: 2rem;
+			color: $brand-accent;
+		}
+
+		svg {
+			fill: $brand-accent;
+		}
+
+		p {
+			margin-top: -24px;
+		}
+	}
 }
 
 @media (min-width: 1920px) {

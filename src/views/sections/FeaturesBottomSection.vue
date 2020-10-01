@@ -79,7 +79,7 @@
         <md-card>
           <md-card-header class="md-accent-dark">
             <md-card-header-text>
-              <div class="md-title">Json Query to SQL</div>
+              <div class="md-title">Json Query</div>
             </md-card-header-text>
             <md-card-media>
               <md-icon class="md-size-2x">code</md-icon>

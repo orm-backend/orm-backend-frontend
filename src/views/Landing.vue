@@ -41,9 +41,10 @@
       <div class="inner-container">
         <FeaturesTopSection></FeaturesTopSection>
         <FeaturesBottomSection></FeaturesBottomSection>
+        <ConceptSection></ConceptSection>
+        <ArchitectureSection></ArchitectureSection>
         <InstallationTopSection></InstallationTopSection>
         <InstallationBottomSection></InstallationBottomSection>
-        <ArchitectureSection></ArchitectureSection>
         <FeedbackSection></FeedbackSection>
       </div>
     </div>
@@ -76,6 +77,10 @@ export default {
     FeedbackSection: () =>
       import(
         /* webpackChunkName: "landing-page" */ "./sections/FeedbackSection"
+      ),
+    ConceptSection: () =>
+      import(
+        /* webpackChunkName: "landing-page" */ "./sections/ConceptSection"
       ),
   },
 

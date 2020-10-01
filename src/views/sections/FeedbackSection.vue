@@ -2,7 +2,7 @@
   <div id="feedback" class="section">
     <div class="md-layout md-alignment-top-center">
       <div
-        class="md-layout-item md-size-50 md-xlarge-size-30 md-small-size-100 text-center"
+        class="md-layout-item md-size-50 md-xlarge-size-30 md-small-size-100"
       >
         <h2 class="md-display-1">Work with us</h2>
         <p class="md-subheading">
@@ -13,7 +13,7 @@
     </div>
     <div class="md-layout md-alignment-top-center">
       <div
-        class="md-layout-item md-size-70 md-xlarge-size-50 md-medium-size-80 md-small-size-90 md-xsmall-size-100 mx-auto"
+        class="md-layout-item md-size-70 md-xlarge-size-50 md-medium-size-80 md-small-size-90 md-xsmall-size-100"
       >
         <FeedbackForm action="/feedback"></FeedbackForm>
       </div>

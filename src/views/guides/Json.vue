@@ -19,7 +19,7 @@
         trains. The Json representation for this query looks very simple and
         intuitive. It can be obtained as a request payload or converted from a
         URL query string. Please note that the conversion from the payload is
-        performed using PHP natine <code>json_decode</code> function, and from
+        performed using PHP native <code>json_decode</code> function, and from
         the query string we will retrieve a ready-made array provided by the PHP
         itself. Nothing new here, everything is very simple.
       </p>
@@ -36,20 +36,41 @@
       <h2 class="section">PHP array to DQL</h2>
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
-          <p>Usually, to build the query, we write something like following:</p>
+          <p>Usually, to build the query, we write something like following</p>
           <pre class="language-php"><code>{{ doctrineCode }}</code></pre>
         </div>
         <div class="md-layout-item">
-          <p>The result:</p>
+          <p>The result</p>
           <pre class="language-php"><code>{{ doctrineDQL }}</code></pre>
         </div>
       </div>
       <p>
         It would be more efficient to use the trainer's inner join in this
         example. But currently only left joins are used in this project. It
-        provides code that automatically converts a Json query to DQL. This code
-        can also be used to write your own json-like queries in your PHP code.
-        The supporetd operators are
+        provides code that automatically converts a Json query to DQL. Automatic
+        <code>LEFT JOIN</code> building based on parts of select, filter and
+        order. Let's say you want to filter teams by trainer name. But you do
+        not need to display the trainer's data.
+      </p>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item">
+          <p>You don't have to write</p>
+          <pre class="language-json"><code>{{ joinExample1 }}</code></pre>
+        </div>
+        <div class="md-layout-item">
+          <p>Just enough</p>
+          <pre class="language-json"><code>{{ joinExample2 }}</code></pre>
+        </div>
+      </div>
+      <p>
+        ORM backend itself will determine that a join is needed and build the
+        correct DQL. Sorting is similar. You can always select only those
+        entities that you need, as well as filter and sort by fields of other
+        related entities.
+      </p>
+      <p>
+        Json-like query can also be used in your own PHP code. The supporetd
+        operators are
         <code
           >eq neq gt gte lt lte isNull isNotNull like notLike in notIn
           between</code
@@ -57,12 +78,12 @@
       </p>
     </section>
     <section id="validation">
-      <h2>Sanitization, validation and strong typing</h2>
-      <p v-for="n in 5" :key="n">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil
-        praesentium molestias a adipisci, dolore vitae odit, quidem consequatur
-        optio voluptates asperiores pariatur eos numquam rerum delectus commodi
-        perferendis voluptate?
+      <h2>Sanitization and strong typing</h2>
+      <p>
+        First of all, the search query parameters are cleared using filter_var.
+        Then they are cast to a strong type in accordance with the mapping when
+        building a Doctrine query. If the type conversion is successful, a
+        database query is executed. Otherwise, an exception is thrown.
       </p>
     </section>
   </div>
@@ -89,21 +110,40 @@ export default {
       pageTitle: "Json Query to SQL",
       pageDescription:
         "Converting a JavaScript object directly to DQL and executing a query. Json can be written server side or obtained from an http request.",
+      joinExample1: `
+{
+  select: [
+    "team",
+    "team.trainer"
+  ],
+  filter: [
+    ["team.trainer", "like", "gary"]
+  ] 
+}`,
+      joinExample2: `
+{
+  select: [
+    "team"
+  ],
+  filter: [
+    ["team.trainer", "like", "gary"]
+  ] 
+}`,
       jsonCode: `// json query example
-[
-    select: {
+{
+    select: [
         "team",
         "team.players",
         "team.trainer"
-    },
-    filter: {
+    ],
+    filter: [
         [
             "or",
             ["team.name", "like", "amigos"],
             ["team.trainer.name", "like", "gary%"],
         ],
         ["team.trainer", "isNotNull"]
-    },
+    ],
     order: ["team.name", "-team.players.birthdate"]
 };`,
       phpArray: `// php array
@@ -216,7 +256,7 @@ WHERE (
         },
         {
           link: "validation",
-          title: "Sanitization, validation and strong typing",
+          title: "Sanitization and strong typing",
         },
       ],
     });
