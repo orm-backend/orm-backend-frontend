@@ -80,10 +80,11 @@
     <section id="validation">
       <h2>Sanitization and strong typing</h2>
       <p>
-        First of all, the search query parameters are cleared using filter_var.
-        Then they are cast to a strong type in accordance with the mapping when
-        building a Doctrine query. If the type conversion is successful, a
-        database query is executed. Otherwise, an exception is thrown.
+        First of all, the search query parameters are cleared using
+        <code>filter_var</code>. Then they are cast to a strong type according
+        the mapping when building a Doctrine query. If the type conversion is
+        successful, a database query is executed. Otherwise, an exception is
+        thrown.
       </p>
     </section>
   </div>
