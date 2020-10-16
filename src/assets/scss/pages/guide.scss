@@ -61,11 +61,17 @@
 			pre,
 			code {
 				overflow-x: auto;
-    			max-width: calc(100vw - 110px);
+    			/*max-width: calc(100vw - 110px);*/
 			}
 
 			section h2 {
 				padding-top: 110px;
+			}
+
+			.guide {
+				max-width: -webkit-fill-available;
+				max-width: -moz-available;
+				max-width: fill-available;
 			}
 		}
 
@@ -83,6 +89,12 @@
 @media (min-width: 1920px) {
 	.guide-page .guides-layout .left-pane {
 		align-items: flex-end;
+	}
+}
+
+@media (min-width: 961px) {
+	.guide-page .guides-layout .content-pane {
+		max-width: 80%;
 	}
 }
 

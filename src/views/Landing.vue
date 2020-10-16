@@ -40,8 +40,8 @@
     <div id="triggerElement" class="outer-container content content-raised">
       <div class="inner-container">
         <FeaturesTopSection></FeaturesTopSection>
-        <FeaturesBottomSection></FeaturesBottomSection>
         <ConceptSection></ConceptSection>
+        <FeaturesBottomSection></FeaturesBottomSection>
         <ArchitectureSection></ArchitectureSection>
         <InstallationTopSection></InstallationTopSection>
         <InstallationBottomSection></InstallationBottomSection>

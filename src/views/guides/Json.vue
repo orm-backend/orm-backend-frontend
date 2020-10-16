@@ -12,6 +12,101 @@
         intentionally). But it gets rid of the routine work.
       </p>
     </section>
+    <section id="frontend">
+      <h2>Frontend</h2>
+      <h3>Entity and field names conversion</h3>
+      <p>
+        To perform automatically conversion Json Query to SQL, ORM Backend uses
+        common pattern for field names:
+        <code>&lt;full-namespace&gt;-&lt;class_name&gt;.&lt;fieldName&gt;</code>
+        This ensures that entity names and their field names are unique. Also,
+        this agreement opens up the prospect of editing the fields of different
+        objects in one form and automatically saving them by one post-request.
+        Please note that ORM Backend does not use table and column names.
+      </p>
+      <pre class="language-json"><code>{{ namesExamples }}</code></pre>
+      <h3>Aliases</h3>
+      <p>
+        The converted names are very long and inconvenient to use in your code.
+        ORM Backend offers to send requests by url containing the full class
+        name, and use aliases in the code. For examle, all requests to
+        <code>App\Model\Team</code> entity can be passed by url containing the
+        transformed class name as a parameter. These requests can be handled by
+        a single controller that performs actions for all models.
+      </p>
+      <pre class="language-php"><code>{{ routes }}</code></pre>
+      <p>
+        By default, the alias is calculated as a short class name with the first
+        lowercase character. You can change this behavior, but it is important
+        that the alias matches the alias on the frontend.
+      </p>
+      <h3>Structure of Json Query</h3>
+      <pre class="language-json"><code>{{ queryStructure }}</code></pre>
+      <h3>Select</h3>
+      <p>
+        We assume that the smallest unit of the transmitted information is an
+        object. Therefore the select part can only contains association and
+        collection names.
+      </p>
+      <pre class="language-json"><code>{{ selectPart }}</code></pre>
+      <h3>Join</h3>
+      <p>
+        You don't really need to write anything here. All necessary joins are
+        performed automatically. This part of Json Query can be omitted.
+      </p>
+      <h3>Filter</h3>
+      <p>
+        All values ​​must be strongly typed. An exception will be thrown if the
+        value cannot be cast to the type that specified in the mapping.
+      </p>
+      <p>Conjunctions: or, and.</p>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item">
+          <pre class="language-json"><code>{{ conjunctionOr }}</code></pre>
+        </div>
+        <div class="md-layout-item">
+          <pre class="language-php"><code>{{ conjunctionAnd }}</code></pre>
+        </div>
+        <div class="md-layout-item">
+          <pre class="language-php"><code>{{ conjunctionNoAnd }}</code></pre>
+        </div>
+      </div>
+      <p>Operators: eq, neq, gt, gte, lt, lte, like, notLike.</p>
+      <pre class="language-json"><code>{{ operators1 }}</code></pre>
+      <p>Operators: isNull, isNotNull.</p>
+      <pre class="language-json"><code>{{ operators2 }}</code></pre>
+      <p>Operators: in, notIn.</p>
+      <pre class="language-json"><code>{{ operators3 }}</code></pre>
+      <p>Operator between.</p>
+      <pre class="language-json"><code>{{ operators4 }}</code></pre>
+      <p>Nested criteria are fully supported. The depth is not limited.</p>
+      <pre class="language-json"><code>{{ nested }}</code></pre>
+      <h3>Order</h3>
+      <p>
+        By default, sorting is in ascending order. To sort in descending order,
+        the field must be prefixed with a minus. The number of fields is not
+        limited.
+      </p>
+      <pre class="language-json"><code>{{ sorting }}</code></pre>
+      <h3>Pagination</h3>
+      <p>
+        The pagination is not a part of Json Query. It can be done by passing
+        <code>page</code> and <code>pagesize</code> parameters to the query
+        string. Pagination is supported in two modes: normal and cursor. In
+        normal mode, the total number of elements is counted, while in cursor
+        mode, this calculation is not performed. Cursor pagination is useful
+        with infinite scrolling.
+      </p>
+      <h3>Sending request</h3>
+      <p>
+        The supported request methods are GET, POST and PUT. The supported
+        media-types are <code>application/json</code>,
+        <code>application/x-www-form-urlencoded</code> and
+        <code>multipart/form-data</code>. You can use any of these methods
+        depending on your needs. JQuery deparam plugin can be useful for
+        converting Json Query to query-string parameters.
+      </p>
+    </section>
     <section id="json2php">
       <h2>Json to PHP array</h2>
       <p>
@@ -33,7 +128,14 @@
       </div>
     </section>
     <section id="php2dql">
-      <h2 class="section">PHP array to DQL</h2>
+      <h2>PHP array to DQL</h2>
+      <p>
+        ORM Backend provides code that automatically converts a Json Query to
+        DQL. Automatic <code>LEFT OUTER JOIN</code> building based on parts of
+        select, filter and order. First of all, the query parameters are cleared
+        using <code>filter_var</code>. They are then casted to strong type
+        according to the Doctrine mapping during Doctrine query building.
+      </p>
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
           <p>Usually, to build the query, we write something like following</p>
@@ -46,12 +148,9 @@
       </div>
       <p>
         It would be more efficient to use the trainer's inner join in this
-        example. But currently only left joins are used in this project. ORM
-        Backend provides code that automatically converts a Json query to DQL.
-        Automatic
-        <code>LEFT JOIN</code> building based on parts of select, filter and
-        order. Let's say you want to filter teams by trainer name, but you do
-        not need to display the trainer's data.
+        example. But currently only left joins are used in this project. Let's
+        say you want to filter teams by trainer name, but you do not need to
+        display the trainer's data.
       </p>
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
@@ -67,26 +166,24 @@
         ORM backend will determine that a join is needed and build the correct
         DQL. Sorting is similar. You can always select only those entities that
         you need, as well as filter and sort by fields of other related
-        entities.
+        entities. Also, there is no need to specify the alias of the root entity
+        in the select part. It is always added by ORM Backend.
       </p>
+    </section>
+    <section id="backend">
+      <h2>Using in PHP code</h2>
       <p>
-        Json-like query can also be used in your own PHP code. The supporetd
+        Json-like query can also be used in your own PHP code. The supported
         operators are
         <code
           >eq neq gt gte lt lte isNull isNotNull like notLike in notIn
           between</code
-        >. DQL expression and aliases are also available.
+        >. DQL expression and aliases are also available. Simple and intuitive
+        Json Query is tempting to use it everywhere. Below are a couple of
+        examples of actual code.
       </p>
-    </section>
-    <section id="validation">
-      <h2>Sanitization and strong typing</h2>
-      <p>
-        First of all, the search query parameters are cleared using
-        <code>filter_var</code>. They are then casted to strong type according
-        to the Doctrine mapping during Doctrine query building. If the type
-        conversion is successful, a database query is executed. Otherwise, an
-        exception is thrown.
-      </p>
+      <pre class="language-php"><code>{{ phpExample1 }}</code></pre>
+      <pre class="language-php"><code>{{ phpExample2 }}</code></pre>
     </section>
   </div>
 </template>
@@ -112,8 +209,155 @@ export default {
       pageTitle: "Json Query to SQL",
       pageDescription:
         "Converting a JavaScript object directly to DQL and executing a query. Json can be written server side or obtained from an http request.",
-      joinExample1: `
+      phpExample2: `/**
+  *
+  * @param \\Illuminate\\Http\\Request $request
+  * @param string $eventCode
+  * @param string $placeCode
+  * @param string $adCode
+  * @return \\Illuminate\\View\\View
+  */
+public function details(Request $request, string $eventCode, string $placeCode, string $adCode)
 {
+    $parameters = [
+        'select' => [
+            'ad.event',
+            'ad.place',
+            'ad.images'
+        ],
+        'filter' => [
+            ['ad.event.code', 'eq', $eventCode],
+            ['ad.place.code', 'eq', $placeCode],
+            ['ad.code', 'eq', $adCode],
+            ['ad.event.status', 'eq', StatusEnum::PUBLISHED],
+            ['ad.place.status', 'eq', StatusEnum::PUBLISHED],
+            ['ad.status', 'eq', StatusEnum::PUBLISHED]
+        ]
+    ];
+    
+    try {
+        /**
+         * 
+         * @var \\App\\Entities\\Ad $ad
+         */
+        $ad = $this->repository->createQuery(Ad::class, $parameters, 'ad')->getSingleResult();
+    } catch (NoResultException $e) {
+        abort(404);
+    }
+    
+    return view('app.details', [
+        'event' => $ad->getEvent(),
+        'place' => $ad->getPlace(),
+        'ad' => $ad
+    ]);
+}
+`,
+      phpExample1: `/**
+  *
+  * @param  \\Illuminate\\Http\\Request  $request
+  * @return  \\Illuminate\\Http\\Response
+  */
+public function index(Request $request)
+{
+    $parameters = [
+        'select' => [
+            'event.previewImage',
+            'event.place'
+        ],
+        'filter' => [
+            ['event.status', 'eq', StatusEnum::PUBLISHED]
+        ],
+        'order' => ['event.sort', '-event.createdAt']
+    ];
+    
+    $paginator = $this->cursor($this->repository->createQuery(Event::class, $parameters, 'event'))->appends($request->all());
+
+    return view('app.index', ['paginator' => $paginator]);
+}
+`,
+      routes: `// routes.php
+// uri /api/entities/app-model-team
+Route::get('/api/entities/{entity}', 'ApiController@search')
+`,
+      sorting: `order: [
+  "team.name", "-team.trainer.name"
+]
+`,
+      nested: `filter: [
+  [...comparison]
+  [
+    "or",
+    [...comparison],
+    [ [...comparison], [...comparison] ]
+  ]
+]
+`,
+      operators4: `filter: [
+  ["team.createdAt", "between", "2020-01-01", "2020-01-31"]
+]
+`,
+      operators3: `filter: [
+  ["team.createdBy.role.code", "in", ["admin", "guest"]],
+  ["team.id", "notIn", ["c32e99ec-6a2b-473d-82de-ff177b1fcae6", "77d6e9dd-c38f-40be-9c39-fc4daa46d086"]],
+]
+`,
+      operators2: `filter: [
+  ["team.trainer.id", "isNull"],
+  ["team.name", "isNotNull"]
+]
+`,
+      operators1: `filter: [
+  ["team.trainer.id", "eq", "3286b84b-314e-424b-b23e-e586cdf2cca7"],
+  ["team.inFinal", "neq", false],
+  ["team.player.age", "gt", 18],
+  ["team.player.age", "gte", 18],
+  ["team.player.age", "lt", 18],
+  ["team.player.age", "lte", 18],
+  ["team.name", "like", "amigos"],
+  ["team.name", "notLike", "%amigos%"]
+]
+`,
+      conjunctionOr: `filter: [
+  "or",
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]
+`,
+      conjunctionAnd: `filter: [
+  "and",
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]
+`,
+      conjunctionNoAnd: `// "and" can be omitted
+filter: [
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]
+`,
+      selectPart: `select: [
+  "team",
+  "team.trainer",
+  "team.players"
+]
+`,
+      namesExamples: `"app-model-team" // entity App\\Model\\Team
+"app-model-team_trainer"  // entity App\\Model\\TeamTrainer
+"app-model-team.trainer" // association App\\Model\\Team::trainer
+"app-model-team.players" // collection App\\Model\\Team::players
+"app-model-team.trainer.createdBy.role.name" // The depth is not limited
+`,
+      queryStructure: `{
+  select: [],
+  join: [],
+  filter: [],
+  order: []
+}
+`,
+      joinExample1: `{
   select: [
     "team",
     "team.trainer"
@@ -122,11 +366,7 @@ export default {
     ["team.trainer.name", "like", "gary"]
   ] 
 }`,
-      joinExample2: `
-{
-  select: [
-    "team"
-  ],
+      joinExample2: `{
   filter: [
     ["team.trainer.name", "like", "gary"]
   ] 
@@ -197,41 +437,53 @@ WHERE (
           globalSceneOptions: { triggerHook: 0 },
         });
 
-        const el1 = document.querySelector("#json2php");
+        const el1 = document.querySelector("#frontend");
         const scene1 = new ScrollMagic.Scene({
-          triggerElement: "#json2php",
+          triggerElement: "#frontend",
           duration: $(el1).outerHeight(true),
           triggerHook: 0,
           offset: 0,
-        }).setClassToggle(".json2php-link > a", "router-link-active");
+        }).setClassToggle(".frontend-link > a", "router-link-active");
         //.addIndicators();
 
         this.controller.addScene(scene1);
         this.scenes.push(scene1);
 
-        const el2 = document.querySelector("#php2dql");
+        const el2 = document.querySelector("#json2php");
         const scene2 = new ScrollMagic.Scene({
-          triggerElement: "#php2dql",
+          triggerElement: "#json2php",
           duration: $(el2).outerHeight(true),
           triggerHook: 0,
           offset: 0,
-        }).setClassToggle(".php2dql-link > a", "router-link-active");
+        }).setClassToggle(".json2php-link > a", "router-link-active");
         //.addIndicators();
 
         this.controller.addScene(scene2);
         this.scenes.push(scene2);
 
-        // const el3 = document.querySelector("#validation");
-        // const scene3 = new ScrollMagic.Scene({
-        //   triggerElement: "#validation",
-        //   duration: $(el3).outerHeight(true),
-        //   triggerHook: 0,
-        //   offset: 0,
-        // }).setClassToggle(".validation-link > a", "router-link-active");
-        // //.addIndicators();
+        const el3 = document.querySelector("#php2dql");
+        const scene3 = new ScrollMagic.Scene({
+          triggerElement: "#php2dql",
+          duration: $(el3).outerHeight(true),
+          triggerHook: 0,
+          offset: 0,
+        }).setClassToggle(".php2dql-link > a", "router-link-active");
+        //.addIndicators();
 
-        // this.controller.addScene(scene3);
-        // this.scenes.push(scene3);
+        this.controller.addScene(scene3);
+        this.scenes.push(scene3);
+
+        const el4 = document.querySelector("#backend");
+        const scene4 = new ScrollMagic.Scene({
+          triggerElement: "#backend",
+          duration: $(el4).outerHeight(true),
+          triggerHook: 0,
+          offset: 0,
+        }).setClassToggle(".backend-link > a", "router-link-active");
+        //.addIndicators();
+
+        this.controller.addScene(scene4);
+        this.scenes.push(scene4);
       } else {
         this.$nextTick(() => {
           this.scenes.forEach((scene) => {
@@ -249,6 +501,10 @@ WHERE (
       title: this.pageTitle,
       menu: [
         {
+          link: "frontend",
+          title: "Frontend",
+        },
+        {
           link: "json2php",
           title: "Json to PHP array",
         },
@@ -256,10 +512,10 @@ WHERE (
           link: "php2dql",
           title: "PHP array to DQL",
         },
-        // {
-        //   link: "validation",
-        //   title: "Sanitization and strong typing",
-        // },
+        {
+          link: "backend",
+          title: "Backend",
+        },
       ],
     });
   },
