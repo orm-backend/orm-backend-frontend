@@ -1,3 +1,4 @@
+@import "highlight.js/scss/atelier-heath-light.scss";
 
 .guide-page {
 
@@ -84,6 +85,14 @@
 			padding-top: 0;
 		}
 	}
+
+	table, th, td {
+		border: 1px solid var(--md-theme-default-text-primary-on-background, black);
+	}
+
+	th, td {
+		padding: 6px 24px;
+	}
 }
 
 @media (min-width: 1920px) {
@@ -95,6 +104,12 @@
 @media (min-width: 961px) {
 	.guide-page .guides-layout .content-pane {
 		max-width: 80%;
+	}
+}
+
+@media (max-width: 960px) {
+	.guide-page .guides-layout .content-pane {
+		max-width: 100%;
 	}
 }
 

@@ -22,8 +22,8 @@
         <ul>
           <li>
             <code>ormbackend/laravel-doctrine</code> The main package. Should
-            always be installed. Contains core classes, the JSON Query Language
-            and REST services. The default implementation of ACL is included
+            always be installed. Contains core classes, the Json Query and
+            RESTful services. The default implementation of ACL is included
             also.
           </li>
           <li>
@@ -33,12 +33,14 @@
           </li>
           <li>
             <code>ormbackend/laravel-doctrine-web</code> Helper classes for use
-            in MVC mode. Required for admin panel.
+            in MVC mode. Required for Laravel Admin panel.
           </li>
-          <li><code>ormbackend/laravel-doctrine-admin</code> Admin panel.</li>
+          <li>
+            <code>ormbackend/laravel-doctrine-admin</code> Laravel Admin panel.
+          </li>
           <li>
             <code>ormbackend/laravel-doctrine-oauth</code> OAuth token
-            management for admin panel.
+            management for Laravel Admin panel.
           </li>
           <li>
             <code>ormbackend/laravel-doctrine-example</code> Example

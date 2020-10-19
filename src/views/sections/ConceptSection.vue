@@ -40,7 +40,7 @@
               <md-icon>arrow_downward</md-icon>
             </h4>
             <md-content class="md-accent md-accent-dark md-elevation-12">
-              <h3>CRUD &amp; Admin</h3>
+              <h3>RESTful &amp; Laravel Admin</h3>
             </md-content>
             <p class="md-caption">(without writing code)</p>
           </div>

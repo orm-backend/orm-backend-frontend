@@ -50,20 +50,20 @@
         <md-list-item
           class="md-inset"
           to="/guides/json"
-          title="JSON Query implementation"
+          title="Json Query implementation"
         >
           <md-icon>code</md-icon>
-          <span class="md-list-item-text">JSON Query</span>
+          <span class="md-list-item-text">Json Query</span>
         </md-list-item>
 
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
           to="/guides/rest"
-          title="JSON CRUD secrices"
+          title="RESTful Services"
         >
           <md-icon>language</md-icon>
-          <span class="md-list-item-text">REST services</span>
+          <span class="md-list-item-text">RESTful Services</span>
         </md-list-item>
 
         <md-divider class="md-inset"></md-divider>
@@ -93,7 +93,7 @@
           title="Laravel Admin panel"
         >
           <md-icon>dashboard</md-icon>
-          <span class="md-list-item-text">Admin panel</span>
+          <span class="md-list-item-text">Laravel Admin</span>
         </md-list-item>
       </md-list>
     </md-list-item>

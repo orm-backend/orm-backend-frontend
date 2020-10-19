@@ -24,7 +24,13 @@
         objects in one form and automatically saving them by one post-request.
         Please note that ORM Backend does not use table and column names.
       </p>
-      <pre class="language-json"><code>{{ namesExamples }}</code></pre>
+      <pre
+        v-highlightjs
+      ><code class="json">"app-model-team" // entity App\Model\Team
+"app-model-team_trainer"  // entity App\Model\TeamTrainer
+"app-model-team.trainer" // association App\Model\Team::trainer
+"app-model-team.players" // collection App\Model\Team::players
+"app-model-team.trainer.createdBy.role.name" // The depth is not limited</code></pre>
       <h3>Aliases</h3>
       <p>
         The converted names are very long and inconvenient to use in your code.
@@ -34,21 +40,32 @@
         transformed class name as a parameter. These requests can be handled by
         a single controller that performs actions for all models.
       </p>
-      <pre class="language-php"><code>{{ routes }}</code></pre>
+      <pre v-highlightjs><code class="php">// routes.php
+// uri /api/entities/app-model-team
+Route::get('/api/entities/{entity}', 'ApiController@search')</code></pre>
       <p>
         By default, the alias is calculated as a short class name with the first
         lowercase character. You can change this behavior, but it is important
         that the alias matches the alias on the frontend.
       </p>
       <h3>Structure of Json Query</h3>
-      <pre class="language-json"><code>{{ queryStructure }}</code></pre>
+      <pre v-highlightjs><code class="json">{
+  select: [],
+  join: [],
+  filter: [],
+  order: []
+}</code></pre>
       <h3>Select</h3>
       <p>
         We assume that the smallest unit of the transmitted information is an
         object. Therefore the select part can only contains association and
         collection names.
       </p>
-      <pre class="language-json"><code>{{ selectPart }}</code></pre>
+      <pre v-highlightjs><code class="json">select: [
+  "team",
+  "team.trainer",
+  "team.players"
+]</code></pre>
       <h3>Join</h3>
       <p>
         You don't really need to write anything here. All necessary joins are
@@ -62,36 +79,77 @@
       <p>Conjunctions: or, and.</p>
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
-          <pre class="language-json"><code>{{ conjunctionOr }}</code></pre>
+          <pre v-highlightjs><code class="json">filter: [
+  "or",
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]</code></pre>
         </div>
         <div class="md-layout-item">
-          <pre class="language-php"><code>{{ conjunctionAnd }}</code></pre>
+          <pre v-highlightjs><code class="json">filter: [
+  "and",
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]</code></pre>
         </div>
         <div class="md-layout-item">
-          <pre class="language-php"><code>{{ conjunctionNoAnd }}</code></pre>
+          <pre v-highlightjs><code class="json">// "and" can be omitted
+filter: [
+  [...comparison1],
+  [...comparison2],
+  [...comparison3]
+]</code></pre>
         </div>
       </div>
       <p>Operators: eq, neq, gt, gte, lt, lte, like, notLike.</p>
-      <pre class="language-json"><code>{{ operators1 }}</code></pre>
+      <pre v-highlightjs><code class="json">filter: [
+  ["team.trainer.id", "eq", "3286b84b-314e-424b-b23e-e586cdf2cca7"],
+  ["team.inFinal", "neq", false],
+  ["team.player.age", "gt", 18],
+  ["team.player.age", "gte", 18],
+  ["team.player.age", "lt", 18],
+  ["team.player.age", "lte", 18],
+  ["team.name", "like", "amigos"],
+  ["team.name", "notLike", "%amigos%"]
+]</code></pre>
       <p>Operators: isNull, isNotNull.</p>
-      <pre class="language-json"><code>{{ operators2 }}</code></pre>
+      <pre v-highlightjs><code class="json">filter: [
+  ["team.trainer.id", "isNull"],
+  ["team.name", "isNotNull"]
+]</code></pre>
       <p>Operators: in, notIn.</p>
-      <pre class="language-json"><code>{{ operators3 }}</code></pre>
+      <pre v-highlightjs><code class="json">filter: [
+  ["team.createdBy.role.code", "in", ["admin", "guest"]],
+  ["team.id", "notIn", ["c32e99ec-6a2b-473d-82de-ff177b1fcae6", "77d6e9dd-c38f-40be-9c39-fc4daa46d086"]],
+]</code></pre>
       <p>Operator between.</p>
-      <pre class="language-json"><code>{{ operators4 }}</code></pre>
+      <pre v-highlightjs><code class="json">filter: [
+  ["team.createdAt", "between", "2020-01-01", "2020-01-31"]
+]</code></pre>
       <p>Nested criteria are fully supported. The depth is not limited.</p>
-      <pre class="language-json"><code>{{ nested }}</code></pre>
+      <pre v-highlightjs><code class="json">filter: [
+  [...comparison]
+  [
+    "or",
+    [...comparison],
+    [ [...comparison], [...comparison] ]
+  ]
+]</code></pre>
       <h3>Order</h3>
       <p>
         By default, sorting is in ascending order. To sort in descending order,
         the field must be prefixed with a minus. The number of fields is not
         limited.
       </p>
-      <pre class="language-json"><code>{{ sorting }}</code></pre>
+      <pre v-highlightjs><code class="json">order: [
+  "team.name", "-team.trainer.name"
+]</code></pre>
       <h3>Pagination</h3>
       <p>
         The pagination is not a part of Json Query. It can be done by passing
-        <code>page</code> and <code>pagesize</code> parameters to the query
+        <code>page</code> and <code>perpage</code> parameters to the query
         string. Pagination is supported in two modes: normal and cursor. In
         normal mode, the total number of elements is counted, while in cursor
         mode, this calculation is not performed. Cursor pagination is useful
@@ -99,12 +157,15 @@
       </p>
       <h3>Sending request</h3>
       <p>
-        The supported request methods are GET, POST and PUT. The supported
-        media-types are <code>application/json</code>,
+        The supported request methods are GET, POST, PUT and DELETE. The
+        supported media-types are <code>application/json</code>,
         <code>application/x-www-form-urlencoded</code> and
-        <code>multipart/form-data</code>. You can use any of these methods
-        depending on your needs. JQuery deparam plugin can be useful for
-        converting Json Query to query-string parameters.
+        <code>multipart/form-data</code>. JQuery deparam plugin can be useful
+        for converting Json Query to query-string parameters.
+        <router-link to="/guides/rest" title="RESTfull CRUD Services"
+          >Read more</router-link
+        >
+        about requests.
       </p>
     </section>
     <section id="json2php">
@@ -120,10 +181,42 @@
       </p>
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
-          <pre class="language-json"><code>{{ jsonCode }}</code></pre>
+          <pre v-highlightjs><code class="json">// json query example
+{
+    select: [
+        "team",
+        "team.players",
+        "team.trainer"
+    ],
+    filter: [
+        [
+            "or",
+            ["team.name", "like", "amigos"],
+            ["team.trainer.name", "like", "gary%"],
+        ],
+        ["team.trainer.id", "isNotNull"]
+    ],
+    order: ["team.name", "-team.players.birthdate"]
+};</code></pre>
         </div>
         <div class="md-layout-item">
-          <pre class="language-php"><code>{{ phpArray }}</code></pre>
+          <pre v-highlightjs><code class="php">// php array
+[
+    'select' => [
+        "team",
+        "team.players",
+        "team.trainer"
+    ],
+    'filter' => [
+        [
+            "or",
+            ["team.name", "like", "amigos"],
+            ["team.trainer.name", "like", "gary%"],
+        ],
+        ["team.trainer.id", "isNotNull"]
+    ],
+    'order' => ["team.name", "-team.players.birthdate"]
+];</code></pre>
         </div>
       </div>
     </section>
@@ -139,11 +232,27 @@
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
           <p>Usually, to build the query, we write something like following</p>
-          <pre class="language-php"><code>{{ doctrineCode }}</code></pre>
+          <pre v-highlightjs><code class="php">// filter only
+$qb->where(
+    $qb->expr()->andX()->addMultiple([
+        $qb->expr()->orX()->addMultiple([
+            $qb->expr()->like('team.name', ':name1'),
+            $qb->expr()->like('team_trainer.name', ':name2'),
+        ]),
+        $qb->expr()->notNull('team_trainer.id')
+    ])
+);</code></pre>
         </div>
         <div class="md-layout-item">
           <p>The result</p>
-          <pre class="language-php"><code>{{ doctrineDQL }}</code></pre>
+          <pre v-highlightjs><code class="mysql">// DQL
+FROM Team team
+LEFT JOIN team.players team_players
+LEFT JOIN team.trainer team_trainer
+WHERE (
+    team_players.name LIKE :name1
+    OR team_trainer.name LIKE :name2
+) AND team_trainer.id NOT NULL</code></pre>
         </div>
       </div>
       <p>
@@ -155,11 +264,23 @@
       <div class="md-layout md-gutter">
         <div class="md-layout-item">
           <p>You don't have to write</p>
-          <pre class="language-json"><code>{{ joinExample1 }}</code></pre>
+          <pre v-highlightjs><code class="json">{
+  select: [
+    "team",
+    "team.trainer"
+  ],
+  filter: [
+    ["team.trainer.name", "like", "gary"]
+  ] 
+}</code></pre>
         </div>
         <div class="md-layout-item">
           <p>Just enough</p>
-          <pre class="language-json"><code>{{ joinExample2 }}</code></pre>
+          <pre v-highlightjs><code class="json">{
+  filter: [
+    ["team.trainer.name", "like", "gary"]
+  ] 
+}</code></pre>
         </div>
       </div>
       <p>
@@ -182,40 +303,35 @@
         Json Query is tempting to use it everywhere. Below are a couple of
         examples of actual code.
       </p>
-      <pre class="language-php"><code>{{ phpExample1 }}</code></pre>
-      <pre class="language-php"><code>{{ phpExample2 }}</code></pre>
-    </section>
-  </div>
-</template>
-
-<script>
-const ScrollMagic = process.client ? require("ScrollMagic") : null;
-
-if (process.client && process.env.NODE_ENV === "development") {
-  require("debug.addIndicators");
-}
-
-import Prism from "prismjs";
-import "prismjs/components/prism-markup-templating";
-import "prismjs/components/prism-json";
-import "prismjs/components/prism-php";
-import "prismjs/themes/prism.css";
-
-export default {
-  data() {
-    return {
-      controller: null,
-      scenes: [],
-      pageTitle: "Json Query to SQL",
-      pageDescription:
-        "Converting a JavaScript object directly to DQL and executing a query. Json can be written server side or obtained from an http request.",
-      phpExample2: `/**
+      <pre v-highlightjs><code class="php">/**
   *
-  * @param \\Illuminate\\Http\\Request $request
+  * @param  \Illuminate\Http\Request  $request
+  * @return  \Illuminate\Http\Response
+  */
+public function index(Request $request)
+{
+    $parameters = [
+        'select' => [
+            'event.previewImage',
+            'event.place'
+        ],
+        'filter' => [
+            ['event.status', 'eq', StatusEnum::PUBLISHED]
+        ],
+        'order' => ['event.sort', '-event.createdAt']
+    ];
+    
+    $paginator = $this->cursor($this->repository->createQuery(Event::class, $parameters, 'event'))->appends($request->all());
+
+    return view('app.index', ['paginator' => $paginator]);
+}</code></pre>
+      <pre v-highlightjs><code class="php">/**
+  *
+  * @param \Illuminate\Http\Request $request
   * @param string $eventCode
   * @param string $placeCode
   * @param string $adCode
-  * @return \\Illuminate\\View\\View
+  * @return \Illuminate\View\View
   */
 public function details(Request $request, string $eventCode, string $placeCode, string $adCode)
 {
@@ -238,7 +354,7 @@ public function details(Request $request, string $eventCode, string $placeCode, 
     try {
         /**
          * 
-         * @var \\App\\Entities\\Ad $ad
+         * @var \App\Entities\Ad $ad
          */
         $ad = $this->repository->createQuery(Ad::class, $parameters, 'ad')->getSingleResult();
     } catch (NoResultException $e) {
@@ -250,181 +366,26 @@ public function details(Request $request, string $eventCode, string $placeCode, 
         'place' => $ad->getPlace(),
         'ad' => $ad
     ]);
-}
-`,
-      phpExample1: `/**
-  *
-  * @param  \\Illuminate\\Http\\Request  $request
-  * @return  \\Illuminate\\Http\\Response
-  */
-public function index(Request $request)
-{
-    $parameters = [
-        'select' => [
-            'event.previewImage',
-            'event.place'
-        ],
-        'filter' => [
-            ['event.status', 'eq', StatusEnum::PUBLISHED]
-        ],
-        'order' => ['event.sort', '-event.createdAt']
-    ];
-    
-    $paginator = $this->cursor($this->repository->createQuery(Event::class, $parameters, 'event'))->appends($request->all());
+}</code></pre>
+    </section>
+  </div>
+</template>
 
-    return view('app.index', ['paginator' => $paginator]);
+<script>
+const ScrollMagic = process.client ? require("ScrollMagic") : null;
+
+if (process.client && process.env.NODE_ENV === "development") {
+  require("debug.addIndicators");
 }
-`,
-      routes: `// routes.php
-// uri /api/entities/app-model-team
-Route::get('/api/entities/{entity}', 'ApiController@search')
-`,
-      sorting: `order: [
-  "team.name", "-team.trainer.name"
-]
-`,
-      nested: `filter: [
-  [...comparison]
-  [
-    "or",
-    [...comparison],
-    [ [...comparison], [...comparison] ]
-  ]
-]
-`,
-      operators4: `filter: [
-  ["team.createdAt", "between", "2020-01-01", "2020-01-31"]
-]
-`,
-      operators3: `filter: [
-  ["team.createdBy.role.code", "in", ["admin", "guest"]],
-  ["team.id", "notIn", ["c32e99ec-6a2b-473d-82de-ff177b1fcae6", "77d6e9dd-c38f-40be-9c39-fc4daa46d086"]],
-]
-`,
-      operators2: `filter: [
-  ["team.trainer.id", "isNull"],
-  ["team.name", "isNotNull"]
-]
-`,
-      operators1: `filter: [
-  ["team.trainer.id", "eq", "3286b84b-314e-424b-b23e-e586cdf2cca7"],
-  ["team.inFinal", "neq", false],
-  ["team.player.age", "gt", 18],
-  ["team.player.age", "gte", 18],
-  ["team.player.age", "lt", 18],
-  ["team.player.age", "lte", 18],
-  ["team.name", "like", "amigos"],
-  ["team.name", "notLike", "%amigos%"]
-]
-`,
-      conjunctionOr: `filter: [
-  "or",
-  [...comparison1],
-  [...comparison2],
-  [...comparison3]
-]
-`,
-      conjunctionAnd: `filter: [
-  "and",
-  [...comparison1],
-  [...comparison2],
-  [...comparison3]
-]
-`,
-      conjunctionNoAnd: `// "and" can be omitted
-filter: [
-  [...comparison1],
-  [...comparison2],
-  [...comparison3]
-]
-`,
-      selectPart: `select: [
-  "team",
-  "team.trainer",
-  "team.players"
-]
-`,
-      namesExamples: `"app-model-team" // entity App\\Model\\Team
-"app-model-team_trainer"  // entity App\\Model\\TeamTrainer
-"app-model-team.trainer" // association App\\Model\\Team::trainer
-"app-model-team.players" // collection App\\Model\\Team::players
-"app-model-team.trainer.createdBy.role.name" // The depth is not limited
-`,
-      queryStructure: `{
-  select: [],
-  join: [],
-  filter: [],
-  order: []
-}
-`,
-      joinExample1: `{
-  select: [
-    "team",
-    "team.trainer"
-  ],
-  filter: [
-    ["team.trainer.name", "like", "gary"]
-  ] 
-}`,
-      joinExample2: `{
-  filter: [
-    ["team.trainer.name", "like", "gary"]
-  ] 
-}`,
-      jsonCode: `// json query example
-{
-    select: [
-        "team",
-        "team.players",
-        "team.trainer"
-    ],
-    filter: [
-        [
-            "or",
-            ["team.name", "like", "amigos"],
-            ["team.trainer.name", "like", "gary%"],
-        ],
-        ["team.trainer.id", "isNotNull"]
-    ],
-    order: ["team.name", "-team.players.birthdate"]
-};`,
-      phpArray: `// php array
-[
-    'select' => [
-        "team",
-        "team.players",
-        "team.trainer"
-    ],
-    'filter' => [
-        [
-            "or",
-            ["team.name", "like", "amigos"],
-            ["team.trainer.name", "like", "gary%"],
-        ],
-        ["team.trainer.id", "isNotNull"]
-    ],
-    'order' => ["team.name", "-team.players.birthdate"]
-];`,
-      doctrineCode: `// filter only
-$qb->where(
-    $qb->expr()->andX()->addMultiple([
-        $qb->expr()->orX()->addMultiple([
-            $qb->expr()->like('team.name', ':name1'),
-            $qb->expr()->like('team_trainer.name', ':name2'),
-        ]),
-        $qb->expr()->notNull('team_trainer.id')
-    ])
-);
-`,
-      doctrineDQL: `// DQL
-FROM Team team
-LEFT JOIN team.players team_players
-LEFT JOIN team.trainer team_trainer
-WHERE (
-    team_players.name LIKE :name1
-    OR team_trainer.name LIKE :name2
-) AND team_trainer.id NOT NULL
-`,
+
+export default {
+  data() {
+    return {
+      controller: null,
+      scenes: [],
+      pageTitle: "Json Query",
+      pageDescription:
+        "Converting a JavaScript object directly to DQL and executing a query. Json can be written on the server side or obtained from an http request.",
     };
   },
   methods: {
@@ -518,9 +479,6 @@ WHERE (
         },
       ],
     });
-  },
-  mounted() {
-    Prism.highlightAll();
   },
   beforeDestroy() {
     if (this.controller) {

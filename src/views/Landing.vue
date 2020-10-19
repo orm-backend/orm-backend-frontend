@@ -12,8 +12,8 @@
         <h4>
           It is not a framework or CMS. It is a ready-made backend solution
           based on Doctrine ORM and integrated with the popular Laravel
-          Framework. Admin dashboard, CRUD services, ACL and much more right out
-          of the box.
+          Framework. Laravel Admin dashboard, RESTful services, ACL and much
+          more right out of the box.
         </h4>
         <md-button class="md-primary md-raised" to="#features">
           <span>Read more</span>

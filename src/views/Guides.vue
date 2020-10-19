@@ -52,6 +52,10 @@
 
 <script>
 import "@/assets/scss/pages/guide.scss";
+import Vue from "vue";
+import VueHighlightJS from "vue-highlightjs";
+
+Vue.use(VueHighlightJS);
 
 export default {
   name: "Guides",
@@ -60,7 +64,7 @@ export default {
     Json: () =>
       import(/* webpackChunkName: "guides-json-page" */ "./guides/Json"),
     Rest: () =>
-      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+      import(/* webpackChunkName: "guides-dev-page" */ "./guides/Services"),
     Acl: () =>
       import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
     Admin: () =>
@@ -110,9 +114,6 @@ export default {
       let title = null;
 
       switch (this.$route.params.guide) {
-        case "rest":
-          title = "CRUD Services";
-          break;
         case "oauth":
           title = "OAuth Integration";
           break;
@@ -130,11 +131,6 @@ export default {
       let description = null;
 
       switch (this.$route.params.guide) {
-        case "rest":
-          description = `Ready-made CRUD services. Which allows you to 
-          filter objects by properties of related objects by the received 
-          parameters in JSON or URL encoding.`;
-          break;
         case "oauth":
           description = `Integration of the OAuth 2.0 authorization framework. Bearer 
           token management in the admin panel.`;

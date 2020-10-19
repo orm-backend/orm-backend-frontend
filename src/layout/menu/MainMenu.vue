@@ -12,7 +12,7 @@
       <md-menu-content>
         <md-menu-item
           to="/#features"
-          title="Laravel Admin panel, CRUD, ACL, OAuth and more..."
+          title="Laravel Admin panel, RESTful services, ACL, OAuth and more..."
         >
           <md-icon>featured_play_list</md-icon>
           <span>Features</span>
@@ -48,9 +48,9 @@
           <md-icon>code</md-icon>
           <span>Json Query</span>
         </md-menu-item>
-        <md-menu-item to="/guides/rest" title="REST / CRUD services">
+        <md-menu-item to="/guides/rest" title="RESTful Services">
           <md-icon>language</md-icon>
-          <span>CRUD services</span>
+          <span>RESTful Services</span>
         </md-menu-item>
         <md-menu-item to="/guides/oauth" title="OAuth2 integration">
           <md-icon>security</md-icon>
@@ -62,7 +62,7 @@
         </md-menu-item>
         <md-menu-item to="/guides/admin" title="Laravel Admin panel">
           <md-icon>dashboard</md-icon>
-          <span>Admin panel</span>
+          <span>Laravel Admin</span>
         </md-menu-item>
       </md-menu-content>
     </md-menu>

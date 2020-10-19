@@ -12,7 +12,7 @@
         <md-card>
           <md-card-header class="md-accent-dark">
             <md-card-header-text>
-              <div class="md-title">REST</div>
+              <div class="md-title">RESTful</div>
             </md-card-header-text>
             <md-card-media>
               <md-icon class="md-size-2x">language</md-icon>
@@ -27,7 +27,7 @@
             <md-button
               class="md-accent md-raised"
               to="/guides/rest"
-              title="JSON / REST / CRUD services"
+              title="RESTful / CRUD services"
               @click="
                 window.OWATracker.trackAction(
                   'Click',
@@ -142,7 +142,7 @@
         <md-card>
           <md-card-header class="md-accent-dark">
             <md-card-header-text>
-              <div class="md-title">Admin panel</div>
+              <div class="md-title">Laravel Admin</div>
             </md-card-header-text>
             <md-card-media>
               <md-icon class="md-size-2x">dashboard</md-icon>

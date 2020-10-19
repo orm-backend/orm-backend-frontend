@@ -13,9 +13,16 @@
         <p class="md-subheading">
           If you have a Doctrine project or are going to develop a new one, then
           this project does not limit you in anything. You may or may not use
-          the API of this project. You can call Doctrine ORM methods as you are
-          used to. But you get a ready-made admin panel and CRUD services out of
-          the box.
+          API of this project. You can call Doctrine ORM methods as you are used
+          to. But you get a ready-made
+          <router-link to="/guides/admin" title="Read about Laravel Admin panel"
+            >Laravel Admin</router-link
+          >
+          and
+          <router-link to="/guides/rest" title="Read about RESTful services"
+            >RESTful Services</router-link
+          >
+          out of the box.
         </p>
         <p class="md-subheading">
           Everything is very simple. The main purpose is to get the mapping

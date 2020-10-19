@@ -13,7 +13,7 @@
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-admin"
-            md-label="Admin"
+            md-label="Laravel Admin"
             to="/guides/admin"
             md-icon="dashboard"
             md-sync-route="true"
@@ -21,7 +21,7 @@
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-json"
-            md-label="Json"
+            md-label="Json Query"
             md-icon="code"
             to="/guides/json"
             md-sync-route="true"
@@ -29,11 +29,11 @@
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-crud"
-            md-label="REST"
+            md-label="RESTful"
             md-icon="language"
             to="/guides/rest"
             md-sync-route="true"
-            title="REST services"
+            title="RESTful services"
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-acl"

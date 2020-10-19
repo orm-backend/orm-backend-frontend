@@ -36,7 +36,7 @@ const routes = [
     props: {
       header: {
         colorOnScroll: 400,
-        classes: "md-medium md-primary-dark md-transparent md-fixed",
+        classes: "md-primary-dark md-transparent md-fixed",
       },
     },
   },
@@ -49,7 +49,7 @@ const routes = [
       footer: MainFooter,
     },
     props: {
-      header: { classes: "md-medium md-primary-dark md-absolute" },
+      header: { classes: "md-primary-dark md-absolute" },
     },
   },
   {
@@ -75,7 +75,7 @@ const routes = [
       footer: MainFooter,
     },
     props: {
-      header: { classes: "md-medium md-primary-dark md-absolute" },
+      header: { classes: "md-primary-dark md-absolute" },
     },
   },
 ];
