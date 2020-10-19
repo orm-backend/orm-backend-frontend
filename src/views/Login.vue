@@ -40,13 +40,12 @@ export default {
 	window.OWATracker.trackPageView();
   }, */
   metaInfo: {
-    title: "Login to Laravel Admin panel",
+    title: "Laravel Admin login to demo account",
     meta: [
       {
         vmid: "description",
         name: "description",
-        content:
-          "Login to a backend solution based on Doctrine ORM and integrated with the popular Laravel framework.",
+        content: "Try Laravel Admin panel. Login to demo account.",
       },
       {
         vmid: "og:description",

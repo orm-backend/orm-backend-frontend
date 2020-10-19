@@ -125,7 +125,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: process.env.VUE_APP_NAME,
+      title: "PHP backend solution based on Doctrine ORM",
       htmlAttrs: {
         lang: "en",
       },

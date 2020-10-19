@@ -383,9 +383,9 @@ export default {
     return {
       controller: null,
       scenes: [],
-      pageTitle: "Json Query",
+      pageTitle: "Json Query — Easy SQL building tool",
       pageDescription:
-        "Converting a JavaScript object directly to DQL and executing a query. Json can be written on the server side or obtained from an http request.",
+        "Json Query is a simple and versatile tool for building database queries on the client or server side that supports most of Doctrine's features.",
     };
   },
   methods: {

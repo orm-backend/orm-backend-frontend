@@ -236,9 +236,9 @@ export default {
     return {
       controller: null,
       scenes: [],
-      pageTitle: "RESTful Services",
+      pageTitle: "RESTful services with unlimited nested criterias",
       pageDescription:
-        "Ready-made RESTful services. Allows you to filter objects by properties of related objects and provides the CRUD methods.",
+        "Ready-made RESTful services. Allows you to filter objects by properties of related objects and provides the CRUD operations.",
     };
   },
   methods: {
