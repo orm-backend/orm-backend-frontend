@@ -135,7 +135,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "The ready-made backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Admin dashboard, CRUD services, ACL, OAuth2 and much more right out of the box.",
+            "PHP backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Laravel Admin panel, RESTful services, ACL, OAuth2 right out of the box.",
         },
         {
           vmid: "og:url",
