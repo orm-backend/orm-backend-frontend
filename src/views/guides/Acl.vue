@@ -74,12 +74,15 @@
         </li>
         <li>
           <code>registered</code> Registered Users. Their permission bitmask is
-          <code>record.read|record.update|record.delete|record.restore</code>
+          <code
+            >record.read | record.update | record.delete | record.restore</code
+          >
         </li>
         <li>
           <code>admin</code> Administrators. Their permission bitmask is
           <code
-            >entity.create|entity.read|entity.update|entity.delete|entity.restore</code
+            >entity.create | entity.read | entity.update | entity.delete |
+            entity.restore</code
           >
         </li>
         <li>
