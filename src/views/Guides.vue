@@ -65,8 +65,7 @@ export default {
       import(/* webpackChunkName: "guides-json-page" */ "./guides/Json"),
     Rest: () =>
       import(/* webpackChunkName: "guides-rest-page" */ "./guides/Services"),
-    Acl: () =>
-      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+    Acl: () => import(/* webpackChunkName: "guides-acl-page" */ "./guides/Acl"),
     Admin: () =>
       import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
     Oauth: () =>
@@ -76,6 +75,8 @@ export default {
     return {
       menuVisible: true,
       windowWidth: 0,
+      controller: null,
+      scenes: [],
     };
   },
   methods: {
@@ -117,9 +118,6 @@ export default {
         case "oauth":
           title = "OAuth Integration. Bearer token management.";
           break;
-        case "acl":
-          title = "Extended implementation of Access Control List";
-          break;
         case "admin":
           title = "Laravel Admin Panel";
           break;
@@ -134,9 +132,6 @@ export default {
         case "oauth":
           description = `Integration of the OAuth2 authorization framework. Bearer 
           token management in Laravel Adminn panel.`;
-          break;
-        case "acl":
-          description = `ACL extended implementation with entities and records permissions management.`;
           break;
         case "admin":
           description = `When you create a mapping for a new entity, it automatically 

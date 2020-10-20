@@ -372,94 +372,15 @@ public function details(Request $request, string $eventCode, string $placeCode, 
 </template>
 
 <script>
-const ScrollMagic = process.client ? require("ScrollMagic") : null;
-
-if (process.client && process.env.NODE_ENV === "development") {
-  require("debug.addIndicators");
-}
+import GuideBase from "./GuideBase";
 
 export default {
+  mixins: [GuideBase],
   data() {
     return {
-      controller: null,
-      scenes: [],
       pageTitle: "Json Query — Easy SQL building tool",
       pageDescription:
         "Json Query is a simple and versatile tool for building database queries on the client or server side that supports most of Doctrine's features.",
-    };
-  },
-  methods: {
-    afterEnter: function () {
-      this.scrollMagic();
-    },
-    scrollMagic: function () {
-      if (!this.controller) {
-        this.controller = new ScrollMagic.Controller({
-          globalSceneOptions: { triggerHook: 0 },
-        });
-
-        const el1 = document.querySelector("#frontend");
-        const scene1 = new ScrollMagic.Scene({
-          triggerElement: "#frontend",
-          duration: $(el1).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".frontend-link > a", "router-link-active");
-        //.addIndicators();
-
-        this.controller.addScene(scene1);
-        this.scenes.push(scene1);
-
-        const el2 = document.querySelector("#json2php");
-        const scene2 = new ScrollMagic.Scene({
-          triggerElement: "#json2php",
-          duration: $(el2).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".json2php-link > a", "router-link-active");
-        //.addIndicators();
-
-        this.controller.addScene(scene2);
-        this.scenes.push(scene2);
-
-        const el3 = document.querySelector("#php2dql");
-        const scene3 = new ScrollMagic.Scene({
-          triggerElement: "#php2dql",
-          duration: $(el3).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".php2dql-link > a", "router-link-active");
-        //.addIndicators();
-
-        this.controller.addScene(scene3);
-        this.scenes.push(scene3);
-
-        const el4 = document.querySelector("#backend");
-        const scene4 = new ScrollMagic.Scene({
-          triggerElement: "#backend",
-          duration: $(el4).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".backend-link > a", "router-link-active");
-        //.addIndicators();
-
-        this.controller.addScene(scene4);
-        this.scenes.push(scene4);
-      } else {
-        this.$nextTick(() => {
-          this.scenes.forEach((scene) => {
-            scene.duration($(scene.triggerElement()).outerHeight(true));
-            scene.refresh();
-          });
-
-          this.controller.update(true);
-        });
-      }
-    },
-  },
-  created() {
-    this.$store.commit("local/sidebar", {
-      title: this.pageTitle,
       menu: [
         {
           link: "frontend",
@@ -476,33 +397,6 @@ export default {
         {
           link: "backend",
           title: "Backend",
-        },
-      ],
-    });
-  },
-  beforeDestroy() {
-    if (this.controller) {
-      this.controller.destroy();
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.pageTitle,
-      meta: [
-        {
-          vmid: "og:title",
-          property: "og:title",
-          content: this.pageTitle,
-        },
-        {
-          vmid: "description",
-          name: "description",
-          content: this.pageDescription,
-        },
-        {
-          vmid: "og:description",
-          property: "og:description",
-          content: this.pageDescription,
         },
       ],
     };

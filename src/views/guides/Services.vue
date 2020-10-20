@@ -60,7 +60,10 @@ public function search(Request  $request, string $classUrlName)
           Only one query is executed in the database when using cursor,
           regardless of the nesting depth.
         </li>
-        <li>Access control.</li>
+        <li>
+          Access control. The output contains only the data that the current
+          user has the right to read.
+        </li>
         <li>Caching.</li>
       </ul>
       <h3>Output</h3>
@@ -221,78 +224,75 @@ class Image extends \App\Entities\Image implements SoftDeleteable, ImageType
     }
 }</code></pre>
     </section>
+    <section id="adapters">
+      <h2>Adapters</h2>
+      <p>
+        Sometimes we need to have a little more logic in the controller. ORM
+        Backend provides an adapter interface for such cases. If you don't need
+        to override some method, just return null from it. Then its default
+        implementation will be used.
+      </p>
+      <pre v-highlightjs><code class="php">interface ApiControllerAdapter
+{
+    public function search(Request $request, string $classUrlName);
+
+    public function create(Request $request, string $classUrlName);
+
+    public function read(Request $request, string $classUrlName, $id);
+
+    public function update(Request $request, string $classUrlName, $id);
+
+    public function delete(Request $request, string $classUrlName, $id);
+}</code></pre>
+      <p>
+        Once your implementation is ready, please don't forget to add it to the
+        configuration.
+      </p>
+      <pre v-highlightjs><code class="php">// ormbackend.php
+return [
+    ...
+    'adapters' => [
+      'app-model-image' => OrmBackend\Adapters\ImageAdapter::class,
+    ],
+    ...
+]
+</code></pre>
+      <p>Example of saving images</p>
+      <pre
+        v-highlightjs
+      ><code class="php">public function create(Request $request, string $classUrlName)
+{
+    $className = Helper::classFromUlr($classUrlName);
+    $data = $request->json()->all();
+    $request->validate($className::getRequestValidationRules());
+    $data['name'] = $request->file('image')->getClientOriginalName();
+    $data['path'] = $request->file('image')->store(config('ormbackend.upload.img'));
+    
+    if (!$data['path']) {
+        throw ValidationException::withMessages([
+            'image' => [__('Failed to store file.')],
+        ]);
+    }
+    
+    $instance = $this->repository->createOrUpdate($className, $data);
+    $this->repository->em()->flush();
+    
+    return response()->json(new JsonSerializer($instance), 201);
+}</code></pre>
+    </section>
   </div>
 </template>
 
 <script>
-const ScrollMagic = process.client ? require("ScrollMagic") : null;
-
-if (process.client && process.env.NODE_ENV === "development") {
-  require("debug.addIndicators");
-}
+import GuideBase from "./GuideBase";
 
 export default {
+  mixins: [GuideBase],
   data() {
     return {
-      controller: null,
-      scenes: [],
       pageTitle: "RESTful services with unlimited nested criterias",
       pageDescription:
         "Ready-made RESTful services. Allows you to filter objects by properties of related objects and provides the CRUD operations.",
-    };
-  },
-  methods: {
-    afterEnter: function () {
-      this.scrollMagic();
-    },
-    scrollMagic: function () {
-      if (!this.controller) {
-        this.controller = new ScrollMagic.Controller({
-          globalSceneOptions: { triggerHook: 0 },
-        });
-
-        const el1 = document.querySelector("#searching");
-        const scene1 = new ScrollMagic.Scene({
-          triggerElement: "#searching",
-          duration: $(el1).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".searching-link > a", "router-link-active");
-
-        this.controller.addScene(scene1);
-        this.scenes.push(scene1);
-
-        const el2 = document.querySelector("#crud");
-        const scene2 = new ScrollMagic.Scene({
-          triggerElement: "#crud",
-          duration: $(el2).outerHeight(true),
-          triggerHook: 0,
-          offset: 0,
-        }).setClassToggle(".crud-link > a", "router-link-active");
-
-        this.controller.addScene(scene2);
-        this.scenes.push(scene2);
-      } else {
-        this.$nextTick(() => {
-          this.scenes.forEach((scene) => {
-            scene.duration($(scene.triggerElement()).outerHeight(true));
-            scene.refresh();
-          });
-
-          this.controller.update(true);
-        });
-      }
-    },
-  },
-  created() {
-    this.$store.commit("local/sidebar", {
-      title: this.pageTitle,
-      menu: [],
-    });
-  },
-  created() {
-    this.$store.commit("local/sidebar", {
-      title: this.pageTitle,
       menu: [
         {
           link: "searching",
@@ -302,32 +302,9 @@ export default {
           link: "crud",
           title: "CRUD",
         },
-      ],
-    });
-  },
-  beforeDestroy() {
-    if (this.controller) {
-      this.controller.destroy();
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.pageTitle,
-      meta: [
         {
-          vmid: "og:title",
-          property: "og:title",
-          content: this.pageTitle,
-        },
-        {
-          vmid: "description",
-          name: "description",
-          content: this.pageDescription,
-        },
-        {
-          vmid: "og:description",
-          property: "og:description",
-          content: this.pageDescription,
+          link: "adapters",
+          title: "Adapters",
         },
       ],
     };

@@ -125,7 +125,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "PHP backend solution based on Doctrine ORM",
+      title: "PHP starter-kit based on Doctrine ORM and Laravel Framework",
       htmlAttrs: {
         lang: "en",
       },
@@ -135,7 +135,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "PHP backend solution based on Doctrine ORM and integrated with the popular Laravel Framework. Laravel Admin panel, RESTful services, ACL, OAuth2 right out of the box.",
+            "Out of the box solution that provides Laravel Admin panel, RESTful services, Json Query, ACL, OAuth2 and more. No coding required, only Doctrine mappings.",
         },
         {
           vmid: "og:url",
@@ -184,7 +184,7 @@ export default {
           vmid: "og:description",
           property: "og:description",
           content:
-            "The ready-made back-end solution based on Doctrine ORM and integrated with the popular Laravel Framework.",
+            "Out of the box solution that provides Laravel Admin panel, RESTful services, Json Query, ACL, OAuth2 and more. No coding required, only Doctrine mappings.",
         },
       ],
     };
