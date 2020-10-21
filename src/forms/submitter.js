@@ -17,6 +17,11 @@ const Submitter = {
       //   "Captcha token received",
       //   30
       // );
+      gtag("event", formName, {
+        event_category: "Submit",
+        event_label: "Captcha token received",
+        value: 1,
+      });
 
       let response = await http.get("/token");
 
@@ -35,10 +40,19 @@ const Submitter = {
         //   "Form submitted successfully.",
         //   100
         // );
+        gtag("event", formName, {
+          event_category: "Submit",
+          event_label: "Form submitted successfully",
+          value: 1,
+        });
 
         return response.data;
       } else if (response.data.errors || response.data.message) {
         //window.OWATracker.trackAction("Submit", formName, "Validation errors.");
+        gtag("event", formName, {
+          event_category: "Submit",
+          event_label: "Validation errors",
+        });
 
         return response.data;
       } else {

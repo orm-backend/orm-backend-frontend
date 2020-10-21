@@ -158,6 +158,11 @@ export default {
       //   "Form submission started",
       //   10
       // );
+      gtag("event", "Feedback", {
+        event_category: "Submit",
+        event_label: "Form submission started",
+        value: 1,
+      });
 
       var success = await this.$refs.validator.validate();
 
@@ -168,6 +173,11 @@ export default {
         //   "Form validated successfully",
         //   20
         // );
+        gtag("event", "Feedback", {
+          event_category: "Submit",
+          event_label: "Form validated successfully",
+          value: 1,
+        });
 
         this.disabled = true;
         let data = this.fields;
@@ -193,6 +203,12 @@ export default {
           }
         } catch (e) {
           //window.OWATracker.trackAction("Submit", "Exception", e);
+          gtag("event", "Feedback", {
+            event_category: "Exception",
+            event_label: e,
+            value: -3,
+          });
+          
           this.$store.commit("local/snackbar", e);
         } finally {
           this.disabled = false;
