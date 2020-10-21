@@ -40,7 +40,6 @@
     <div id="triggerElement" class="outer-container content content-raised">
       <div class="inner-container">
         <FeaturesTopSection></FeaturesTopSection>
-        <ConceptSection></ConceptSection>
         <FeaturesBottomSection></FeaturesBottomSection>
         <ArchitectureSection></ArchitectureSection>
         <InstallationTopSection></InstallationTopSection>
@@ -77,10 +76,6 @@ export default {
     FeedbackSection: () =>
       import(
         /* webpackChunkName: "landing-page" */ "./sections/FeedbackSection"
-      ),
-    ConceptSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/ConceptSection"
       ),
   },
 
