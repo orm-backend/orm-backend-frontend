@@ -152,22 +152,22 @@ export default {
       this.$refs.validator.reset();
     },
     onSubmit: async function () {
-      window.OWATracker.trackAction(
-        "Submit",
-        "Feedback",
-        "Form submission started",
-        10
-      );
+      // window.OWATracker.trackAction(
+      //   "Submit",
+      //   "Feedback",
+      //   "Form submission started",
+      //   10
+      // );
 
       var success = await this.$refs.validator.validate();
 
       if (success) {
-        window.OWATracker.trackAction(
-          "Submit",
-          "Feedback",
-          "Form validated successfully",
-          20
-        );
+        // window.OWATracker.trackAction(
+        //   "Submit",
+        //   "Feedback",
+        //   "Form validated successfully",
+        //   20
+        // );
 
         this.disabled = true;
         let data = this.fields;
@@ -192,7 +192,7 @@ export default {
             }
           }
         } catch (e) {
-          window.OWATracker.trackAction("Submit", "Exception", e);
+          //window.OWATracker.trackAction("Submit", "Exception", e);
           this.$store.commit("local/snackbar", e);
         } finally {
           this.disabled = false;

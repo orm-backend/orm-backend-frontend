@@ -126,7 +126,7 @@ export default () => {
         overlay[0].click();
       }
 
-      window.OWATracker.trackPageView();
+      //window.OWATracker.trackPageView();
     });
   }
 

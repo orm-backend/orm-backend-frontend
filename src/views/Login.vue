@@ -36,9 +36,6 @@ export default {
       default: require("@/assets/img/logo.png"),
     },
   },
-  /*   mounted() {
-	window.OWATracker.trackPageView();
-  }, */
   metaInfo: {
     title: "Laravel Admin login to demo account",
     meta: [

@@ -11,12 +11,12 @@ const Submitter = {
         }
       );
 
-      window.OWATracker.trackAction(
-        "Submit",
-        formName,
-        "Captcha token received",
-        30
-      );
+      // window.OWATracker.trackAction(
+      //   "Submit",
+      //   formName,
+      //   "Captcha token received",
+      //   30
+      // );
 
       let response = await http.get("/token");
 
@@ -29,16 +29,16 @@ const Submitter = {
       response = await http.post(action, data);
 
       if (response.status === 200 && response.data.success) {
-        window.OWATracker.trackAction(
-          "Submit",
-          formName,
-          "Form submitted successfully.",
-          100
-        );
+        // window.OWATracker.trackAction(
+        //   "Submit",
+        //   formName,
+        //   "Form submitted successfully.",
+        //   100
+        // );
 
         return response.data;
       } else if (response.data.errors || response.data.message) {
-        window.OWATracker.trackAction("Submit", formName, "Validation errors.");
+        //window.OWATracker.trackAction("Submit", formName, "Validation errors.");
 
         return response.data;
       } else {

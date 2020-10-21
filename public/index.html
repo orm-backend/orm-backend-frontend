@@ -9,21 +9,16 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="icon" type="image/ico" href="/favicon.ico">
-
-  <!-- Start Open Web Analytics Tracker -->
-  <script type="text/javascript">
-  //<![CDATA[
-  var owa_baseUrl = 'https://owa.orm-backend.com/';
-  var owa_cmds = owa_cmds || [];
-  owa_cmds.push(['setSiteId', '5ef55cb02adf3e001b3984e973b7c48a']);
-  //owa_cmds.push(['trackPageView']);
-  //owa_cmds.push(['trackClicks']);
-  //]]>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N12PR1EL5S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N12PR1EL5S');
   </script>
-  <script type="text/javascript" src="https://owa.orm-backend.com/modules/base/js/owa.tracker-combined-min.js"></script>
-  <!-- End Open Web Analytics Code -->
+  <!-- Google Analytics -->
   <script src="https://www.google.com/recaptcha/api.js?render=6Ld-EM0ZAAAAAJhHpv0B6NwZ4mjQ1pndRlQzyAAQ" async></script>
-
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
