@@ -78,10 +78,10 @@
         <li><code>number</code> Integer and float</li>
         <li><code>bitmask</code> Integer (adapter required)</li>
         <li><code>checkbox</code> Boolean</li>
-        <li><code>radio</code> OrmBackend\DBAL\Types\EnumType</li>
-        <li><code>date</code> OrmBackend\DBAL\Types\CarbonDate</li>
-        <li><code>datetime</code> OrmBackend\DBAL\Types\CarbonDateTime</li>
-        <li><code>time</code> OrmBackend\DBAL\Types\CarbonTime</li>
+        <li><code>radio</code> OrmBackend\DBAL\Types\ EnumType</li>
+        <li><code>date</code> OrmBackend\DBAL\Types\ CarbonDate</li>
+        <li><code>datetime</code> OrmBackend\DBAL\Types\ CarbonDateTime</li>
+        <li><code>time</code> OrmBackend\DBAL\Types\ CarbonTime</li>
         <li><code>reference</code> To-One association</li>
         <li><code>collection</code> To-Many associative collection</li>
         <li><code>image</code> OrmBackend\Types\ImageType</li>
@@ -119,7 +119,7 @@
       <p>
         Next, you can use an adapter to define your logic for CRUD. To do this,
         you need to inherit the
-        <code>OrmBackend\Admin\Controllers\AdminControllerAdapter</code>
+        <code>OrmBackend\Admin\Controllers\ AdminControllerAdapter</code>
         abstract class.
       </p>
       <pre
