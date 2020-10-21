@@ -52,17 +52,17 @@
           <md-icon>language</md-icon>
           <span>RESTful Services</span>
         </md-menu-item>
-        <md-menu-item to="/guides/oauth" title="OAuth2 integration">
-          <md-icon>security</md-icon>
-          <span>OAuth</span>
-        </md-menu-item>
-        <md-menu-item to="/guides/acl" title="ACL implementation">
+        <md-menu-item to="/guides/acl" title="ACL extended implementation">
           <md-icon>policy</md-icon>
-          <span>ACL</span>
+          <span>Access Control</span>
         </md-menu-item>
         <md-menu-item to="/guides/admin" title="Laravel Admin panel">
           <md-icon>dashboard</md-icon>
           <span>Laravel Admin</span>
+        </md-menu-item>
+        <md-menu-item to="/guides/oauth" title="OAuth2 integration">
+          <md-icon>security</md-icon>
+          <span>OAuth</span>
         </md-menu-item>
       </md-menu-content>
     </md-menu>

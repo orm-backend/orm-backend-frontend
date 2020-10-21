@@ -12,14 +12,6 @@
             title="ORM Backend home page"
           ></md-bottom-bar-item>
           <md-bottom-bar-item
-            id="bottom-bar-item-admin"
-            md-label="Laravel Admin"
-            to="/guides/admin"
-            md-icon="dashboard"
-            md-sync-route="true"
-            title="Laravel Admin with CRUD, OAuth and Doctrine integrated"
-          ></md-bottom-bar-item>
-          <md-bottom-bar-item
             id="bottom-bar-item-json"
             md-label="Json Query"
             md-icon="code"
@@ -37,11 +29,19 @@
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-acl"
-            md-label="ACL"
+            md-label="Access Control"
             md-icon="policy"
             to="/guides/acl"
             md-sync-route="true"
-            title="Access Control List extended implementation"
+            title="Access Control extended implementation"
+          ></md-bottom-bar-item>
+          <md-bottom-bar-item
+            id="bottom-bar-item-admin"
+            md-label="Laravel Admin"
+            to="/guides/admin"
+            md-icon="dashboard"
+            md-sync-route="true"
+            title="Laravel Admin with CRUD, OAuth and Doctrine integrated"
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-oauth"

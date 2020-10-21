@@ -11,7 +11,7 @@
       <md-card>
         <md-card-header class="md-primary-dark">
           <md-card-header-text>
-            <div class="md-title">Sign In To Admin</div>
+            <div class="md-title">Sign In To Laravel Admin</div>
           </md-card-header-text>
           <md-card-media>
             <svg

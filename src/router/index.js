@@ -17,12 +17,12 @@ import MainFooter from "@/layout/MainFooter.vue";
 import Landing from "@/views/Landing.vue";
 
 // dynamic
-const Login = () =>
-  import(/* webpackChunkName: "login-page" */ "@/views/Login.vue");
-const Guides = () =>
-  import(/* webpackChunkName: "guides-page" */ "@/views/Guides.vue");
-const NotFound = () =>
-  import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
+// const Login = () =>
+//   import(/* webpackChunkName: "login-page" */ "@/views/Login.vue");
+// const Guides = () =>
+//   import(/* webpackChunkName: "guides-page" */ "@/views/Guides.vue");
+// const NotFound = () =>
+//   import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
 
 const routes = [
   {
@@ -45,7 +45,8 @@ const routes = [
     name: "login",
     components: {
       header: BaseNavigation,
-      default: Login,
+      default: () =>
+        import(/* webpackChunkName: "login-page" */ "@/views/Login.vue"),
       footer: MainFooter,
     },
     props: {
@@ -57,7 +58,8 @@ const routes = [
     name: "guides",
     components: {
       header: SidebarNavigation,
-      default: Guides,
+      default: () =>
+        import(/* webpackChunkName: "guides-page" */ "@/views/Guides.vue"),
       footer: MainFooter,
     },
     props: {
@@ -71,7 +73,8 @@ const routes = [
     name: "404",
     components: {
       header: BaseNavigation,
-      default: NotFound,
+      default: () =>
+        import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue"),
       footer: MainFooter,
     },
     props: {
@@ -89,7 +92,7 @@ export default () => {
       function scrollTo(target) {
         setTimeout(() => {
           gsap.to(window, {
-            duration: 0.5,
+            duration: 0.2,
             scrollTo: {
               y: target == "#features" ? $(window).height() - 80 : target,
               autoKill: true,

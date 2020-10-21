@@ -67,9 +67,9 @@ export default {
       import(/* webpackChunkName: "guides-rest-page" */ "./guides/Services"),
     Acl: () => import(/* webpackChunkName: "guides-acl-page" */ "./guides/Acl"),
     Admin: () =>
-      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+      import(/* webpackChunkName: "guides-admin-page" */ "./guides/Admin"),
     Oauth: () =>
-      import(/* webpackChunkName: "guides-dev-page" */ "./guides/ComingSoon"),
+      import(/* webpackChunkName: "guides-oauth-page" */ "./guides/Oauth"),
   },
   data() {
     return {
@@ -110,37 +110,6 @@ export default {
     },
     userAuthorized() {
       return this.$store.getters["user/isAuthorized"];
-    },
-    pageTitle() {
-      let title = null;
-
-      switch (this.$route.params.guide) {
-        case "oauth":
-          title = "OAuth Integration. Bearer token management.";
-          break;
-        case "admin":
-          title = "Laravel Admin Panel";
-          break;
-      }
-
-      return title;
-    },
-    pageDescription() {
-      let description = null;
-
-      switch (this.$route.params.guide) {
-        case "oauth":
-          description = `Integration of the OAuth2 authorization framework. Bearer 
-          token management in Laravel Adminn panel.`;
-          break;
-        case "admin":
-          description = `When you create a mapping for a new entity, it automatically 
-          becomes managed and available in Laravel Admin and RESTful services. No coding
-          required.`;
-          break;
-      }
-
-      return description;
     },
   },
   mounted() {

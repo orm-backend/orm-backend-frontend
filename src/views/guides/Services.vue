@@ -2,6 +2,17 @@
   <div class="guide">
     <section>
       <h1>{{ pageTitle }}</h1>
+      <blockquote>
+        <p>
+          No coding is required to have RESTful services, you only need to
+          Doctrine mappings. Once a new entity is created, it is automatically
+          managed in the
+          <router-link to="/guides/admin" title="Laravel Admin"
+            >Laravel Admin</router-link
+          >
+          and available in RESTful services.
+        </p>
+      </blockquote>
       <p>
         If you've read about
         <router-link to="/guides/json" title="Json Query"
@@ -53,9 +64,9 @@ public function search(Request  $request, string $classUrlName)
           phase.
         </li>
         <li>
-          Filtering and sorting by related associations and collections with
-          unlimited depth.
+          Filtering and sorting by related associations with unlimited depth.
         </li>
+        <li>Selecting related associations with unlimited depth.</li>
         <li>
           Only one query is executed in the database when using cursor,
           regardless of the nesting depth.
@@ -64,7 +75,7 @@ public function search(Request  $request, string $classUrlName)
           Access control. The output contains only the data that the current
           user has the right to read.
         </li>
-        <li>Caching.</li>
+        <li>Result caching.</li>
       </ul>
       <h3>Output</h3>
       <p>
@@ -292,7 +303,7 @@ export default {
     return {
       pageTitle: "RESTful services with unlimited nested criterias",
       pageDescription:
-        "Ready-made RESTful services. Allows you to filter objects by properties of related objects and provides the CRUD operations.",
+        "No coding is required to have RESTful services, you only need to Doctrine mappings. Once a new entity is created, it is automatically managed in the Laravel Admin and available in RESTful services.",
       menu: [
         {
           link: "searching",

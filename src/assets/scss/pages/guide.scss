@@ -94,6 +94,17 @@
 	th, td {
 		padding: 6px 24px;
 	}
+
+	blockquote {
+		padding-left: 1rem;
+		border-left: 0.25rem solid var(--md-theme-default-accent, orange);
+		margin-bottom: 3rem;
+
+		p {
+			font-style: italic;
+			margin: 0;
+		}
+	}
 }
 
 @media (min-width: 1920px) {

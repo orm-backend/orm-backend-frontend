@@ -138,6 +138,11 @@ export default {
             "Out of the box solution that provides Laravel Admin panel, RESTful services, Json Query, ACL, OAuth2 and more. No coding required, only Doctrine mappings.",
         },
         {
+          vmid: "keywords",
+          property: "keywords",
+          content: "laravel admin",
+        },
+        {
           vmid: "og:url",
           property: "og:url",
           content: process.env.VUE_APP_URL + this.$route.path,

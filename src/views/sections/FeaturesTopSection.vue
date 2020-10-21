@@ -4,8 +4,9 @@
       <div class="md-layout-item md-size-66 md-xsmall-size-100">
         <blockquote>
           <p>
-            Once installed and configured, you only need to write the Doctrine
-            XML mapping files.
+            No coding is required to have powerful Laravel Admin panel and
+            RESTful services. Once installed and configured, you only need to
+            build the Doctrine XML mapping files.
           </p>
         </blockquote>
       </div>

@@ -69,21 +69,11 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/guides/oauth"
-          title="OAuth2 intergation whith Laravel Admin panel"
-        >
-          <md-icon>security</md-icon>
-          <span class="md-list-item-text">OAuth</span>
-        </md-list-item>
-
-        <md-divider class="md-inset"></md-divider>
-        <md-list-item
-          class="md-inset"
           to="/guides/acl"
           title="ACL extended implementation"
         >
           <md-icon>policy</md-icon>
-          <span class="md-list-item-text">ACL</span>
+          <span class="md-list-item-text">Access Control</span>
         </md-list-item>
 
         <md-divider class="md-inset"></md-divider>
@@ -94,6 +84,16 @@
         >
           <md-icon>dashboard</md-icon>
           <span class="md-list-item-text">Laravel Admin</span>
+        </md-list-item>
+
+        <md-divider class="md-inset"></md-divider>
+        <md-list-item
+          class="md-inset"
+          to="/guides/oauth"
+          title="OAuth2 intergation whith Laravel Admin panel"
+        >
+          <md-icon>security</md-icon>
+          <span class="md-list-item-text">OAuth</span>
         </md-list-item>
       </md-list>
     </md-list-item>
