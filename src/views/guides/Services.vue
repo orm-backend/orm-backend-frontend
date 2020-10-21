@@ -301,7 +301,7 @@ export default {
   mixins: [GuideBase],
   data() {
     return {
-      pageTitle: "RESTful services with unlimited nested criterias",
+      pageTitle: "RESTful services with unlimited nested criteria",
       pageDescription:
         "No coding is required to have RESTful services, you only need to Doctrine mappings. Once a new entity is created, it is automatically managed in the Laravel Admin and available in RESTful services.",
       menu: [
