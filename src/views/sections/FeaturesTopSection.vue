@@ -31,6 +31,7 @@
           <a
             href="https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/getting-started.html"
             target="_blank"
+            rel="noopener"
             >Doctrine</a
           >
           how to do that. When the mapping is done, just run a console command

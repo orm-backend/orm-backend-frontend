@@ -10,7 +10,9 @@
           packages are publicly available at the NPM. Please note that front-end
           of the admin panel is based on the
           <b class="md-text-accent">commercial template</b> from
-          <a href="https://keenthemes.com/" target="_blank">keenthemes.com</a>
+          <a href="https://keenthemes.com/" target="_blank" rel="noopener"
+            >keenthemes.com</a
+          >
           and you must purchase a license to use it on your site.
         </p>
         <p class="md-subheading">

@@ -161,9 +161,9 @@ filter: [
         supported media-types are <code>application/json</code>,
         <code>application/x-www-form-urlencoded</code> and
         <code>multipart/form-data</code>. JQuery deparam plugin can be useful
-        for converting Json Query to query-string parameters.
+        for converting Json Query to query-string parameters. Read
         <router-link to="/guides/rest" title="RESTfull CRUD Services"
-          >Read more</router-link
+          >RESTfull Services</router-link
         >
         about requests.
       </p>
