@@ -17,10 +17,6 @@
           <md-icon>featured_play_list</md-icon>
           <span>Features</span>
         </md-menu-item>
-        <md-menu-item to="/#concept" title="ORM Backend concept">
-          <md-icon>emoji_objects</md-icon>
-          <span>Concept</span>
-        </md-menu-item>
         <md-menu-item to="/#architecture" title="ORM Backend architecture">
           <md-icon>apartment</md-icon>
           <span>Architecture</span>

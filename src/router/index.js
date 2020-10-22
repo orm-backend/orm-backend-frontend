@@ -29,14 +29,14 @@ const routes = [
     path: "/",
     name: "landing",
     components: {
-      header: MainNavigation,
+      header: BaseNavigation,
       default: Landing,
       footer: MainFooter,
     },
     props: {
       header: {
         colorOnScroll: 400,
-        classes: "md-primary-dark md-transparent md-fixed",
+        classes: "md-primary-dark md-fixed",
       },
     },
   },

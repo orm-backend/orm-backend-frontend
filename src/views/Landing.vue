@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div
+    <!--div
       id="page-header"
       class="page-header"
       v-bind:timeout="5"
@@ -36,7 +36,7 @@
           </svg>
         </md-button>
       </div>
-    </div>
+    </div-->
     <div id="triggerElement" class="outer-container content content-raised">
       <div class="inner-container">
         <FeaturesTopSection></FeaturesTopSection>

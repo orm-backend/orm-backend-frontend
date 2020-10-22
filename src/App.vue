@@ -125,7 +125,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Back-end solution based on Doctrine ORM and Laravel",
+      title: "PHP back-end solution based on Doctrine ORM and Laravel",
       htmlAttrs: {
         lang: "en",
       },
