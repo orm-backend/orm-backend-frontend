@@ -133,7 +133,7 @@ public function search(Request  $request, string $classUrlName)
         <router-link
           to="/guides/acl"
           title="Read more about ACL extended implementation"
-          >ACL</router-link
+          >Access Control</router-link
         >
         extended implementation.
       </p>

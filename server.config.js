@@ -1,9 +1,10 @@
 import { ExpressAdapter } from "@uvue/server";
+import LRU from "lru-cache";
 
 export default {
   // Use custom adapter for server
   adapter: ExpressAdapter,
-
+  http2: true,
   // Server plugins installed
   plugins: [
     // Compress responses
@@ -12,6 +13,7 @@ export default {
     "@uvue/server/plugins/static",
     // API
     //'./src/server/apiPlugin',
+    //"@uvue/server/plugins/modernBuild",
   ],
   // Watch for changes in these files to automatically reboot server
   watch: ["src/**/*.js"],
