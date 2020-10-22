@@ -44,6 +44,7 @@
           href="https://policies.google.com/technologies/cookies"
           class="text-primary-light"
           target="_blank"
+          rel="noopener"
           >More</a
         >
         <a

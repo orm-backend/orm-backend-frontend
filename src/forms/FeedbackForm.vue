@@ -93,11 +93,17 @@
         <md-card-actions>
           <div class="terms">
             This site is protected by reCAPTCHA and the Google
-            <a href="https://policies.google.com/privacy" target="_blank"
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener"
               >Privacy Policy</a
             >
             and
-            <a href="https://policies.google.com/terms" target="_blank"
+            <a
+              href="https://policies.google.com/terms"
+              target="_blank"
+              rel="noopener"
               >Terms of Service</a
             >
             apply.
@@ -208,7 +214,7 @@ export default {
             event_label: e,
             value: -3,
           });
-          
+
           this.$store.commit("local/snackbar", e);
         } finally {
           this.disabled = false;

@@ -63,7 +63,10 @@
             <p>
               If you have an Eloquent model in your project, you can put the
               entities to a separate folder. Read the instructions on the
-              <a href="http://www.laraveldoctrine.org/" target="_blank"
+              <a
+                href="http://www.laraveldoctrine.org/"
+                target="_blank"
+                rel="noopener"
                 >Laravel-Doctrine</a
               >
               site to learn how to set up authentication.
