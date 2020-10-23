@@ -65,7 +65,7 @@ import VueMeta from "vue-meta";
 import VueMaterial from "vue-material";
 import VueCookie from "vue-cookie";
 import NoSSR from "vue-no-ssr";
-import BackgroundImage from "@/plugins/background-image";
+//import BackgroundImage from "@/plugins/background-image";
 
 Vue.use(VueMeta);
 Vue.use(VueCookie);
@@ -82,7 +82,7 @@ import {
 setInteractionMode("eager");
 Vue.component("validation-provider", ValidationProvider);
 Vue.component("validation-observer", ValidationObserver);
-Vue.directive("background-image", BackgroundImage);
+//Vue.directive("background-image", BackgroundImage);
 
 export default {
   name: "App",

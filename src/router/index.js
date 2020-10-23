@@ -10,7 +10,7 @@ if (process.client) {
 Vue.use(VueRouter);
 
 // globals
-import MainNavigation from "@/layout/MainNavigation.vue";
+//import MainNavigation from "@/layout/MainNavigation.vue";
 import BaseNavigation from "@/layout/BaseNavigation.vue";
 import SidebarNavigation from "@/layout/SidebarNavigation.vue";
 import MainFooter from "@/layout/MainFooter.vue";
@@ -92,9 +92,9 @@ export default () => {
       function scrollTo(target) {
         setTimeout(() => {
           gsap.to(window, {
-            duration: 0.2,
+            duration: 0.1,
             scrollTo: {
-              y: target == "#features" ? $(window).height() - 80 : target,
+              y: target,
               autoKill: true,
             },
             ease: Cubic.easeInOut,
