@@ -1,10 +1,14 @@
 import { ExpressAdapter } from "@uvue/server";
-import LRU from "lru-cache";
 
 export default {
   // Use custom adapter for server
   adapter: ExpressAdapter,
   http2: true,
+  renderer: {
+    shouldPrefetch: (file, type) => {
+      return false;
+    },
+  },
   // Server plugins installed
   plugins: [
     // Compress responses

@@ -1,10 +1,10 @@
 
-$brand-background-variant:  #5c007a; // rgb(255,196,255, 0.5); // #ffc4ff Purple — Light
-$brand-background:lighten(#ffc4ff, 10); // #fff1ff Purple — Light
-$brand-primary: #9c27b0; // Purple 500
-// $brand-background-variant:  #a7c0cd;
-// $brand-background: #eceff1;
-// $brand-primary: #78909c;
+// $brand-background-variant:  #5c007a; // rgb(255,196,255, 0.5); // #ffc4ff Purple — Light
+// $brand-background:lighten(#ffc4ff, 10); // #fff1ff Purple — Light
+// $brand-primary: #9c27b0; // Purple 500
+$brand-background-variant:  #c1d5e0;
+$brand-background: #eceff1;
+$brand-primary: #546e7a;
 $brand-primary-dark: darken($brand-primary, 10); // Purple — Dark
 $brand-primary-light: $brand-background;
 $brand-accent: #ff6e40; // Orange 800

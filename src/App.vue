@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="wrapper" ref="app">
-    <transition name="header" appear v-on:before-enter="onBeforeEnter">
-      <router-view name="header" ref="header" />
-    </transition>
+    <router-view name="header" ref="header" />
     <transition
       name="fade"
       appear
@@ -12,9 +10,7 @@
     >
       <router-view ref="main" />
     </transition>
-    <transition name="header" appear v-on:before-enter="onBeforeEnter">
-      <router-view name="footer" ref="footer" />
-    </transition>
+    <router-view name="footer" ref="footer" />
     <no-ssr>
       <md-snackbar
         md-position="center"
@@ -100,6 +96,8 @@ export default {
       $(el).removeAttr("style");
     },
     onAfterMainEnter: function () {
+      $("footer").css("opacity", 1);
+      $("header").css("opacity", 1);
       this.$nextTick().then(() => {
         if (typeof this.$refs.header.init === "function") {
           this.$refs.header.init();
@@ -108,6 +106,8 @@ export default {
     },
     onBeforeMainLeave: function () {
       $("body > .md-menu-content").hide();
+      $("header").css("opacity", 0);
+      $("footer").css("opacity", 0);
     },
   },
   computed: {

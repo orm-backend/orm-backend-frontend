@@ -16,14 +16,6 @@ import SidebarNavigation from "@/layout/SidebarNavigation.vue";
 import MainFooter from "@/layout/MainFooter.vue";
 import Landing from "@/views/Landing.vue";
 
-// dynamic
-// const Login = () =>
-//   import(/* webpackChunkName: "login-page" */ "@/views/Login.vue");
-// const Guides = () =>
-//   import(/* webpackChunkName: "guides-page" */ "@/views/Guides.vue");
-// const NotFound = () =>
-//   import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue");
-
 const routes = [
   {
     path: "/",
@@ -35,7 +27,6 @@ const routes = [
     },
     props: {
       header: {
-        colorOnScroll: 400,
         classes: "md-primary-dark md-fixed",
       },
     },
@@ -92,7 +83,7 @@ export default () => {
       function scrollTo(target) {
         setTimeout(() => {
           gsap.to(window, {
-            duration: 0.1,
+            duration: 0.15,
             scrollTo: {
               y: target,
               autoKill: true,

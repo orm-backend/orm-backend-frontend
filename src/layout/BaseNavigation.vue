@@ -6,10 +6,10 @@
           <router-link
             to="/"
             class="brand-logo"
-            title="Go to ORM Backend home page"
+            title="Laravel Admin, RESTful services without coding"
           >
             <img
-              alt="ORM Backend is a server-side solution based on Doctrine"
+              alt="Server-side solution based on Doctrine ORM. Laravel Admin inclided."
               class="brand-logo-icon"
               :src="logo"
               width="48"

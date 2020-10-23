@@ -26,7 +26,7 @@
     </md-list-item>
 
     <md-divider class="md-inset"></md-divider>
-    <md-list-item to="/#feedback" title="What do you think of ORM Backend?">
+    <md-list-item to="/#feedback" title="What do you think about ORM Backend?">
       <md-icon>message</md-icon>
       <span class="md-list-item-text">Feedback</span>
     </md-list-item>
