@@ -126,7 +126,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "PHP back-end solution based on Doctrine ORM and Laravel",
+      title: "PHP backend solution based on Doctrine ORM and Laravel",
       htmlAttrs: {
         lang: "en",
       },
@@ -136,7 +136,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Out of the box solution that provides Laravel Admin panel, RESTful services, Json Query, ACL, OAuth2 and more. No coding required, only Doctrine mappings.",
+            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Only Doctrine ORM mappings are required to have ready ORM back-end.",
         },
         {
           vmid: "keywords",
@@ -190,7 +190,7 @@ export default {
           vmid: "og:description",
           property: "og:description",
           content:
-            "Out of the box solution that provides Laravel Admin panel, RESTful services, Json Query, ACL, OAuth2 and more. No coding required, only Doctrine mappings.",
+            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Only Doctrine ORM mappings are required to have ready ORM back-end.",
         },
       ],
     };

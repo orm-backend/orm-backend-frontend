@@ -1,7 +1,7 @@
 <template>
   <div id="features" class="section">
     <div class="md-layout md-alignment-top-center">
-      <h1>PHP back-end solution based on Doctrine ORM and Laravel</h1>
+      <h1>PHP backend solution based on Doctrine ORM and Laravel</h1>
       <div class="md-layout-item md-size-66 md-xsmall-size-100">
         <blockquote>
           <p>
