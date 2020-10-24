@@ -2,11 +2,11 @@ import { ExpressAdapter } from "@uvue/server";
 
 export default {
   // For firebase: we need to include all node_modules in server bundle
-  externalsWhitelist: [
-    () => {
-      return true;
-    },
-  ],
+  // externalsWhitelist: [
+  //   () => {
+  //     return true;
+  //   },
+  // ],
   // Use custom adapter for server
   adapter: ExpressAdapter,
   http2: true,

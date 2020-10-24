@@ -4,3 +4,7 @@ node_modules
 /nginx
 /.vscode
 /.git
+/.firebase
+/functions
+/firebase.json
+/firebase.sh
