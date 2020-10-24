@@ -14,7 +14,8 @@ Vue.use(VueRouter);
 import BaseNavigation from "@/layout/BaseNavigation.vue";
 import SidebarNavigation from "@/layout/SidebarNavigation.vue";
 import MainFooter from "@/layout/MainFooter.vue";
-import Landing from "@/views/Landing.vue";
+//import Landing from "@/views/Landing.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const routes = [
   {
@@ -22,7 +23,8 @@ const routes = [
     name: "landing",
     components: {
       header: BaseNavigation,
-      default: Landing,
+      default: () =>
+        import(/* webpackChunkName: "login-page" */ "@/views/Landing.vue"),
       footer: MainFooter,
     },
     props: {
@@ -64,8 +66,7 @@ const routes = [
     name: "404",
     components: {
       header: BaseNavigation,
-      default: () =>
-        import(/* webpackChunkName: "404-page" */ "@/views/NotFound.vue"),
+      default: NotFound,
       footer: MainFooter,
     },
     props: {
