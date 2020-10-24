@@ -51,32 +51,21 @@
 </template>
 
 <script>
+import FeaturesTopSection from "./sections/FeaturesTopSection";
+import FeaturesBottomSection from "./sections/FeaturesBottomSection";
+import InstallationTopSection from "./sections/InstallationTopSection";
+import InstallationBottomSection from "./sections/InstallationBottomSection";
+import ArchitectureSection from "./sections/ArchitectureSection";
+import FeedbackSection from "./sections/FeedbackSection";
+
 export default {
   components: {
-    FeaturesTopSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/FeaturesTopSection"
-      ),
-    FeaturesBottomSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/FeaturesBottomSection"
-      ),
-    InstallationTopSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/InstallationTopSection"
-      ),
-    InstallationBottomSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/InstallationBottomSection"
-      ),
-    ArchitectureSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/ArchitectureSection"
-      ),
-    FeedbackSection: () =>
-      import(
-        /* webpackChunkName: "landing-page" */ "./sections/FeedbackSection"
-      ),
+    FeaturesTopSection: FeaturesTopSection,
+    FeaturesBottomSection: FeaturesBottomSection,
+    InstallationTopSection: InstallationTopSection,
+    InstallationBottomSection: InstallationBottomSection,
+    ArchitectureSection: ArchitectureSection,
+    FeedbackSection: FeedbackSection,
   },
 
   data() {

@@ -24,7 +24,7 @@ const routes = [
     components: {
       header: BaseNavigation,
       default: () =>
-        import(/* webpackChunkName: "login-page" */ "@/views/Landing.vue"),
+        import(/* webpackChunkName: "landing-page" */ "@/views/Landing.vue"),
       footer: MainFooter,
     },
     props: {
