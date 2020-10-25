@@ -32,12 +32,12 @@ export default {
   static: {
     paths: [
       "/",
-      "/login",
-      "/guides/json",
+      "/laravel-admin-login",
+      "/guides/json-query",
       "/guides/oauth",
-      "/guides/admin",
+      "/guides/laravel-admin",
       "/guides/acl",
-      "/guides/rest",
+      "/guides/restful",
     ],
     scanRouter: true,
     params: {

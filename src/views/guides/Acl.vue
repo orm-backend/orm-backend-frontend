@@ -94,7 +94,7 @@
         Of course, the default permissions may not suit your needs. But you can
         use the
         <router-link
-          to="/guides/admin"
+          to="/guides/laravel-admin"
           title="Laravel Admin — GUI for permission management"
           >Laravel Admin</router-link
         >

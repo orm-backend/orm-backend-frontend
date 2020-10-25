@@ -61,12 +61,12 @@ export default {
   name: "Guides",
   components: {
     MobileMenu: () => import("@/layout/menu/MobileMenu.vue"),
-    Json: () =>
+    JsonQuery: () =>
       import(/* webpackChunkName: "guides-json-page" */ "./guides/Json"),
-    Rest: () =>
+    Restful: () =>
       import(/* webpackChunkName: "guides-rest-page" */ "./guides/Services"),
     Acl: () => import(/* webpackChunkName: "guides-acl-page" */ "./guides/Acl"),
-    Admin: () =>
+    LaravelAdmin: () =>
       import(/* webpackChunkName: "guides-admin-page" */ "./guides/Admin"),
     Oauth: () =>
       import(/* webpackChunkName: "guides-oauth-page" */ "./guides/Oauth"),

@@ -17,11 +17,13 @@
           this project does not limit you in anything. You may or may not use
           API of this project. You can call Doctrine ORM methods as you are used
           to. But you get a ready-made
-          <router-link to="/guides/admin" title="Read about Laravel Admin panel"
+          <router-link
+            to="/guides/laravel-admin"
+            title="Read about Laravel Admin panel"
             >Laravel Admin</router-link
           >
           and
-          <router-link to="/guides/rest" title="Read about RESTful services"
+          <router-link to="/guides/restful" title="Read about RESTful services"
             >RESTful Services</router-link
           >
           out of the box.

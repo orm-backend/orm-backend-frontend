@@ -40,11 +40,11 @@
         <p>Guides</p>
       </md-button>
       <md-menu-content>
-        <md-menu-item to="/guides/json" title="Json Query implementation">
+        <md-menu-item to="/guides/json-query" title="Json Query implementation">
           <md-icon>code</md-icon>
           <span>Json Query</span>
         </md-menu-item>
-        <md-menu-item to="/guides/rest" title="RESTful Services">
+        <md-menu-item to="/guides/restful" title="RESTful Services">
           <md-icon>language</md-icon>
           <span>RESTful Services</span>
         </md-menu-item>
@@ -52,7 +52,7 @@
           <md-icon>policy</md-icon>
           <span>Access Control</span>
         </md-menu-item>
-        <md-menu-item to="/guides/admin" title="Laravel Admin panel">
+        <md-menu-item to="/guides/laravel-admin" title="Laravel Admin panel">
           <md-icon>dashboard</md-icon>
           <span>Laravel Admin</span>
         </md-menu-item>
@@ -89,7 +89,7 @@
           </div>
         </div>
       </button>
-      <md-button to="/login" v-if="!isAuthorized">
+      <md-button to="/laravel-admin-login" v-if="!isAuthorized">
         <md-icon>account_circle</md-icon>
         <span>Demo</span>
       </md-button>

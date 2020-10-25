@@ -7,14 +7,14 @@
           No coding is required to have powerful Laravel Admin panel, you only
           need to Doctrine mappings. Once a new entity is created, it is
           automatically managed in the Laravel Admin and available in
-          <router-link to="/guides/rest" title="RESTful services"
+          <router-link to="/guides/restful" title="RESTful services"
             >RESTful services</router-link
           >.
         </p>
       </blockquote>
       <p>
         Login to
-        <router-link to="/login" title="Login to Laravel Admin"
+        <router-link to="/laravel-admin-login" title="Login to Laravel Admin"
           >Laravel Admin</router-link
         >
         and try it yourself. This site did not carry out any additional
@@ -48,7 +48,7 @@
         Our Laravel Admin implementation adds an additional convention to class
         names for link building. It basically uses the
         <router-link
-          to="/guides/json#frontend"
+          to="/guides/json-query#frontend"
           title="Json Query — Entity and field names conversion"
           >Entity and field names conversion</router-link
         >

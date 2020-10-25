@@ -26,7 +26,7 @@
           <md-card-actions>
             <md-button
               class="md-accent md-raised"
-              to="/guides/rest"
+              to="/guides/restful"
               title="RESTful services"
               >RESTful</md-button
             >
@@ -80,7 +80,7 @@
           <md-card-actions>
             <md-button
               class="md-accent md-raised"
-              to="/guides/json"
+              to="/guides/json-query"
               title="JSON Query extended implementation"
               >Json Query</md-button
             >
@@ -133,7 +133,7 @@
           <md-card-actions>
             <md-button
               class="md-accent md-raised"
-              to="/guides/admin"
+              to="/guides/laravel-admin"
               title="Laravel Admin panel with Doctrine, RESTful, OAuth2 and ACL management"
               >Laravel Admin</md-button
             >

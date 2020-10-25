@@ -7,7 +7,7 @@
           No coding is required to have RESTful services, you only need to
           Doctrine mappings. Once a new entity is created, it is automatically
           managed in the
-          <router-link to="/guides/admin" title="Laravel Admin"
+          <router-link to="/guides/laravel-admin" title="Laravel Admin"
             >Laravel Admin</router-link
           >
           and available in RESTful services.
@@ -15,7 +15,7 @@
       </blockquote>
       <p>
         If you've read about
-        <router-link to="/guides/json" title="Json Query"
+        <router-link to="/guides/json-query" title="Json Query"
           >Json Query</router-link
         >, you might guess that creating services is very easy. Of course,
         Doctrine mapping provides a distinct advantage. Thanks to Doctrine, we
@@ -36,7 +36,7 @@
         <code>application/x-www-form-urlencoded</code>. The uri to send search
         request is <code>/api/entities/{your-entity-name}</code>. Where
         <code>{your-entity-name}</code> is a transformed full class name. See
-        <router-link to="/guides/json" title="Json Query"
+        <router-link to="/guides/json-query" title="Json Query"
           >Json Query</router-link
         >
         to read about names conversion and aliases. Of course you can implement

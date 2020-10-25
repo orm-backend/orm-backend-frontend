@@ -34,7 +34,7 @@ const routes = [
     },
   },
   {
-    path: "/login",
+    path: "/laravel-admin-login",
     name: "login",
     components: {
       header: BaseNavigation,

@@ -43,7 +43,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/guides/json"
+          to="/guides/json-query"
           title="Json Query implementation"
         >
           <md-icon>code</md-icon>
@@ -53,7 +53,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/guides/rest"
+          to="/guides/restful"
           title="RESTful Services"
         >
           <md-icon>language</md-icon>
@@ -73,7 +73,7 @@
         <md-divider class="md-inset"></md-divider>
         <md-list-item
           class="md-inset"
-          to="/guides/admin"
+          to="/guides/laravel-admin"
           title="Laravel Admin panel"
         >
           <md-icon>dashboard</md-icon>
@@ -103,7 +103,11 @@
         <span class="md-list-item-text">Demo</span>
       </div>
     </md-list-item>
-    <md-list-item to="/login" v-else title="LogIn Laravel Admin panel">
+    <md-list-item
+      to="/laravel-admin-login"
+      v-else
+      title="LogIn Laravel Admin panel"
+    >
       <md-icon>account_box</md-icon>
       <div class="md-list-item-text">
         <span class="md-list-item-text">Demo</span>

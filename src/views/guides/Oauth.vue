@@ -6,7 +6,7 @@
         ORM Backend provides Laravel Passport integration with Doctrine ORM.
         This integration allows you to manage tokens through a graphical
         interface in the
-        <router-link to="/guides/admin" title="Laravel Admin"
+        <router-link to="/guides/laravel-admin" title="Laravel Admin"
           >Laravel Admin</router-link
         >
         panel.

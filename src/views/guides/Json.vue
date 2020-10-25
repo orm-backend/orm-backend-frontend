@@ -162,7 +162,7 @@ filter: [
         <code>application/x-www-form-urlencoded</code> and
         <code>multipart/form-data</code>. JQuery deparam plugin can be useful
         for converting Json Query to query-string parameters. Read
-        <router-link to="/guides/rest" title="RESTfull CRUD Services"
+        <router-link to="/guides/restful" title="RESTfull CRUD Services"
           >RESTfull Services</router-link
         >
         about requests.

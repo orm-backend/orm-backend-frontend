@@ -15,7 +15,7 @@
             id="bottom-bar-item-json"
             md-label="Json Query"
             md-icon="code"
-            to="/guides/json"
+            to="/guides/json-query"
             md-sync-route="true"
             title="Json Query implementation"
           ></md-bottom-bar-item>
@@ -23,7 +23,7 @@
             id="bottom-bar-item-crud"
             md-label="RESTful"
             md-icon="language"
-            to="/guides/rest"
+            to="/guides/restful"
             md-sync-route="true"
             title="RESTful services"
           ></md-bottom-bar-item>
@@ -38,7 +38,7 @@
           <md-bottom-bar-item
             id="bottom-bar-item-admin"
             md-label="Laravel Admin"
-            to="/guides/admin"
+            to="/guides/laravel-admin"
             md-icon="dashboard"
             md-sync-route="true"
             title="Laravel Admin with CRUD, OAuth and Doctrine integrated"
