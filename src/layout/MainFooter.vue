@@ -6,7 +6,7 @@
           <md-bottom-bar-item
             id="bottom-bar-item-home"
             md-label="Home"
-            to="/#features"
+            to="/"
             md-icon="home"
             md-sync-route="true"
             title="ORM based PHP backend with Laravel Admin and RESTful services"
