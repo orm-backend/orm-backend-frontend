@@ -1,4 +1,8 @@
 export default {
+  css: {
+    normal: "extract",
+    vue: "extract",
+  },
   // UVue plugins
   plugins: [
     // Add middlewares system

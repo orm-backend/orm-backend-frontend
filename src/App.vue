@@ -126,7 +126,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Doctrine ORM based backend with Laravel Admin and RESTful.",
+      title: "ORM based PHP backend with Laravel Admin and RESTful services",
       htmlAttrs: {
         lang: "en",
       },
@@ -136,7 +136,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, only Doctrine ORM mappings are required to have ready ORM back-end.",
+            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Doctrine ORM mappings are only required to have ready ORM back-end.",
         },
         {
           vmid: "keywords",
@@ -190,7 +190,7 @@ export default {
           vmid: "og:description",
           property: "og:description",
           content:
-            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Only Doctrine ORM mappings are required to have ready ORM back-end.",
+            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Doctrine ORM mappings are only required to have ready ORM back-end.",
         },
       ],
     };

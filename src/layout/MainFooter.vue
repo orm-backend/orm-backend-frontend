@@ -9,7 +9,7 @@
             to="/#features"
             md-icon="home"
             md-sync-route="true"
-            title="ORM Backend home page"
+            title="ORM based PHP backend with Laravel Admin and RESTful services"
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-json"
@@ -41,7 +41,7 @@
             to="/guides/laravel-admin"
             md-icon="dashboard"
             md-sync-route="true"
-            title="Laravel Admin with CRUD, OAuth and Doctrine integrated"
+            title="Laravel Admin with integrated RESTful services"
           ></md-bottom-bar-item>
           <md-bottom-bar-item
             id="bottom-bar-item-oauth"
