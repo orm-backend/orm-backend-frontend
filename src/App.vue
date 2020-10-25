@@ -126,7 +126,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "PHP backend solution based on Doctrine ORM and Laravel",
+      title: "Doctrine ORM based backend with Laravel Admin and RESTful.",
       htmlAttrs: {
         lang: "en",
       },
@@ -136,7 +136,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, Only Doctrine ORM mappings are required to have ready ORM back-end.",
+            "Laravel Admin panel, RESTful services, OAuth2 and more out-of-the-box. No coding, only Doctrine ORM mappings are required to have ready ORM back-end.",
         },
         {
           vmid: "keywords",
