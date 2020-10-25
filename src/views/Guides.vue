@@ -138,9 +138,27 @@ export default {
   },
   metaInfo() {
     return {
+      title: this.pageTitle,
       bodyAttrs: {
         class: "guide-page",
       },
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content: this.pageDescription,
+        },
+        {
+          vmid: "og:title",
+          property: "og:title",
+          content: this.pageTitle,
+        },
+        {
+          vmid: "og:description",
+          property: "og:description",
+          content: this.pageDescription,
+        },
+      ],
     };
   },
 };

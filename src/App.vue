@@ -146,7 +146,7 @@ export default {
         {
           vmid: "og:url",
           property: "og:url",
-          content: process.env.VUE_APP_URL + this.$route.path,
+          content: process.env.VUE_APP_CLOUD_URL + this.$route.path,
         },
         {
           vmid: "og:type",
@@ -156,13 +156,14 @@ export default {
         {
           vmid: "og:title",
           property: "og:title",
-          content: process.env.VUE_APP_NAME,
+          content:
+            "ORM based PHP backend with Laravel Admin and RESTful services",
         },
         {
           vmid: "og:image",
           property: "og:image",
           content:
-            process.env.VUE_APP_URL +
+            process.env.VUE_APP_CLOUD_URL +
             require("@/assets/img/orm-backend-og.jpg"),
         },
         {

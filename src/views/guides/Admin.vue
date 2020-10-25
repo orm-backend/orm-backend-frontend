@@ -95,8 +95,8 @@
         loading="lazy"
         src="@/assets/img/search_form.jpg"
         alt="Laravel Admin exclusive search capabilities"
-        width="1050"
-        height="540"
+        width="1200"
+        height="627"
       />
     </section>
     <section id="module">
@@ -257,6 +257,24 @@ export default {
         {
           link: "module",
           title: "Laravel Admin module",
+        },
+      ],
+    };
+  },
+  metaInfo() {
+    return {
+      meta: [
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content:
+            process.env.VUE_APP_CLOUD_URL +
+            require("@/assets/img/search_form.jpg"),
+        },
+        {
+          property: "og:image:alt",
+          content: "Laravel Admin exclusive search capabilities",
+          vmid: "og:image:alt",
         },
       ],
     };
