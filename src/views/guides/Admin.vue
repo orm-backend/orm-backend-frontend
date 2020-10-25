@@ -92,8 +92,11 @@
       <h2>Searching by nested criteria</h2>
       <p>No hard code. All form inputs are generated dynamically.</p>
       <img
+        loading="lazy"
         src="@/assets/img/search_form.jpg"
         alt="Laravel Admin exclusive search capabilities"
+        width="1050"
+        height="540"
       />
     </section>
     <section id="module">
