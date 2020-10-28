@@ -35,7 +35,7 @@ const Submitter = {
       try {
         response = await http.post(action, data);
       } catch (error) {
-        if (response.status === 422) {
+        if (error.status === 422) {
           response = error;
         } else {
           throw error;
