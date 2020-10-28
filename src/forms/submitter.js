@@ -31,7 +31,16 @@ const Submitter = {
 
       data["recaptcha-token"] = token;
       data._token = response.data.csrf_token;
-      response = await http.post(action, data);
+
+      try {
+        response = await http.post(action, data);
+      } catch (error) {
+        if (response.status === 422) {
+          response = error;
+        } else {
+          throw error;
+        }
+      }
 
       if (response.status === 200 && response.data.success) {
         // window.OWATracker.trackAction(
