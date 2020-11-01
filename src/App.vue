@@ -131,6 +131,12 @@ export default {
         lang: "en",
       },
       noscript: [{ innerHTML: "This website requires JavaScript." }],
+      link: [
+        {
+          rel: "canonical",
+          href: process.env.VUE_APP_CLOUD_URL + this.$route.path,
+        },
+      ],
       meta: [
         {
           vmid: "description",
