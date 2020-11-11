@@ -46,11 +46,11 @@
               v-bind:is="currentGuide"
             ></component>
           </transition>
-          <ShareIt
+          <!--ShareIt
             :url="'https://www.orm-backend.com' + $route.fullPath"
             :title="pageTitle"
             :description="pageDescription"
-          ></ShareIt>
+          ></ShareIt-->
         </div>
         <div
           class="right-pane md-layout-item md-size-20"
@@ -65,7 +65,7 @@
 import "@/assets/scss/pages/guide.scss";
 import Vue from "vue";
 import VueHighlightJS from "vue-highlightjs";
-import ShareIt from "@/views/ShareIt";
+//import ShareIt from "@/views/ShareIt";
 
 Vue.use(VueHighlightJS);
 
@@ -73,7 +73,7 @@ export default {
   name: "Guides",
   components: {
     MobileMenu: () => import("@/layout/menu/MobileMenu.vue"),
-    ShareIt: ShareIt,
+    //ShareIt: ShareIt,
     JsonQuery: () =>
       import(/* webpackChunkName: "guides-json-page" */ "./guides/Json"),
     Restful: () =>
