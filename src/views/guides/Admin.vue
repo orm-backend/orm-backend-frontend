@@ -4,8 +4,8 @@
       <h1>{{ pageTitle }}</h1>
       <blockquote>
         <p>
-          No coding is required to have powerful Laravel Admin panel, you only
-          need to Doctrine mappings. Once a new entity is created, it is
+          No coding is required to have a powerful Laravel Admin panel, you only
+          need Doctrine mappings. Once a new entity is created, it is
           automatically managed in the Laravel Admin and available in
           <router-link to="/guides/restful" title="RESTful services"
             >RESTful services</router-link
@@ -45,8 +45,8 @@
     <section id="menu">
       <h2>Dynamic menu</h2>
       <p>
-        Our Laravel Admin implementation adds an additional convention to class
-        names for link building. It basically uses the
+        Our Laravel Admin implementation adds convention to class names for link
+        building. It uses the
         <router-link
           to="/guides/json-query#frontend"
           title="Json Query — Entity and field names conversion"
@@ -65,7 +65,7 @@
         package and the main package knows nothing about it. This communication
         is achieved by listening on the
         <code>OrmBackend\Web\Events\BeforMenu</code> event. You can use this
-        event to create your own Laravel Admin sections.
+        event to create your Laravel Admin sections.
       </p>
     </section>
     <section id="forms">
@@ -212,15 +212,15 @@ abstract public function delete(Request $request, string $classUrlName, $id, str
 </code></pre>
       <h3>Custom page</h3>
       <p>
-        Finally, you can add to menu a link to your custom page using the
+        Finally, you can add to the menu a link to your custom page using the
         <code>OrmBackend\Web\Events\BeforMenu</code> event. If you want your
-        page to look the same as the rest of Laravel Admin pages, do not forget
-        to inherit the layout.
+        page to look the same as the rest of the Laravel Admin pages, do not
+        forget to inherit the layout.
       </p>
       <pre v-highlightjs><code class="blade">
 @extends('ormbackend::admin.layout')
 @section('ormbackend::content')
-  <p>You custom content here</p>
+  <p>Your custom content here</p>
 @endsection
 </code></pre>
     </section>

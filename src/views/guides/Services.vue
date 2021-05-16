@@ -4,9 +4,9 @@
       <h1>{{ pageTitle }}</h1>
       <blockquote>
         <p>
-          No coding is required to have RESTful services, you only need to
-          Doctrine mappings. Once a new entity is created, it is automatically
-          managed in the
+          No coding is required to have RESTful services, you only need Doctrine
+          mappings. Once a new entity is created, it is automatically managed in
+          the
           <router-link to="/guides/laravel-admin" title="Laravel Admin"
             >Laravel Admin</router-link
           >
@@ -15,12 +15,12 @@
       </blockquote>
       <p>
         If you've read about
-        <router-link to="/guides/json-query" title="Json Query"
-          >Json Query</router-link
+        <router-link to="/guides/json-query" title="JSON Query"
+          >JSON Query</router-link
         >, you might guess that creating services is very easy. Of course,
         Doctrine mapping provides a distinct advantage. Thanks to Doctrine, we
         know everything there is to know about entities. Using Doctrine mapping
-        and Json Query, we can create fully automated services. Note that using
+        and JSON Query, we can create fully automated services. Note that using
         the Doctrine mapping does not impose additional load on the servers, as
         there is no need to perform additional database queries to get
         information about entities. Moreover, we can configure the system to
@@ -33,14 +33,14 @@
         ORM Backend supports GET, POST and PUT request methods for searching.
         Any of them can be used of your choice. The supported media-types are
         <code>application/json</code> and
-        <code>application/x-www-form-urlencoded</code>. The uri to send search
+        <code>application/x-www-form-urlencoded</code>. The URI to send search
         request is <code>/api/entities/{your-entity-name}</code>. Where
         <code>{your-entity-name}</code> is a transformed full class name. See
-        <router-link to="/guides/json-query" title="Json Query"
-          >Json Query</router-link
+        <router-link to="/guides/json-query" title="JSON Query"
+          >JSON Query</router-link
         >
-        to read about names conversion and aliases. Of course you can implement
-        your own controllers and do it very easily.
+        to read about names conversion and aliases. Of course, you can implement
+        your controllers and do it very easily.
       </p>
       <pre v-highlightjs><code class="php">/**
 *
@@ -68,7 +68,7 @@ public function search(Request  $request, string $classUrlName)
         </li>
         <li>Selecting related associations with unlimited depth.</li>
         <li>
-          Only one query is executed in the database when using cursor,
+          Only one query is executed in the database when using a cursor,
           regardless of the nesting depth.
         </li>
         <li>
@@ -80,17 +80,17 @@ public function search(Request  $request, string $classUrlName)
       <h3>Output</h3>
       <p>
         The output contains only those associations that are explicitly
-        specified in the select part of Json Query. You will receive only those
+        specified in the select part of JSON Query. You will receive only those
         that you demanded and nothing more.
       </p>
       <h3>NULL values</h3>
       <p>
         By default, there are no NULL values ​​or empty collections in the
-        output. This behavior can be changed through configuration settings.
+        output. This behaviour can be changed through configuration settings.
       </p>
       <h3>Collections</h3>
       <p>
-        ORM Backend provides the ability to use collections in all parts of Json
+        ORM Backend provides the ability to use collections in all parts of JSON
         Query. But be careful if you intend to get a list of results that
         contains related collections. This can lead to unpredictable pagination
         results and excessive server load.
@@ -140,7 +140,7 @@ public function search(Request  $request, string $classUrlName)
       <h3>Caching</h3>
       <p>
         The caching is optional. ORM Backend uses the result cache for queries
-        with filtering, otherwise the Doctrine 2nd level cache is used.
+        with filtering, otherwise, the Doctrine 2nd level cache is used.
       </p>
     </section>
     <section id="crud">
@@ -188,9 +188,9 @@ public function search(Request  $request, string $classUrlName)
         most requests.
       </p>
       <p>
-        The second level is the entity validation. It is always triggered by
+        The second level is entity validation. It is always triggered by
         Doctrine lifecycle events. Regardless of whether an entity is changed
-        from the web, api or console, the same validation rules will work. Such
+        from the web, API or console, the same validation rules will work. Such
         centralized validation and transactions ensure data integrity. To
         perform validation checks, you need to define validation rules for your
         entities.

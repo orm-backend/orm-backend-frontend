@@ -30,7 +30,7 @@
               <code>\App\Model\User</code> and
               <code>\App\Model\Role</code> entities with those available in your
               project. You can choose not to install the package entities and
-              resolve the conflict yourself or install new models to a separate
+              resolve the conflict yourself or install new models in a separate
               folder.
             </p>
           </md-card-content>
@@ -62,7 +62,7 @@
             </p>
             <p>
               If you have an Eloquent model in your project, you can put the
-              entities to a separate folder. Read the instructions on the
+              entities in a separate folder. Read the instructions on the
               <a
                 href="http://www.laraveldoctrine.org/"
                 target="_blank"

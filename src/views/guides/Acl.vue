@@ -114,17 +114,17 @@
       <p>
         These permissions are stored in a separate table in the database. They
         define the group's rights to a given entity. If the entity's permissions
-        are found for given entity and given group, then the group's permissions
-        are ignored.
+        are found for a given entity and given group, then the group's
+        permissions are ignored.
       </p>
     </section>
     <section id="implementation">
-      <h2>Your own implementation</h2>
+      <h2>Your implementation</h2>
       <p>
         ORM Backend provides
         <code>OrmBackend\ACL\AccessControl</code> interface. And in those
         exceptional cases where you are missing out-of-the-box implementation
-        capabilities, you can define your own implementation.
+        capabilities, you can define your implementation.
       </p>
       <pre v-highlightjs><code class="php">interface AccessControl
 {
@@ -137,7 +137,7 @@
     public function isSuperAdmin($userId = null) : bool;
     
     /**
-     * If a guest or current user is allowed to create a record for given entity,
+     * If a guest or current user is allowed to create a record for a given entity,
      * this method should return true, false otherwise.
      * 
      * @param Entity $user
@@ -147,7 +147,7 @@
     public function isAnyCreatingAllowed(?Entity $user, string $classUrlName) : bool;
     
     /**
-     * If a guest or current user is allowed to read any record of given entity,
+     * If a guest or current user is allowed to read any record of a given entity,
      * this method should return true, false otherwise.
      * 
      * @param Entity $user
@@ -157,7 +157,7 @@
     public function isAnyReadingAllowed(?Entity $user, string $classUrlName) : bool;
     
     /**
-     * If a guest or current user is allowed to update any record of given entity,
+     * If a guest or current user is allowed to update any record of a given entity,
      * this method should return true, false otherwise.
      * 
      * @param Entity $user
@@ -167,7 +167,7 @@
     public function isAnyUpdatingAllowed(?Entity $user, string $classUrlName) : bool;
     
     /**
-     * If a guest or current user is allowed to delete any record of given entity,
+     * If a guest or current user is allowed to delete any record of a given entity,
      * this method should return true, false otherwise.
      * 
      * @param Entity $user
@@ -177,7 +177,7 @@
     public function isAnyDeletingAllowed(?Entity $user, string $classUrlName) : bool;
     
     /**
-     * If a guest or current user is allowed to restore any record of given entity,
+     * If a guest or current user is allowed to restore any record of a given entity,
      * this method should return true, false otherwise.
      * 
      * @param Entity $user
@@ -266,7 +266,7 @@ export default {
         },
         {
           link: "implementation",
-          title: "Your own implementation",
+          title: "Your implementation",
         },
       ],
     };

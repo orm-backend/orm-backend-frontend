@@ -5,7 +5,7 @@
       <div class="md-layout-item md-size-66 md-xsmall-size-100">
         <blockquote>
           <p>
-            No coding is required to have powerful Laravel Admin panel and
+            No coding is required to have a powerful Laravel Admin panel and
             RESTful services. Once installed and configured, you only need to
             build the Doctrine XML mapping files.
           </p>
@@ -14,9 +14,9 @@
       <div class="md-layout-item md-size-66 md-xsmall-size-100">
         <p class="md-subheading">
           If you have a Doctrine project or are going to develop a new one, then
-          this project does not limit you in anything. You may or may not use
-          API of this project. You can call Doctrine ORM methods as you are used
-          to. But you get a ready-made
+          this project does not limit you to anything. You may or may not use
+          the API of this project. You can call Doctrine ORM methods as you are
+          used to. But you get a ready-made
           <router-link
             to="/guides/laravel-admin"
             title="Read about Laravel Admin panel"

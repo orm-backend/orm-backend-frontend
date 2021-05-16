@@ -19,7 +19,7 @@
             </md-card-media>
           </md-card-header>
           <md-card-content>
-            Ready-made CRUD services. Which allows you to filter objects by
+            Ready-made CRUD services. This allows you to filter objects by
             properties of related objects by the received parameters in JSON or
             URL encoding. With sorting, ordering and two pagination modes.
           </md-card-content>
@@ -73,8 +73,8 @@
           </md-card-header>
           <md-card-content>
             The HTTP request parameters or payload are converted to a PHP
-            associative array. This array is a PHP analog of JSON object. It is
-            used to build a DQL query with cleanup, validation, and strong
+            associative array. This array is a PHP analogue of a JSON object. It
+            is used to build a DQL query with cleanup, validation, and strong
             typing of the input values.
           </md-card-content>
           <md-card-actions>
@@ -82,7 +82,7 @@
               class="md-accent md-raised"
               to="/guides/json-query"
               title="JSON Query extended implementation"
-              >Json Query</md-button
+              >JSON Query</md-button
             >
           </md-card-actions>
         </md-card>

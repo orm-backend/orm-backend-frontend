@@ -4,11 +4,11 @@
     <div class="md-layout md-alignment-top-center">
       <div class="md-layout-item md-size-50 md-small-size-100">
         <p class="md-subheading">
-          The PHP code is hosted on github in the private repository. Email us
+          The PHP code is hosted on GitHub in the private repository. Email us
           to get access. Once access is granted, simply add the required
           packages and dependencies to the composer config file. JavaScript
-          packages are publicly available at the NPM. Please note that front-end
-          of the admin panel is based on the
+          packages are publicly available at the NPM. Please note that the
+          front-end of the admin panel is based on the
           <b class="md-text-accent">commercial template</b> from
           <a href="https://keenthemes.com/" target="_blank" rel="noopener"
             >keenthemes.com</a
@@ -46,7 +46,7 @@
           </li>
           <li>
             <code>ormbackend/laravel-doctrine-example</code> Example
-            integration. Good point to start from scratch.
+            integration. A good point to start from scratch.
           </li>
         </ul>
       </div>

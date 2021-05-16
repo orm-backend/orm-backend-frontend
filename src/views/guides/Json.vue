@@ -3,7 +3,7 @@
     <section>
       <h1>{{ pageTitle }}</h1>
       <p>
-        The idea of ​​converting Json to DQL (Doctrine Query Language) and then
+        The idea of ​​converting JSON to DQL (Doctrine Query Language) and then
         executing a database query served as the basis for this project. This
         conversion allows you to use most of Doctrine's features, including
         filtering by related entities with ordering and sorting. Of course, it
@@ -16,8 +16,8 @@
       <h2>Frontend</h2>
       <h3>Entity and field names conversion</h3>
       <p>
-        To perform automatically conversion Json Query to SQL, ORM Backend uses
-        common pattern for field names:
+        To automatically convert JSON Query to SQL, ORM Backend uses a common
+        pattern for field names:
         <code>&lt;full-namespace&gt;-&lt;class_name&gt;.&lt;fieldName&gt;</code>
         This ensures that entity names and their field names are unique. Also,
         this agreement opens up the prospect of editing the fields of different
@@ -34,9 +34,9 @@
       <h3>Aliases</h3>
       <p>
         The converted names are very long and inconvenient to use in your code.
-        ORM Backend offers to send requests by url containing the full class
-        name, and use aliases in the code. For examle, all requests to
-        <code>App\Model\Team</code> entity can be passed by url containing the
+        ORM Backend offers to send requests by URL containing the full class
+        name, and use aliases in the code. For example, all requests to
+        <code>App\Model\Team</code> entity can be passed by URL containing the
         transformed class name as a parameter. These requests can be handled by
         a single controller that performs actions for all models.
       </p>
@@ -45,10 +45,10 @@
 Route::get('/api/entities/{entity}', 'ApiController@search')</code></pre>
       <p>
         By default, the alias is calculated as a short class name with the first
-        lowercase character. You can change this behavior, but it is important
-        that the alias matches the alias on the frontend.
+        lowercase character. You can change this behaviour, but the alias must
+        match the alias on the front-end.
       </p>
-      <h3>Structure of Json Query</h3>
+      <h3>Structure of JSON Query</h3>
       <pre v-highlightjs><code class="json">{
   select: [],
   join: [],
@@ -58,7 +58,7 @@ Route::get('/api/entities/{entity}', 'ApiController@search')</code></pre>
       <h3>Select</h3>
       <p>
         We assume that the smallest unit of the transmitted information is an
-        object. Therefore the select part can only contains association and
+        object. Therefore the select part can only contain association and
         collection names.
       </p>
       <pre v-highlightjs><code class="json">select: [
@@ -69,12 +69,12 @@ Route::get('/api/entities/{entity}', 'ApiController@search')</code></pre>
       <h3>Join</h3>
       <p>
         You don't really need to write anything here. All necessary joins are
-        performed automatically. This part of Json Query can be omitted.
+        performed automatically. This part of JSON Query can be omitted.
       </p>
       <h3>Filter</h3>
       <p>
         All values ​​must be strongly typed. An exception will be thrown if the
-        value cannot be cast to the type that specified in the mapping.
+        value cannot be cast to the type specified in the mapping.
       </p>
       <p>Conjunctions: or, and.</p>
       <div class="md-layout md-gutter">
@@ -148,7 +148,7 @@ filter: [
 ]</code></pre>
       <h3>Pagination</h3>
       <p>
-        The pagination is not a part of Json Query. It can be done by passing
+        The pagination is not a part of JSON Query. It can be done by passing
         <code>page</code> and <code>perpage</code> parameters to the query
         string. Pagination is supported in two modes: normal and cursor. In
         normal mode, the total number of elements is counted, while in cursor
@@ -161,7 +161,7 @@ filter: [
         supported media-types are <code>application/json</code>,
         <code>application/x-www-form-urlencoded</code> and
         <code>multipart/form-data</code>. JQuery deparam plugin can be useful
-        for converting Json Query to query-string parameters. Read
+        for converting JSON Query to query-string parameters. Read
         <router-link to="/guides/restful" title="RESTfull CRUD Services"
           >RESTfull Services</router-link
         >
@@ -172,7 +172,7 @@ filter: [
       <h2>Json to PHP array</h2>
       <p>
         Let's say we want to fetch all teams with the name like Amigos that Gary
-        trains. The Json representation for this query looks very simple and
+        trains. The JSON representation for this query looks very simple and
         intuitive. It can be obtained as a request payload or converted from a
         URL query string. Please note that the conversion from the payload is
         performed using PHP native <code>json_decode</code> function, and from
@@ -223,10 +223,10 @@ filter: [
     <section id="php2dql">
       <h2>PHP array to DQL</h2>
       <p>
-        ORM Backend provides code that automatically converts a Json Query to
+        ORM Backend provides code that automatically converts a JSON Query to
         DQL. Automatic <code>LEFT OUTER JOIN</code> building based on parts of
         select, filter and order. First of all, the query parameters are cleared
-        using <code>filter_var</code>. They are then casted to strong type
+        using <code>filter_var</code>. They are then cast to strong type
         according to the Doctrine mapping during Doctrine query building.
       </p>
       <div class="md-layout md-gutter">
@@ -292,15 +292,15 @@ WHERE (
       </p>
     </section>
     <section id="backend">
-      <h2>Using in PHP code</h2>
+      <h2>Using PHP code</h2>
       <p>
-        Json-like query can also be used in your own PHP code. The supported
+        A JSON-like query can also be used in your PHP code. The supported
         operators are
         <code
           >eq neq gt gte lt lte isNull isNotNull like notLike in notIn
           between</code
         >. DQL expression and aliases are also available. Simple and intuitive
-        Json Query is tempting to use it everywhere. Below are a couple of
+        JSON Query is tempting to use it everywhere. Below are a couple of
         examples of actual code.
       </p>
       <pre v-highlightjs><code class="php">/**
@@ -378,9 +378,9 @@ export default {
   mixins: [GuideBase],
   data() {
     return {
-      pageTitle: "Json Query — Easy SQL building tool",
+      pageTitle: "JSON Query — Easy SQL building tool",
       pageDescription:
-        "Json Query is a simple and versatile tool for building database queries on the client or server side that supports most of Doctrine's features.",
+        "JSON Query is a simple and versatile tool for building database queries on the client or server side that supports most of Doctrine's features.",
       menu: [
         {
           link: "frontend",
@@ -388,7 +388,7 @@ export default {
         },
         {
           link: "json2php",
-          title: "Json to PHP array",
+          title: "JSON to PHP array",
         },
         {
           link: "php2dql",
